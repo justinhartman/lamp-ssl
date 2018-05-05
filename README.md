@@ -7,7 +7,7 @@ The Aston Martin of perfect LAMP setups and configuration; automating the entire
 | Meta         | Value                                                                 |
 |--------------|-----------------------------------------------------------------------|
 | Author       | Justin Hartman <justin@hartman.me> [https://justin.hartman.me][site]  |
-| Version      | 1.0.0                                                                 |
+| Version      | 0.1.0                                                                 |
 | Realse Date  | 06/05/2018 01:34:53 +02:00 GMT                                        |
 | Github       | [@justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git][git]   |
 | Instructions | [https://justin.hartman.me][post]                                     |
