@@ -1,4 +1,0 @@
-# ignore files in this directory
-*
-!.gitignore
-!openssl.conf
