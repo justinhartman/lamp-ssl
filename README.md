@@ -2,15 +2,16 @@
 
 The Aston Martin of perfect LAMP setups and configuration; automating the entire process and managing your localhost SSL using trusted self-signed CA certificates. 
 
-## Meta Data
+## Meta Data (current)
 
-| Meta         | Value                                                                 |
-|--------------|-----------------------------------------------------------------------|
-| Author       | Justin Hartman <justin@hartman.me> [https://justin.hartman.me][site]  |
-| Version      | 0.1.0                                                                 |
-| Realse Date  | 06/05/2018 01:34:53 +02:00 GMT                                        |
-| Github       | [@justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git][git]   |
-| Instructions | [https://justin.hartman.me][post]                                     |
+| Meta             | Value                                                                 |
+|------------------|-----------------------------------------------------------------------|
+| Author           | Justin Hartman <justin@hartman.me> [https://justin.hartman.me][site]  |
+| Version          | 0.1.1                                                                 |
+| Release Date     | 06/05/2018 02:46:49 +02:00 GMT                                        |
+| Original Release | 06/05/2018 01:34:53 +02:00 GMT                                        |
+| Github           | [@justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git][git]   |
+| Instructions     | [https://justin.hartman.me][post]                                     |
 
 ## License
 
@@ -33,8 +34,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ## TODO
 
-- (@justinhartman): Make code compliant (issue #1)
-- (@justinhartman): Migrate `add_domains` script to separate scripts (issue #2)
+- ~~(@justinhartman): Make code compliant (issue #1)~~
+- ~~(@justinhartman): Migrate `add_domains` script to separate scripts (issue #2)~~
+
+Please [see here][github] for a list of updated TODO items.
 
 
 [email]: mailto:justin@hartman.me?subject=Github+Contact
@@ -43,3 +46,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 [site]: https://justin.hartman.me
 [post]: https://justin.hartman.me
 [git]: https://github.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git
+[github]: https://github.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL/issues

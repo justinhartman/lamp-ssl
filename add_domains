@@ -5,7 +5,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.1.0
+# Version  : 0.1.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.1.0
@@ -25,13 +25,14 @@
 # 
 
 #######################################
-# Description
+# Defines variables for the colour
+# palette used throughout the script.
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   None
+#   Void
 #######################################
 colour_palette ()
 {
@@ -52,13 +53,14 @@ colour_palette ()
 }
 
 #######################################
-# Description
+# Creates a SSL certificate that is
+# signed by our rootCA.
 # Globals:
 #   None
 # Arguments:
-#   None
+#   String Site URL.
 # Returns:
-#   None
+#   String Echo string to add domain.
 #######################################
 enter_domain ()
 {
@@ -67,13 +69,13 @@ enter_domain ()
 }
 
 #######################################
-# Description
+# Adds new domain to `openssl.conf`
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   None
+#   String Printf string to add domain.
 #######################################
 openssl_config ()
 {
@@ -86,13 +88,14 @@ openssl_config ()
 }
 
 #######################################
-# Description
+# Creates new SSL certificates for the
+# new domain name.
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   None
+#   String Success message.
 #######################################
 openssl_command ()
 {
@@ -118,13 +121,14 @@ openssl_command ()
 }
 
 #######################################
-# Description
+# Backs up the original `/etc/hosts`
+# file to the `hosts/` directory.
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   None
+#   String Success message.
 #######################################
 hosts_file_backup ()
 {
@@ -134,13 +138,14 @@ hosts_file_backup ()
 }
 
 #######################################
-# Description
+# Creates a symbolic link from 
+# `/etc/hosts` to `hosts/hosts`.
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   None
+#   String Success message.
 #######################################
 hosts_symbolic ()
 {
@@ -151,13 +156,13 @@ hosts_symbolic ()
 }
 
 #######################################
-# Description
+# Adds the new domain to `/etc/hosts`.
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   None
+#   String Success message.
 #######################################
 hosts_domain ()
 {
@@ -168,13 +173,18 @@ hosts_domain ()
 }
 
 #######################################
-# Description
+# Creates a new directory in the 
+# webroot folder and attempts to set 
+# permissions. It is named after the 
+# domain name. We also initialise a 
+# new git repo so that everything is
+# under SCM.
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   None
+#   String Success message.
 #######################################
 folder_and_git ()
 {
@@ -190,13 +200,14 @@ folder_and_git ()
 }
 
 #######################################
-# Description
+# Creates and commits new repo files.
+# under SCM.
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   None
+#   String Success message.
 #######################################
 git_setup ()
 {
@@ -223,15 +234,15 @@ git_setup ()
 }
 
 #######################################
-# Description
+# This is the main application thread.
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   None
+#   String Multi-interactive messages.
 #######################################
-run_function ()
+main_application ()
 {
     colour_palette # add the colour palette
 
@@ -314,5 +325,5 @@ if ! [ $(id -u) = 0 ]; then
     exit 1
 fi
 
-run_function
+main_application
 exit 0
