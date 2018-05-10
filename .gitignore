@@ -4,3 +4,6 @@ src/
 
 # sublime
 *.sublime-workspace
+
+# Build specific
+.phpintel/

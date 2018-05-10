@@ -5,7 +5,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.1.1
+# Version  : 0.1.2
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.1.0
@@ -226,9 +226,10 @@ git_setup ()
     echo "" >> README.md
     cat /Volumes/Storage/Personal/Code/Github/localhost-configuration/git/LICENSE_INCLUDE >> README.md
     cp /Volumes/Storage/Personal/Code/Github/localhost-configuration/git/LICENSE LICENSE
+    cp -R /Volumes/Storage/Personal/Code/Github/localhost-configuration/git/github .github
     ls -lha ../${domain}
     git add -A
-    git commit -m "Initial structure, README.md, LICENSE and check-in."
+    git commit -m "Created git structure, .github template and initial project commit."
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created files and
     committed changes.${NOC}\n"
 }
@@ -279,7 +280,7 @@ main_application ()
     echo "|  Backup original hosts file '/etc/hosts'     |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    hosts_file_backup
+    # hosts_file_backup
 
     echo "" >&2
     echo -e "${GRY} ----------------------------------------------" >&2
@@ -288,7 +289,7 @@ main_application ()
     echo "|  point to '/etc/hosts' file.                 |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    hosts_symbolic
+    # hosts_symbolic
 
     echo "" >&2
     echo -e "${WHT} ----------------------------------------------" >&2
@@ -320,7 +321,7 @@ if ! [ $(id -u) = 0 ]; then
     echo "" >&2
     echo "This needs to be run as root." >&2
     echo "Please run it again using sudo." >&2
-    echo "e.g. $ sudo ./add_domains.sh" >&2
+    echo "e.g. $ sudo ./add_domains" >&2
     echo "" >&2
     exit 1
 fi
