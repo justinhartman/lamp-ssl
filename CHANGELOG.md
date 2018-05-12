@@ -2,18 +2,21 @@
 
 Below is a detailed change-log, along with specific tasks completed, for each version released to date.
 
-## version-0.1.3
+## version-0.2.0
 ### 12/05/2018
 
 1. [#new](#new)
     - Added `/brew/` folder with the Apache start-up script.
     - New `git` templates.
     - Added `/httpd/` folder with Apache `.conf` files.
+    - New `/scripts/` folder with scripts now for:
+        + `brew_install` - Homebrew installation script.
+        + `adminer_install` - Uses git to pull the Adminer project into a 
+        local folder called `/adminer/`.
 1. [#enhancement](#enhancement)
     - New CHANGELOG.md for inclusion now with the `git` setup. Closes #9.
 1. [#bugfix](#bugfix)
     - Replaced old `/.github/` folder with the more current version from @justinhartman/.github as they were wrong. Closes #12.
-    - 
 
 ## version-0.1.2
 ### 10/05/2018
