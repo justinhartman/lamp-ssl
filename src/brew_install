@@ -38,10 +38,21 @@
 #######################################
 brew_install ()
 {
-    echo "Installing Homebrew for you. Please hold a second." >&2
+    echo "" >&2
+    echo -e "${RED} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Installing Homebrew.                        |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo "" >&2
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    echo "Done. I'm now going to install PHP and Apache 2." >&2
-    echo "Give me a minute or two." >&2
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Homebrew.${NOC}\n"
+    echo "" >&2
+    echo -e "${RED} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Installing Apache 2 and PHP.                |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
 }
 
 #######################################
@@ -57,27 +68,31 @@ brew_install ()
 brew_packages ()
 {
     brew install php httpd
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Apache 2
+  and PHP.${NOC}\n"
 }
 
-echo -n "Would you like me to install Homebrew for you (Y/N)? "
+echo "" >&2
+echo -e "${RED} ----------------------------------------------" >&2
+echo "|                                              |" >&2
+echo "|  Would you like me to install Homebrew       |" >&2
+echo "|  for you (Y/n)?                              |" >&2
+echo "|                                              |" >&2
+echo -e " ---------------------------------------------- ${NOC}\n" >&2
+echo -n ""
 read answer
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     brew_install
     brew_packages
 else
-    echo "OK, I'm not installing Homebrew so I will proceed with" >&2
-    echo "installing PHP and Apache 2. Give me a minute or two." >&2
+    echo "" >&2
+    echo -e "${RED} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  OK, I'm not installing Homebrew so I        |" >&2
+    echo "|  will proceed with installing PHP and        |" >&2
+    echo "|  Apache 2. Give me a minute or two.          |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
     brew_packages
 fi
-
-# openssl pkcs12 \
-#     -export \
-#     -out ssl/certificate.pfx \
-#     -inkey ssl/localhost_server.key \
-#     -in ssl/localhost_server.crt \
-#     -certfile ssl/localhost_rootCA.crt
-
-# SSLCertificateFile "/Volumes/Storage/Personal/Code/Github/localhost-configuration/ssl/1_localhost.cert.pem"
-# SSLCertificateKeyFile "/Volumes/Storage/Personal/Code/Github/localhost-configuration/ssl/1_localhost.nocrypt.key.pem"
-# SSLCACertificateFile "/Volumes/Storage/Personal/Code/Github/localhost-configuration/ssl/1_intermediate.cert.pem"

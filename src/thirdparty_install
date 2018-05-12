@@ -38,14 +38,29 @@
 #######################################
 adminer_install ()
 {
-    echo "Installing the Adminer project..." >&2
+    echo "" >&2
+    echo -e "${ORG} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Installing the Adminer project...           |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
     git clone https://github.com/justinhartman/adminer-custom.git adminer
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully cloned the Adminer
+  sub-module to the /adminer/ folder.${NOC}\n"
 }
 
 errorpages_install ()
 {
-    echo "Installing the Apache Error Pages project..." >&2
-    git clone https://github.com/justinhartman/Apache-Error-Pages.git httpd/error-pages
+    echo "" >&2
+    echo -e "${ORG} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Installing the Apache Error Pages project...|" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    git clone https://github.com/justinhartman/Apache-Error-Pages.git \
+    httpd/error-pages
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully cloned the Apache
+  Error Pages sub-module to the /httpd/error-pages/ folder.${NOC}\n"
 }
 
 #######################################
@@ -53,7 +68,6 @@ errorpages_install ()
 # for the project.
 #######################################
 adminer_install
-echo "Done. Moving on to the next project." >&2
 errorpages_install
-echo "Installation complete. All the required sub-modules for the project " >&2
-echo "have now been installed." >&2
+printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Installation complete. All the
+  required sub-modules have been installed.${NOC}\n"

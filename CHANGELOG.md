@@ -14,25 +14,27 @@ version released to date.
         + `brew_install` - Homebrew installation script.
         + `thirdparty_install` - Uses git to clone the Adminer project and 
         the Apache Error Pages project as sub-modules.
+        + `hosts_file` - Backs up and creates symlink with hosts file.
     - Added a new `upgrade_software` script which upgrades the core as well as 
-    sub-modules linked to the project. Closes [#11].
+    sub-modules linked to the project. Closes #11.
 1. [#enhancement](#enhancement)
     - New `CHANGELOG.md` for inclusion now with the `git` set-up. Closes [#9].
 1. [#bugfix](#bugfix)
     - Replaced old `/.github/` folder with the more current version from 
-    @justinhartman/.github as they were wrong. Closes [#12].
+    @justinhartman/.github as they were wrong. Closes #12.
     - Changed the template for `CHANGELOG.md` as it didn't have the `${domain}`
      set to display the project name in the file.
     - Fixed the word-wrap on the License messages contained in each file to 
     ensure they don't go longer than 80 characters.
+    - Fixed the wrapping of the output messages on running parts of the script.
 
 ## version-0.1.2
 ### 10/05/2018
 
 1. [#new](#new)
-    - Symbolic link to `/adminer/`. See issue [#6] for more details on how it 
+    - Symbolic link to `/adminer/`. See issue #6 for more details on how it 
     will be integrated into the first release candidate.
-    - Added new template files for issue [#8]:
+    - Added new template files for issue #8:
         + ISSUE_TEMPLATE.md
         + CONTRIBUTING.md
         + PULL_REQUEST_TEMPLATE.md

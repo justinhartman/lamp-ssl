@@ -85,7 +85,7 @@ openssl_config ()
     echo "DNS.${serial}      =   ${domain}" >> 'ssl/openssl.conf' >&2
     cat ssl/openssl.conf | grep "DNS"
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully added the ${domain}
-    domain name to the openssl configuration file.${NOC}\n"
+  domain name to the openssl configuration file.${NOC}\n"
 }
 
 #######################################
@@ -118,42 +118,7 @@ openssl_command ()
     ls -lh ssl/localhost_server.c*
 
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created SSL
-    certificates for ${domain}.${NOC}\n"
-}
-
-#######################################
-# Backs up the original `/etc/hosts`
-# file to the `hosts/` directory.
-# Globals:
-#   None
-# Arguments:
-#   None
-# Returns:
-#   String Success message.
-#######################################
-hosts_file_backup ()
-{
-    cp /etc/hosts hosts/hosts.original
-    printf "${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully backed up hosts file.
-    ${NOC}\n"
-}
-
-#######################################
-# Creates a symbolic link from 
-# `/etc/hosts` to `hosts/hosts`.
-# Globals:
-#   None
-# Arguments:
-#   None
-# Returns:
-#   String Success message.
-#######################################
-hosts_symbolic ()
-{
-    ln -s /etc/hosts hosts/hosts
-    ls -lh hosts/hosts
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created symbolic link
-    from '/etc/hosts' to 'hosts/hosts'.${NOC}\n"
+  certificates for ${domain}.${NOC}\n"
 }
 
 #######################################
@@ -170,7 +135,7 @@ hosts_domain ()
     echo "127.0.0.1       ${domain}" >> /etc/hosts
     cat /etc/hosts | grep "${domain}"
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully added ${domain} to
-    /etc/hosts file.${NOC}\n"
+  /etc/hosts file.${NOC}\n"
 }
 
 #######################################
@@ -197,7 +162,7 @@ folder_and_git ()
     echo ".git/" > .gitignore
     ls -lha ../${domain}
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created folder, set
-    permissions and initialised git repo for ${domain}.${NOC}\n"
+  permissions and initialised git repo for ${domain}.${NOC}\n"
 }
 
 #######################################
@@ -219,7 +184,7 @@ git_setup ()
     git add -A
     git commit -m "Created git structure, .github template and initial project commit."
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created files and
-    committed changes.${NOC}\n"
+  committed changes.${NOC}\n"
 }
 
 #######################################
@@ -261,23 +226,6 @@ main_application ()
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     openssl_command
-
-    echo "" >&2
-    echo -e "${BRO} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Backup original hosts file '/etc/hosts'     |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    # hosts_file_backup
-
-    echo "" >&2
-    echo -e "${GRY} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Create symbolic link for 'hosts/hosts' to   |" >&2
-    echo "|  point to '/etc/hosts' file.                 |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    # hosts_symbolic
 
     echo "" >&2
     echo -e "${WHT} ----------------------------------------------" >&2

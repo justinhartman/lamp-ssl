@@ -39,13 +39,29 @@
 #######################################
 upgrade_projects ()
 {
-    #upgrades projects
-    echo "Checking if I need to upgrade the core..." >&2
+    echo "" >&2
+    echo -e "${ORG} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Checking if I need to upgrade the core...   |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
     git pull
-    echo "Checking for an upgrade to the Adminer project..." >&2
+    echo "" >&2
+    echo -e "${ORG} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Checking for an upgrade to the Adminer      |" >&2
+    echo "|  project...                                  |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
     cd adminer/
     git pull
-    echo "Checking for an upgrade to Apache Error Pages project..." >&2
+    echo "" >&2
+    echo -e "${ORG} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Checking for an upgrade to the Apache       |" >&2
+    echo "|  Error Pages project...                      |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
     cd ../httpd/error-pages/
     git pull
 }
@@ -55,15 +71,29 @@ upgrade_projects ()
 # the core and sub-modules linked to 
 # the project.
 #######################################
-echo "Do you want to upgrade this project and all the third-party" >&2
-echo -n "software linked to it (Y/N)?" >&2
+echo "" >&2
+echo -e "${ORG} ----------------------------------------------" >&2
+echo "|                                              |" >&2
+echo "|  Do you want to upgrade this project and     |" >&2
+echo "|  all the sub-modules linked to it (Y/n)?     |" >&2
+echo "|                                              |" >&2
+echo -e " ---------------------------------------------- ${NOC}\n" >&2
+echo -n "" >&2
 read answer
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     upgrade_projects
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully upgraded the core and
+  all related sub-modules.${NOC}\n"
 else
-    echo "OK, I'm not going to upgrade any of the software." >&2
-    echo "Please note, you should keep all software up to date." >&2
-    echo "Using the most up to date files ensures you benefit" >&2
-    echo "from bug fixes and enhancements. You should consider updating." >&2
+    echo -e "${ORG} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  OK, I'm not going to upgrade any of the     |" >&2
+    echo "|  software. Please note, you should keep all  |" >&2
+    echo "|  software up to date. Using the most up to   |" >&2
+    echo "|  date files ensures you benefit from bug     |" >&2
+    echo "|  fixes and enhancements. You should          |" >&2
+    echo "|  consider updating.                          |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
 fi
