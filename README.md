@@ -8,7 +8,7 @@ managing your localhost SSL using trusted, self-signed CA certificates.
 | Meta             | Value                                                               |
 |:-----------------|:--------------------------------------------------------------------|
 | Copyright        | Copyright (C) 2018 Justin Hartman [https://justin.hartman.me][site] |
-| Author           | Justin Hartman <justin@hartman.me>                                  |
+| Author           | Justin Hartman [justin@hartman.me][email]                           |
 | License          | [GNU Affero General Public License][license]                        |
 | Version          | 0.1.2                                                               |
 | Release Date     | 10/05/2018 02:28:50 +02:00 GMT                                      |
@@ -54,7 +54,7 @@ The following projects have been integrated into this one.
 - [@justinhartman/adminer-plugins][plugins]
 - [@justinhartman/Apache-Error-Pages][errors]
 
-## Thanks
+## Acknowledgements
 
 Special thanks go out to the following projects who have helped in some way to make this
 project a reality.

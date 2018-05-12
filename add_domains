@@ -5,7 +5,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.1.2
+# Version  : 0.1.3
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.1.0
@@ -212,21 +212,8 @@ folder_and_git ()
 git_setup ()
 {
     cd /Volumes/Storage/Personal/Code/Github/${domain}
-    touch README.md
-    echo "# ${domain} README file" > README.md
-    echo "" >> README.md
-    echo "This is the official git repository for ${domain}." >> README.md
-    echo "" >> README.md
-    echo "## License" >> README.md
-    echo "" >> README.md
-    echo "${domain} is licensed under the GNU Affero General Public License
-    Version 3, 19 November 2007." >> README.md
-    echo "[Click here](LICENSE.md) to read the full copy of this license or
-    [visit here](https://www.gnu.org/licenses/)." >> README.md
-    echo "" >> README.md
-    cat /Volumes/Storage/Personal/Code/Github/localhost-configuration/git/LICENSE_INCLUDE >> README.md
-    cp /Volumes/Storage/Personal/Code/Github/localhost-configuration/git/LICENSE LICENSE
-    cp -R /Volumes/Storage/Personal/Code/Github/localhost-configuration/git/github .github
+    cp -R /Volumes/Storage/Personal/Code/Github/localhost-configuration/git/* .
+    mv github .github
     ls -lha ../${domain}
     git add -A
     git commit -m "Created git structure, .github template and initial project commit."
