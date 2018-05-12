@@ -10,8 +10,8 @@ managing your localhost SSL using trusted, self-signed CA certificates.
 | Copyright        | Copyright (C) 2018 Justin Hartman [https://justin.hartman.me][site] |
 | Author           | Justin Hartman [justin@hartman.me][email]                           |
 | License          | [GNU Affero General Public License][license]                        |
-| Version          | 0.1.2                                                               |
-| Release Date     | 10/05/2018 02:28:50 +02:00 GMT                                      |
+| Version          | 0.2.0                                                               |
+| Release Date     | 13/05/2018 01:40:45 +02:00 GMT                                      |
 | Original Release | 06/05/2018 01:34:53 +02:00 GMT  (version-0.1.0)                     |
 | Github           | [@justinhartman/Automated-LAMP-with-trusted-localhost-SSL][git]     |
 | Instructions     | [https://justin.hartman.me][post]                                   |
