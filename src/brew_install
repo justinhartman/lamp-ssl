@@ -1,0 +1,83 @@
+#!/bin/bash
+#
+# Fully automated LAMP installation and configuration using Trusted localhost 
+# SSL Certificates
+# 
+# Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+# License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
+# Version  : 0.2.0
+# Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
+# Link     : https://justin.hartman.me
+# Since    : 0.2.0
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+# 
+
+#######################################
+# This installs Homebrew (`brew`) but
+# only if the user hasn't got it and
+# wants to install it via the script.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   Void
+#######################################
+brew_install ()
+{
+    echo "Installing Homebrew for you. Please hold a second." >&2
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "Done. I'm now going to install PHP and Apache 2." >&2
+    echo "Give me a minute or two." >&2
+}
+
+#######################################
+# Installs the packages required from
+# `brew` running `brew install`.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   Void
+#######################################
+brew_packages ()
+{
+    brew install php httpd
+}
+
+echo -n "Would you like me to install Homebrew for you (Y/N)? "
+read answer
+
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    brew_install
+    brew_packages
+else
+    echo "OK, I'm not installing Homebrew so I will proceed with" >&2
+    echo "installing PHP and Apache 2. Give me a minute or two." >&2
+    brew_packages
+fi
+
+# openssl pkcs12 \
+#     -export \
+#     -out ssl/certificate.pfx \
+#     -inkey ssl/localhost_server.key \
+#     -in ssl/localhost_server.crt \
+#     -certfile ssl/localhost_rootCA.crt
+
+# SSLCertificateFile "/Volumes/Storage/Personal/Code/Github/localhost-configuration/ssl/1_localhost.cert.pem"
+# SSLCertificateKeyFile "/Volumes/Storage/Personal/Code/Github/localhost-configuration/ssl/1_localhost.nocrypt.key.pem"
+# SSLCACertificateFile "/Volumes/Storage/Personal/Code/Github/localhost-configuration/ssl/1_intermediate.cert.pem"
