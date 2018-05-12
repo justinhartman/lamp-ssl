@@ -1,14 +1,15 @@
 #!/bin/bash
 #
-# Fully automated LAMP installation and configuration using Trusted localhost SSL Certificates
+# Fully automated LAMP installation and configuration using Trusted localhost 
+# SSL Certificates
 # 
-# Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+# Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.1.3
+# Version  : 0.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
-# Since    : 0.1.0
+# Since    : 0.2.0
 # 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
