@@ -3,6 +3,16 @@
 Below is a detailed change-log, along with specific tasks completed, for each 
 version released to date.
 
+## version-0.2.2
+### 13/05/2018
+
+1. [#new](#new)
+    - Added Apache `*.conf` files to `/httpd/conf/`.
+    - Added Apache custom `.conf` files to `/httpd/extra/`. These files are 
+    ignored and need to be created at installation time.
+1. [#enhancement](#enhancement)
+1. [#bugfix](#bugfix)
+
 ## version-0.2.1
 ### 13/05/2018
 
