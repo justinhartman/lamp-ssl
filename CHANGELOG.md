@@ -3,6 +3,14 @@
 Below is a detailed change-log, along with specific tasks completed, for each 
 version released to date.
 
+## version-0.2.1
+### 13/05/2018
+
+1. [#bugfix](#bugfix)
+    - Made `hosts_file` executable.
+    - Removed `adminer/` and `httpd/error-pages/` from `git` and added them to 
+    the `.gitignore` file. 
+
 ## version-0.2.0
 ### 13/05/2018
 

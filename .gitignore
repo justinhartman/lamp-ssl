@@ -1,6 +1,10 @@
 # ignore copied and edited hosts files
 !hosts/
 
+# ignore adminer and error-pages
+adminer/
+httpd/error-pages/
+
 # sublime
 *.sublime-workspace
 
