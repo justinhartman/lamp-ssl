@@ -10,3 +10,4 @@ httpd/error-pages/
 
 # Build specific
 .phpintel/
+.vscode/
