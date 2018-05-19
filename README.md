@@ -1,3 +1,4 @@
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.png?columns=all)](https://waffle.io/justinhartman/Automated-LAMP-with-trusted-localhost-SSL?utm_source=badge)
 # Fully automated LAMP installation and configuration using Trusted localhost SSL Certificates
 
 The Aston Martin of perfect LAMP set-ups and configuration; automating the entire process and 
