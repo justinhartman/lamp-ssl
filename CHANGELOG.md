@@ -1,10 +1,17 @@
-# Change-Log for Project
+version-0.3.0 / 2018-05-21
+==================
 
-Below is a detailed change-log, along with specific tasks completed, for each 
-version released to date.
+  * Added new `apache_config` script.
+  * Fixed all scripts with new updated paths.
+  * Fixed README conflict.
+  * Restructured entire project. Now have `src` and `dist` folders for everything.
+  * `httpd.conf` changes.
+  * Merge pull request #13 from waffle-iron/master
+  * add waffle.io badge
+  * Added VS Code project workspace file.
 
-## version-0.2.2
-### 13/05/2018
+version-0.2.2 / 2018-05-13
+==================
 
 1. [#new](#new)
     - Added Apache `*.conf` files to `/httpd/conf/`.
@@ -13,16 +20,16 @@ version released to date.
 1. [#enhancement](#enhancement)
 1. [#bugfix](#bugfix)
 
-## version-0.2.1
-### 13/05/2018
+version-0.2.1 / 2018-05-13
+==================
 
 1. [#bugfix](#bugfix)
     - Made `hosts_file` executable.
     - Removed `adminer/` and `httpd/error-pages/` from `git` and added them to 
     the `.gitignore` file. 
 
-## version-0.2.0
-### 13/05/2018
+version-0.2.0 / 2018-05-13
+==================
 
 1. [#new](#new)
     - Added `/brew/` folder with the Apache start-up script.
@@ -46,8 +53,8 @@ version released to date.
     ensure they don't go longer than 80 characters.
     - Fixed the wrapping of the output messages on running parts of the script.
 
-## version-0.1.2
-### 10/05/2018
+version-0.1.2 / 2018-05-10
+==================
 
 1. [#new](#new)
     - Symbolic link to `/adminer/`. See issue #6 for more details on how it 
@@ -64,15 +71,15 @@ version released to date.
 1. [#bugfix](#bugfix)
     - Updated `add_domains` sudo output error message.
 
-## version-0.1.1
-### 06/05/2018
+version-0.1.1 / 2018-05-06
+==================
 
 1. [#enhancement](#enhancement)
     - [X] Need to comment the code properly; this remains undone - issue #3.
     - [X] Make code compliant ( issue #1 )
 
-## version-0.1.0
-### 06/05/2018
+version-0.1.0 / 2018-05-06
+==================
 
 1. [#new](#new)
     - Initial Release
