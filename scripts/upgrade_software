@@ -49,20 +49,21 @@ upgrade_projects ()
     echo "" >&2
     echo -e "${ORG} ----------------------------------------------" >&2
     echo "|                                              |" >&2
-    echo "|  Checking for an upgrade to the Adminer      |" >&2
-    echo "|  project...                                  |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    cd adminer/
-    git pull
-    echo "" >&2
-    echo -e "${ORG} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
     echo "|  Checking for an upgrade to the Apache       |" >&2
     echo "|  Error Pages project...                      |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    cd ../httpd/error-pages/
+    cd src/httpd/error-pages/
+    git pull
+    cp -R dist/apache/* /usr/local/var/www/error-pages
+    echo "" >&2
+    echo -e "${ORG} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Checking for an upgrade to the Adminer      |" >&2
+    echo "|  project...                                  |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    cd /usr/local/var/www/websites/adminer.localhost/
     git pull
 }
 

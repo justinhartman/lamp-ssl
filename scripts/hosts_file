@@ -37,14 +37,20 @@
 #######################################
 hosts_file_backup ()
 {
-    cp /etc/hosts hosts/hosts.original
+    echo "" >&2
+    echo -e "${BRO} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Backup original hosts file '/etc/hosts'     |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    cp /etc/hosts dist/hosts/hosts.original
     printf "${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully backed up hosts file.
     ${NOC}\n"
 }
 
 #######################################
 # Creates a symbolic link from 
-# `/etc/hosts` to `hosts/hosts`.
+# `/etc/hosts` to `dist/hosts/hosts`.
 # Globals:
 #   None
 # Arguments:
@@ -54,25 +60,21 @@ hosts_file_backup ()
 #######################################
 hosts_symbolic ()
 {
-    ln -s /etc/hosts hosts/hosts
-    ls -lh hosts/hosts
+    echo "" >&2
+    echo -e "${GRY} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Create symbolic link for '/etc/hosts' to    |" >&2
+    echo "|  point to 'dist/hosts/hosts' file.                |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    ln -s /etc/hosts dist/hosts/hosts
+    ls -lh dist/hosts/hosts
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created symbolic link
-  from '/etc/hosts' to 'hosts/hosts'.${NOC}\n"
+  from '/etc/hosts' to 'dist/hosts/hosts'.${NOC}\n"
 }
 
-echo "" >&2
-echo -e "${BRO} ----------------------------------------------" >&2
-echo "|                                              |" >&2
-echo "|  Backup original hosts file '/etc/hosts'     |" >&2
-echo "|                                              |" >&2
-echo -e " ---------------------------------------------- ${NOC}\n" >&2
+#######################################
+# Run all the methods for the hosts.
+#######################################
 hosts_file_backup
-
-echo "" >&2
-echo -e "${GRY} ----------------------------------------------" >&2
-echo "|                                              |" >&2
-echo "|  Create symbolic link for '/etc/hosts' to    |" >&2
-echo "|  point to 'hosts/hosts' file.                |" >&2
-echo "|                                              |" >&2
-echo -e " ---------------------------------------------- ${NOC}\n" >&2
 hosts_symbolic

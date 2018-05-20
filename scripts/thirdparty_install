@@ -44,7 +44,7 @@ adminer_install ()
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     git clone https://github.com/justinhartman/adminer-custom.git \
-    /usr/local/var/www/adminer
+    /usr/local/var/www/websites/adminer.localhost
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully cloned the Adminer
   sub-module to /usr/local/var/www/adminer/.${NOC}\n"
 }
@@ -58,7 +58,9 @@ errorpages_install ()
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     git clone https://github.com/justinhartman/Apache-Error-Pages.git \
-    httpd/error-pages
+    src/httpd/error-pages
+    mkdir -p /usr/local/var/www/error-pages
+    cp -R src/httpd/error-pages/dist/apache/* /usr/local/var/www/error-pages
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully cloned the Apache
   Error Pages sub-module to the /httpd/error-pages/ folder.${NOC}\n"
 }
@@ -69,5 +71,6 @@ errorpages_install ()
 #######################################
 adminer_install
 errorpages_install
+
 printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Installation complete. All the
   required sub-modules have been installed.${NOC}\n"

@@ -30,8 +30,8 @@ mv /usr/local/etc/httpd/extra/httpd-ssl.conf /usr/local/etc/httpd/extra/httpd-ss
 mv /usr/local/etc/httpd/extra/httpd-vhosts.conf /usr/local/etc/httpd/extra/httpd-vhosts.conf.bak
 
 # Copy over new Apache config files.
-cp ../httpd/conf/httpd.conf /usr/local/etc/httpd/
-cp ../httpd/conf/httpd-ssl.conf /usr/local/etc/httpd/extra/httpd-ssl.conf
-cp ../httpd/conf/httpd-vhosts.conf /usr/local/etc/httpd/extra/httpd-vhosts.conf
+cp ../src/httpd/conf/httpd.conf /usr/local/etc/httpd/
+cp ../src/httpd/conf/httpd-ssl.conf /usr/local/etc/httpd/extra/httpd-ssl.conf
+cp ../src/httpd/conf/httpd-vhosts.conf /usr/local/etc/httpd/extra/httpd-vhosts.conf
 
 mkdir -p /usr/local/var/www/websites

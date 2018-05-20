@@ -26,7 +26,7 @@
 # From https://github.com/thojansen/client-certificates/blob/master/ssl/setup.sh
 # 
 
-cd ssl/ # get in the right directory
+cd dist/ssl/ # get in the right directory
 # create rootCA certificate
 openssl genrsa -out localhost_rootCA.key 2048
 openssl req -x509 -new -nodes \
@@ -48,7 +48,7 @@ openssl x509 -req \
         -out localhost_server.crt \
         -days 9125 \
         -sha256 \
-        -extfile "openssl.conf"
+        -extfile "../../src/ssl/openssl.conf"
 # create client key and certificate
 openssl genrsa -out localhost_client.key 2048
 openssl req -new \

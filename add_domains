@@ -82,7 +82,7 @@ openssl_config ()
 {
     read serial <<< $(wc -l < 'dist/ssl/openssl.conf' | tr -d ' ')
     serial=$((serial-11))
-    echo "DNS.${serial}      =   ${domain}" >> 'dist/ssl/openssl.conf' >&2
+    echo "DNS.${serial}      =   ${domain}" >> dist/ssl/openssl.conf
     cat dist/ssl/openssl.conf | grep "DNS"
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully added the ${domain}
   domain name to the openssl configuration file.${NOC}\n"
@@ -101,21 +101,21 @@ openssl_config ()
 openssl_command ()
 {
     openssl req -new \
-        -key ssl/localhost_server.key \
-        -out ssl/localhost_server.csr \
--subj "/C=ZA/ST=Western Cape/L=Cape Town/O=22 Digital/OU=Security/CN=localhost"
+        -key dist/ssl/localhost_server.key \
+        -out dist/ssl/localhost_server.csr \
+        -subj "/C=ZA/ST=Western Cape/L=Cape Town/O=22 Digital/OU=Security/CN=localhost"
 
     openssl x509 -req \
-        -in ssl/localhost_server.csr \
-        -CA ssl/localhost_rootCA.crt \
-        -CAkey ssl/localhost_rootCA.key \
+        -in dist/ssl/localhost_server.csr \
+        -CA dist/ssl/localhost_rootCA.crt \
+        -CAkey dist/ssl/localhost_rootCA.key \
         -CAcreateserial \
-        -out ssl/localhost_server.crt \
+        -out dist/ssl/localhost_server.crt \
         -days 9125 \
         -sha256 \
-        -extfile "ssl/openssl.conf"
+        -extfile "dist/ssl/openssl.conf"
 
-    ls -lh ssl/localhost_server.c*
+    ls -lh dist/ssl/localhost_server.c*
 
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created SSL
   certificates for ${domain}.${NOC}\n"
@@ -154,13 +154,12 @@ hosts_domain ()
 #######################################
 folder_and_git ()
 {
-    mkdir -p /Volumes/Storage/Personal/Code/Github/${domain}
-    cd /Volumes/Storage/Personal/Code/Github/${domain}
-    username=$(whoami) && chown -R $username:admin ../${domain}
-    git init
-    touch .gitignore
-    echo ".git/" > .gitignore
-    ls -lha ../${domain}
+    mkdir -p /usr/local/var/www/websites/${domain}
+    username=501 && chown -R $username:staff /usr/local/var/www/websites/${domain}
+    git init /usr/local/var/www/websites/${domain}
+    touch /usr/local/var/www/websites/${domain}/.gitignore
+    echo ".git/" > /usr/local/var/www/websites/${domain}/.gitignore
+    ls -lha /usr/local/var/www/websites/${domain}
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created folder, set
   permissions and initialised git repo for ${domain}.${NOC}\n"
 }
@@ -177,9 +176,10 @@ folder_and_git ()
 #######################################
 git_setup ()
 {
-    cd /Volumes/Storage/Personal/Code/Github/${domain}
-    cp -R /Volumes/Storage/Personal/Code/Github/localhost-configuration/git/* .
+    cp -R src/git/* /usr/local/var/www/websites/${domain}/
+    cd /usr/local/var/www/websites/${domain}
     mv github .github
+    username=501 && chown -R $username:staff ../${domain}
     ls -lha ../${domain}
     git add -A
     git commit -m "Created git structure, .github template and initial project commit."
