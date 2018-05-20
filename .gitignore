@@ -1,12 +1,9 @@
-# ignore copied and edited hosts files
-!hosts/
-
-# ignore adminer and error-pages
-adminer/
-httpd/error-pages/
+# ignore error-pages
+src/httpd/error-pages/
 
 # sublime
 *.sublime-workspace
 
 # Build specific
 .phpintel/
+.vscode/

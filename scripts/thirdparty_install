@@ -1,12 +1,11 @@
 #!/bin/bash
 #
-# Fully automated LAMP installation and configuration using Trusted localhost 
-# SSL Certificates
+# Fetches all third-party sub-modules and installs them in place.
 # 
 # Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.2.2
+# Version  : 0.2.3
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.2.0
@@ -27,14 +26,14 @@
 
 #######################################
 # Installs the Adminer project by
-# checking out the source code to a
-# local `/adminer/` folder.
+# checking out the source code to the
+# `/usr/local/var/www/adminer/` folder.
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   Void
+#   String
 #######################################
 adminer_install ()
 {
@@ -44,9 +43,10 @@ adminer_install ()
     echo "|  Installing the Adminer project...           |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    git clone https://github.com/justinhartman/adminer-custom.git adminer
+    git clone https://github.com/justinhartman/adminer-custom.git \
+    /usr/local/var/www/adminer
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully cloned the Adminer
-  sub-module to the /adminer/ folder.${NOC}\n"
+  sub-module to /usr/local/var/www/adminer/.${NOC}\n"
 }
 
 errorpages_install ()

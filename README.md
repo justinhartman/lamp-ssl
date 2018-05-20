@@ -1,3 +1,5 @@
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.png?columns=all)](https://waffle.io/justinhartman/Automated-LAMP-with-trusted-localhost-SSL?utm_source=badge)
+
 # Fully automated LAMP installation and configuration using Trusted localhost SSL Certificates
 
 The Aston Martin of perfect LAMP set-ups and configuration; automating the entire process and 
@@ -10,14 +12,16 @@ managing your localhost SSL using trusted, self-signed CA certificates.
 | Copyright        | Copyright (C) 2018 Justin Hartman [https://justin.hartman.me][site] |
 | Author           | Justin Hartman [justin@hartman.me][email]                           |
 | License          | [GNU Affero General Public License][license]                        |
-| Version          | 0.2.1                                                               |
-| Release Date     | 13/05/2018 02:34:15 +02:00 GMT                                      |
+| Version          | 0.2.3                                                               |
+| Release Date     | 20/05/2018 20:23:22 +02:00 GMT                                      |
 | Original Release | 06/05/2018 01:34:53 +02:00 GMT  (version-0.1.0)                     |
 | Github           | [@justinhartman/Automated-LAMP-with-trusted-localhost-SSL][git]     |
 | Instructions     | [https://justin.hartman.me][post]                                   |
 | Support          | Open an [Issue on Github][github]                                   |
 
 ## Installation
+
+**_To do still..._**
 
 ## License
 
@@ -81,4 +85,3 @@ project a reality.
 [pem-adminer]: https://github.com/pematon/adminer-custom
 [pem-plugins]: https://github.com/pematon/adminer-plugins
 [google]: https://google.github.io/styleguide/shell.xml
-
