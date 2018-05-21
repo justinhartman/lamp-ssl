@@ -1,5 +1,0 @@
-# ignore most of distribution folder
-adminer/
-hosts/
-ssl/
-!.gitignore
