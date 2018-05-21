@@ -7,3 +7,4 @@ src/httpd/error-pages/
 # Build specific
 .phpintel/
 .vscode/
+dist\ copy/

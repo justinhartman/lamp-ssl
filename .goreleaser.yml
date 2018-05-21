@@ -1,0 +1,18 @@
+# Build customization
+builds:
+  - binary: automated-lamp
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - amd64
+# Archive customization
+archive:
+  format: tar.gz
+  replacements:
+    amd64: 64-bit
+    darwin: macOS
+    linux: Tux
+  files:
+    - automated-lamp.licence.txt
