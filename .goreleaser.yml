@@ -14,5 +14,7 @@ archive:
     amd64: 64-bit
     darwin: macOS
     linux: Tux
-  files:
-    - automated-lamp.licence.txt
+# Github Access Token
+env_files:
+  github_token: ~/.config/goreleaser/github_token
+dist: dist-apps
