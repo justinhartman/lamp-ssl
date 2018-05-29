@@ -1,5 +1,7 @@
 # ignore most of distribution folder
 adminer/
 hosts/
-ssl/
+ssl
+phpmyadmin/
+!websites/
 !.gitignore

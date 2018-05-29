@@ -25,7 +25,7 @@ managing your localhost SSL using trusted, self-signed CA certificates.
 
 ## License
 
-```
+```text
 Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me).
 
 This program is free software: you can redistribute it and/or modify
@@ -55,7 +55,6 @@ The following projects have been integrated into this one.
 
 - [@justinhartman/.github][my-github]
 - [@justinhartman/adminer-custom][adminer]
-- [@justinhartman/adminer-plugins][plugins]
 - [@justinhartman/Apache-Error-Pages][errors]
 
 ## Acknowledgements
@@ -66,7 +65,6 @@ project a reality.
 - [Google Shell Style Guide][google]
 - [@thojansen/client-certificates][certs]
 - [@pematon/adminer-custom][pem-adminer]
-- [@pematon/adminer-plugins][pem-plugins]
 - [@daniellmb/.github][.github]
 
 [email]: mailto:justin@hartman.me?subject=Github+Contact
@@ -77,11 +75,9 @@ project a reality.
 [git]: https://github.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL
 [github]: https://github.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL/issues
 [adminer]: https://github.com/justinhartman/adminer-custom
-[plugins]: https://github.com/justinhartman/adminer-plugins
 [errors]: https://github.com/justinhartman/Apache-Error-Pages
 [certs]: https://github.com/thojansen/client-certificates
 [my-github]: https://github.com/justinhartman/.github
 [.github]: https://github.com/daniellmb/.github
 [pem-adminer]: https://github.com/pematon/adminer-custom
-[pem-plugins]: https://github.com/pematon/adminer-plugins
 [google]: https://google.github.io/styleguide/shell.xml

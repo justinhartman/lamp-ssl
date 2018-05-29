@@ -1,6 +1,9 @@
 # ignore error-pages
 src/httpd/error-pages/
 
+# other ignores
+src/phpmyadmin
+
 # sublime
 *.sublime-workspace
 
