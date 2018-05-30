@@ -1,3 +1,0 @@
-# ignore files in this directory
-httpd-vhosts.conf
-!.gitignore
