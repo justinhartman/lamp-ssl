@@ -3,6 +3,11 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## Version 0.4.1 (30/05/2018)
+
+- [#new](#new)
+  - Added various Apache config files.
+
 ## Version 0.4.0 (29/05/2018)
 
 - [#new](#new)
