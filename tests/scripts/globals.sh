@@ -73,9 +73,9 @@ path_vars ()
     httpd="/usr/local/etc/httpd"
     websites="/usr/local/var/www/websites"
     ssl="/usr/local/var/www/ssl"
-    scripts="./scripts"
-    source="./src"
-    dist="./dist"
+    scripts="tests/scripts"
+    source="tests/src"
+    dist="tests/dist"
 }
 
 # Output the methods
