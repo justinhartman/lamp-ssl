@@ -28,6 +28,7 @@ tags:
   - osx_10-11
 
 script:
+  - cd justinhartman/Automated-LAMP-with-trusted-localhost-SSL/
   - chmod +x install setup_localhost add_domains
   - ./install
   - ./setup_localhost
