@@ -5,6 +5,9 @@ src/git-old/
 # Vendor directory
 vendor/
 
+# GitLab CI Config File
+.gitlab-ci.yml
+
 # sublime
 *.sublime-workspace
 

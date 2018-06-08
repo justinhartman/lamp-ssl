@@ -28,7 +28,7 @@ tags:
   - osx_10-11
 
 script:
-  - chmod +x install setup_localhost add_domains
+  - cd tests
+  - chmod +x install add_domains
   - sudo ./install
-  - ./setup_localhost
   - ./add_domains
