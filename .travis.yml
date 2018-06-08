@@ -4,6 +4,8 @@ addons:
     sources:
     - debian-sid
     packages:
+    - debian-keyring
+    - debian-archive-keyring
     - shellcheck
 script:
   - shellcheck install
