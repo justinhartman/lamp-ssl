@@ -2,8 +2,8 @@
 # src/httpd/error-pages/
 src/git-old/
 
-# other ignores
-src/phpmyadmin
+# Vendor directory
+vendor/
 
 # sublime
 *.sublime-workspace

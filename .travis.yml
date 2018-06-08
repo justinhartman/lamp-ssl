@@ -1,15 +1,33 @@
+# language: bash
+# addons:
+#   apt:
+#     sources:
+#     - debian
+#     packages:
+#     - debian-archive-keyring
+#     - shellcheck
+# script:
+#   - apt-key update
+#   - shellcheck install
+#   - shellcheck setup_localhost
+#   - shellcheck add_domains
+#   - shellcheck scripts/*
+# sudo: true
+
 language: bash
-addons:
-  apt:
-    sources:
-    - debian-sid
-    packages:
-    - debian-keyring
-    - debian-archive-keyring
-    - shellcheck
+
+os:
+  - osx
+osx_image: xcode9.3
+
+before_install:
+  - xcode-select --install
+
+tags:
+  - xcode_9-3
+  - osx_10-11
+
 script:
-  - shellcheck install
-  - shellcheck setup_localhost
-  - shellcheck add_domains
-  - shellcheck scripts/*
-sudo: true
+  - install
+  - setup_localhost
+  - add_domains
