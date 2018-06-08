@@ -1,0 +1,13 @@
+language: bash
+addons:
+  apt:
+    sources:
+    - debian-sid
+    packages:
+    - shellcheck
+script:
+  - shellcheck install
+  - shellcheck setup_localhost
+  - shellcheck add_domains
+  - shellcheck scripts/*
+sudo: true
