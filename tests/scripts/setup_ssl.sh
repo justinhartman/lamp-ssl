@@ -66,7 +66,7 @@ setup_ssl ()
 
     # create server key and certificate
     openssl genrsa -out $ssl/localhost_server.key 2048
-    openssl req -new \
+    openssl req -new -nodes \
         -key $ssl/localhost_server.key \
         -out $ssl/localhost_server.csr \
         -subj "/C=$country/ST=$state/L=$city/O=$company/OU=$unit/CN=localhost"
@@ -82,17 +82,21 @@ setup_ssl ()
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created the localhost SSL.${NOC}\n\n"
 
     # create client key and certificate
-    # openssl genrsa -out $ssl/localhost_client.key 2048
-    # openssl req -new -nodes \
-    #     -key $ssl/localhost_client.key \
-    #     -out $ssl/localhost_client.csr \
-    #     -subj "/C=$country/ST=$state/L=$city/O=$company/OU=$unit/CN=Client Certificate"
-    # openssl x509 -req -nodes -in $ssl/localhost_client.csr -CA $ssl/localhost_rootCA.crt \
-    #     -CAkey $ssl/localhost_rootCA.key -CAcreateserial -out $ssl/localhost_client.crt \
-    #     -days 9125
-    # openssl pkcs12 -export -inkey $ssl/localhost_client.key -in $ssl/localhost_client.crt \
-    #     -name $ssl/localhost_client -out $ssl/localhost_client.p12
-    # printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created the client SSL.${NOC}\n\n"
+    openssl genrsa -out $ssl/localhost_client.key 2048
+    openssl req -new -nodes \
+        -key $ssl/localhost_client.key \
+        -out $ssl/localhost_client.csr \
+        -subj "/C=$country/ST=$state/L=$city/O=$company/OU=$unit/CN=Client Certificate"
+    openssl x509 -req -nodes \
+        -in $ssl/localhost_client.csr \
+         -CA $ssl/localhost_rootCA.crt \
+        -CAkey $ssl/localhost_rootCA.key \
+        -CAcreateserial \
+        -out $ssl/localhost_client.crt \
+        -days 9125
+    openssl pkcs12 -export -inkey $ssl/localhost_client.key -in $ssl/localhost_client.crt \
+        -name $ssl/localhost_client -out $ssl/localhost_client.p12
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created the client SSL.${NOC}\n\n"
 
     # Create symlink to the SSL folder in dist.
     ln -s $ssl dist/ssl
