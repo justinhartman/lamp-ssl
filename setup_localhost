@@ -76,7 +76,7 @@ setup_ssl ()
 
     # create client key and certificate
     openssl genrsa -out $dir/localhost_client.key 2048
-    openssl req -new \
+    openssl req -new -nodes \
         -key $dir/localhost_client.key \
         -out $dir/localhost_client.csr \
         -subj "/C=ZA/ST=Western Cape/L=Cape Town/O=22 Digital/OU=Security/CN=Client Certificate"
