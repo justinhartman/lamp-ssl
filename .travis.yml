@@ -30,5 +30,6 @@ tags:
 script:
   - cd tests
   - chmod +x install add_domains
+  - ./scripts/brew_install.sh 
   - sudo ./install
-  - ./add_domains
+  - sudo ./add_domains

@@ -85,6 +85,5 @@ if ! [ $(id -u) = 0 ]; then
     exit 1
 fi
 
-source $scripts/brew_install.sh # Install Homebrew and packages
 main_application # Runs the main install
 exit 0
