@@ -37,8 +37,8 @@
 #######################################
 global_includes ()
 {
-    source tests/scripts/globals.sh
-    source tests/scripts/colour_palette.sh
+    source scripts/globals.sh
+    source scripts/colour_palette.sh
 }
 
 #######################################
