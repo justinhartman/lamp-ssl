@@ -1,11 +1,15 @@
-[submodule "adminer"]
+# [submodule "adminer"]
+# 	path = src/adminer
+#     url = https://gitlab.com/justinhartman/Adminer.git
+# [submodule "error-pages"]
+# 	path = src/httpd/error-pages
+#     url = https://gitlab.com/justinhartman/Webserver-Error-Pages.git
+# [submodule "github"]
+# 	path = src/github
+#     url = https://gitlab.com/justinhartman/github-templates.git
+[submodule "src/adminer"]
 	path = src/adminer
-    url = https://gitlab.com/justinhartman/Adminer.git
-
-[submodule "error-pages"]
+	url = https://gitlab.com/justinhartman/Adminer.git
+[submodule "src/httpd/error-pages"]
 	path = src/httpd/error-pages
-    url = https://gitlab.com/justinhartman/Webserver-Error-Pages.git
-
-[submodule "github"]
-	path = src/github
-    url = https://gitlab.com/justinhartman/github-templates.git
+	url = https://gitlab.com/justinhartman/Webserver-Error-Pages.git
