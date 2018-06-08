@@ -65,8 +65,10 @@ setup_ssl ()
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created the $company rootCA SSL.${NOC}\n\n"
 
     # create server key and certificate
-    openssl genrsa -out $ssl/localhost_server.key 2048
+    # openssl genrsa -out $ssl/localhost_server.key 2048
     openssl req -new -nodes \
+        -newkey rsa:2048 \
+        -keyout $ssl/localhost_server.key \
         -key $ssl/localhost_server.key \
         -out $ssl/localhost_server.csr \
         -subj "/C=$country/ST=$state/L=$city/O=$company/OU=$unit/CN=localhost"
@@ -82,8 +84,10 @@ setup_ssl ()
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created the localhost SSL.${NOC}\n\n"
 
     # create client key and certificate
-    openssl genrsa -out $ssl/localhost_client.key 2048
+    # openssl genrsa -out $ssl/localhost_client.key 2048
     openssl req -new -nodes \
+        -newkey rsa:2048 \
+        -keyout $ssl/localhost_client.key \
         -key $ssl/localhost_client.key \
         -out $ssl/localhost_client.csr \
         -subj "/C=$country/ST=$state/L=$city/O=$company/OU=$unit/CN=Client Certificate"
