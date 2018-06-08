@@ -13,9 +13,6 @@ matrix:
     allow_failures:
       - os: osx
         osx_image: xcode6.4
-tags:
-  - xcode_9-3
-  - osx_10-11
 # before_install:
 #   - xcode-select --install
 script:
