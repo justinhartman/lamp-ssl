@@ -1,14 +1,13 @@
 matrix:
-  allow_failures:
-    include:
-      - os: osx
-        osx_image: xcode9.3
-      - os: osx
-        osx_image: xcode9.2
-      - os: osx
-        osx_image: xcode8
-      - os: osx
-        osx_image: xcode6.4
+  include:
+    - os: osx
+      osx_image: xcode9.3
+    - os: osx
+      osx_image: xcode9.2
+    - os: osx
+      osx_image: xcode8
+    - os: osx
+      osx_image: xcode6.4
 tags:
   - xcode_9-3
   - osx_10-11
