@@ -1,35 +1,15 @@
-# language: bash
-# addons:
-#   apt:
-#     sources:
-#     - debian
-#     packages:
-#     - debian-archive-keyring
-#     - shellcheck
-# script:
-#   - apt-key update
-#   - shellcheck install
-#   - shellcheck setup_localhost
-#   - shellcheck add_domains
-#   - shellcheck scripts/*
-# sudo: true
-
-language: bash
-
 os:
   - osx
-osx_image: xcode9.3
-
-# before_install:
-#   - xcode-select --install
-
 tags:
   - xcode_9-3
   - osx_10-11
-
+# before_install:
+#   - xcode-select --install
 script:
   - cd tests
-  - chmod +x install add_domains
+  - chmod +x install add_domains scripts/brew_install.sh
   - ./scripts/brew_install.sh 
   - sudo ./install
   - sudo ./add_domains
+language: bash
+osx_image: xcode9.3

@@ -73,8 +73,8 @@ path_vars ()
     httpd="/usr/local/etc/httpd"
     websites="/usr/local/var/www/websites"
     ssl="/usr/local/var/www/ssl"
-    scripts="./scripts"
-    source="./src"
+    scripts="../scripts"
+    source="../src"
     dist="./dist"
 }
 
