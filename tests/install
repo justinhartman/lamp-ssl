@@ -52,7 +52,7 @@ global_includes ()
 #######################################
 main_application ()
 {
-    source $scripts/brew_install.sh # Install Homebrew and packages
+    # source $scripts/brew_install.sh # Install Homebrew and packages
     source $scripts/ssl_install.sh # Setup self-signed SSL
     source $scripts/apache_config.sh # Configure Apache 2
     source $scripts/folder_permissions.sh # Setting correct folder permissions
@@ -85,5 +85,6 @@ if ! [ $(id -u) = 0 ]; then
     exit 1
 fi
 
+source $scripts/brew_install.sh # Install Homebrew and packages
 main_application # Runs the main install
 exit 0

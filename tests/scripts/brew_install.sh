@@ -96,19 +96,22 @@ brew_packages ()
   and PHP.${NOC}\n"
 }
 
-brew_start
+# brew_start
 
-if [ "$answer" != "${answer#[Nn]}" ] ;then
-    brew_install
-    brew_packages
-else
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  OK, we're not installing Homebrew so lets   |" >&2
-    echo "|  proceed with installing the PHP and         |" >&2
-    echo "|  Apache 2 packages. Give me a minute.        |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    brew_packages
-fi
+# if [ "$answer" != "${answer#[Nn]}" ] ;then
+#     brew_install
+#     brew_packages
+# else
+#     echo "" >&2
+#     echo -e "${RED} ----------------------------------------------" >&2
+#     echo "|                                              |" >&2
+#     echo "|  OK, we're not installing Homebrew so lets   |" >&2
+#     echo "|  proceed with installing the PHP and         |" >&2
+#     echo "|  Apache 2 packages. Give me a minute.        |" >&2
+#     echo "|                                              |" >&2
+#     echo -e " ---------------------------------------------- ${NOC}\n" >&2
+#     brew_packages
+# fi
+
+brew_install
+brew_packages
