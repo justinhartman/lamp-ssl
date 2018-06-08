@@ -99,7 +99,7 @@ setup_ssl ()
 
     # create client key and certificate
     openssl genrsa -out $ssl/localhost_client.key 2048
-    openssl req -new \
+    openssl req -new -nodes \
         -key $ssl/localhost_client.key \
         -out $ssl/localhost_client.csr \
         -subj "/C=$country/ST=$state/L=$city/O=$company/OU=$unit/CN=Client Certificate"
