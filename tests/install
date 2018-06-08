@@ -42,6 +42,53 @@ global_includes ()
 }
 
 #######################################
+# This installs Homebrew (`brew`) but
+# only if the user hasn't got it and
+# wants to install it via the script.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   Void
+#######################################
+brew_install ()
+{
+    echo "" >&2
+    echo -e "${RED} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Installing Homebrew.                        |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo "" >&2
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Homebrew.${NOC}\n"
+}
+
+#######################################
+# Installs the packages required from
+# `brew` running `brew install`.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   Void
+#######################################
+brew_packages ()
+{
+    echo "" >&2
+    echo -e "${RED} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Installing Apache 2 and PHP.                |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    brew install php httpd mysql
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Apache 2
+  and PHP.${NOC}\n"
+}
+
+#######################################
 # This is the main application thread.
 # Globals:
 #   None
@@ -52,7 +99,9 @@ global_includes ()
 #######################################
 main_application ()
 {
-    source $scripts/brew_install.sh # Install Homebrew and packages
+    # source $scripts/brew_install.sh # Install Homebrew and packages
+    brew_install
+    brew_packages
     source $scripts/ssl_install.sh # Setup self-signed SSL
     source $scripts/apache_config.sh # Configure Apache 2
     source $scripts/folder_permissions.sh # Setting correct folder permissions

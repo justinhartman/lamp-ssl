@@ -91,7 +91,7 @@ brew_packages ()
     echo "|  Installing Apache 2 and PHP.                |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    brew install php httpd
+    brew install php httpd mysql
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Apache 2
   and PHP.${NOC}\n"
 }
