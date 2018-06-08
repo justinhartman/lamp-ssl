@@ -53,7 +53,7 @@ global_includes ()
 main_application ()
 {
     source $scripts/brew_install.sh # Install Homebrew and packages
-    source $scripts/ssl_install.sh # Setup self-signed SSL
+    source $scripts/setup_ssl.sh # Setup self-signed SSL
     source $scripts/apache_config.sh # Configure Apache 2
     source $scripts/folder_permissions.sh # Setting correct folder permissions
 
