@@ -3,12 +3,13 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
-## Version 0.5.1 (09/06/2018)
+## Version 0.5.2 (09/06/2018)
 
 - [#bugfix](#bugfix)
   - Fixed output of echo message in:
     - `add_domains`
     - `apache_config.sh`
+  - Fixed the extraction directory for phpMyAdmin in `thirdparty_install.sh`.
 
 
 ## Version 0.5.1 (09/06/2018)

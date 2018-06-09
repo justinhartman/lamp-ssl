@@ -63,9 +63,7 @@ copy_files ()
     echo "" >&2
     echo -e "${GRY} ----------------------------------------------" >&2
     echo "|                                              |" >&2
-    echo "|  Copying new Apache config files over to     |" >&2
-    echo "|  $httpd/ and                   |" >&2
-    echo "|  $httpd/extra/ and             |" >&2
+    echo "|  Copying new Apache config files over...     |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     cp $source/httpd/conf/httpd.conf $httpd/
@@ -92,8 +90,9 @@ final_steps ()
 {
     mkdir -p $websites # Create default web root
     apachectl restart # (Re)start Apache
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Your website folder has been created at $websites
-  and Apache has been successfully restarted.${NOC}\n"
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Your website folder has been 
+created at $websites
+and Apache has been successfully restarted.${NOC}\n"
 }
 
 file_backup
