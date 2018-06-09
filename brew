@@ -104,12 +104,37 @@ brew_packages ()
     echo "" >&2
     echo -e "${RED} ----------------------------------------------" >&2
     echo "|                                              |" >&2
-    echo "|  Installing Apache 2 and PHP.                |" >&2
+    echo "|  Installing Apache 2, MySQL and PHP.         |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    brew install php httpd mysql
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Apache 2
-  and PHP.${NOC}\n"
+    brew install httpd mysql php
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Apache 2,
+  MySQL and PHP.${NOC}\n"
+}
+
+#######################################
+# Starts up background processes which
+# run at boot time.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   Void
+#######################################
+brew_startup ()
+{
+    echo "" >&2
+    echo -e "${RED} ----------------------------------------------" >&2
+    echo "|                                              |" >&2
+    echo "|  Starting Apache 2, MySQL and PHP.           |" >&2
+    echo "|                                              |" >&2
+    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    brew services start httpd
+    brew services start mysql
+    brew services start php
+    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully started Apache 2,
+  MySQL and PHP.${NOC}\n"
 }
 
 global_includes
@@ -118,14 +143,16 @@ brew_start
 if [ "$answer" != "${answer#[Nn]}" ] ;then
     brew_install
     brew_packages
+    brew_startup
 else
     echo "" >&2
     echo -e "${RED} ----------------------------------------------" >&2
     echo "|                                              |" >&2
     echo "|  OK, we're not installing Homebrew so lets   |" >&2
-    echo "|  proceed with installing the PHP and         |" >&2
-    echo "|  Apache 2 packages. Give me a minute.        |" >&2
+    echo "|  proceed with installing the PHP, MySQL and  |" >&2
+    echo "|  Apache 2 packages.                          |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     brew_packages
+    brew_startup
 fi

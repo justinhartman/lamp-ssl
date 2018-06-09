@@ -101,7 +101,7 @@ phpmyadmin_install ()
   cd $source/archives/
   wget https://files.phpmyadmin.net/phpMyAdmin/4.8.1/phpMyAdmin-4.8.1-all-languages.tar.gz
   tar -zxvf phpMyAdmin-4.8.1-all-languages.tar.gz \
-    -C ../src/phpmyadmin \
+    -C ../../src/phpmyadmin \
     --strip-components=1
   cd ../../
   cp -R $source/phpmyadmin $main/phpmyadmin
