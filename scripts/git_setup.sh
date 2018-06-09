@@ -5,7 +5,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.5.0
+# Version  : 0.5.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.4.0
@@ -42,8 +42,7 @@ git_setup ()
     echo "|  git initial structure, files and check-in.  |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    cp -R $source/git/* $websites/${domain}/
-    mv $websites/${domain}/github $websites/${domain}/.github
+    cp -R $source/git $websites/${domain}
     ls -lha $websites/${domain}
     git add -A
     git commit -m "Created git structure, .github template and initial project commit."

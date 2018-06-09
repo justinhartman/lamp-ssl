@@ -5,7 +5,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.5.0
+# Version  : 0.5.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.4.0
@@ -42,7 +42,7 @@ openssl_config ()
     echo "|  file.                                       |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    read serial <<< $(wc -l < '$ssl/openssl.conf' | tr -d ' ')
+    read serial <<< $(wc -l < $ssl/openssl.conf | tr -d ' ')
     serial=$((serial-11))
     echo "DNS.${serial}      =   ${domain}" >> $ssl/openssl.conf
     cat $ssl/openssl.conf | grep "DNS"

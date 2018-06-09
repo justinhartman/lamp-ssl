@@ -7,7 +7,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.5.0
+# Version  : 0.5.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.4.0
@@ -51,8 +51,6 @@ folder_and_git ()
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created folder in
   $websites/${domain}.${NOC}\n"
     git init $websites/${domain}
-    touch $websites/${domain}/.gitignore
-    echo ".git/" > $websites/${domain}/.gitignore
     ls -lha $websites/${domain}
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created folder and
   initialised git repo for ${domain}.${NOC}\n"

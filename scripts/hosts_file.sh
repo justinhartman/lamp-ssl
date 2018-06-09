@@ -6,7 +6,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.5.0
+# Version  : 0.5.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.2.0
@@ -43,7 +43,7 @@ hosts_file_backup ()
     echo "|  Backup original hosts file '/etc/hosts'     |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    cp /etc/hosts dist/hosts/hosts.original
+    cp /etc/hosts $dist/hosts/hosts.original
     printf "${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully backed up hosts file.
     ${NOC}\n"
 }
@@ -67,8 +67,8 @@ hosts_symbolic ()
     echo "|  point to 'dist/hosts/hosts' file.                |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    ln -s /etc/hosts dist/hosts/hosts
-    ls -lh dist/hosts/hosts
+    ln -s /etc/hosts $dist/hosts/hosts
+    ls -lh $dist/hosts/hosts
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created symbolic link
   from '/etc/hosts' to 'dist/hosts/hosts'.${NOC}\n"
 }

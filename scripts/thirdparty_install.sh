@@ -5,7 +5,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.5.0
+# Version  : 0.5.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.2.0
@@ -43,12 +43,12 @@ adminer_install ()
     echo "|  Installing the Adminer project...           |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    git clone https://github.com/justinhartman/adminer-custom.git \
-    /usr/local/var/www/adminer
-    ln -s /usr/local/var/www/adminer dist/adminer
+    mkdir -p $main/adminer
+    cp -R $source/adminer $main/adminer
+    ln -s $main/adminer $dist/adminer
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully cloned the Adminer
   sub-module to /usr/local/var/www/adminer/ and created a symbolic link
-  to dist/adminer in the project folder..${NOC}\n"
+  to $dist/adminer in the project folder..${NOC}\n"
 }
 
 #######################################
@@ -70,14 +70,12 @@ errorpages_install ()
     echo "|  Installing the Apache Error Pages project...|" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    git clone https://github.com/justinhartman/Apache-Error-Pages.git \
-    src/httpd/error-pages
-    mkdir -p /usr/local/var/www/error-pages
-    cp -R src/httpd/error-pages/dist/apache/* /usr/local/var/www/error-pages
-    ln -s /usr/local/var/www/error-pages dist/error-pages
+    mkdir -p $main/error-pages
+    cp -R $source/httpd/error-pages/dist/apache $main/error-pages
+    ln -s $main/error-pages $dist/error-pages
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully cloned the Apache
-  Error Pages sub-module to /usr/local/var/www/error-pages and created a
-  symbolic link to dist/error-pages in the project folder.${NOC}\n"
+  Error Pages sub-module to $main/error-pages and created a
+  symbolic link to $dist/error-pages in the project folder.${NOC}\n"
 }
 
 #######################################
@@ -99,16 +97,18 @@ phpmyadmin_install ()
     echo "|  Installing the phpMyAdmin project...        |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-  mkdir src/phpmyadmin
-  cd src/archives/
+  mkdir $source/phpmyadmin
+  cd $source/archives/
   wget https://files.phpmyadmin.net/phpMyAdmin/4.8.1/phpMyAdmin-4.8.1-all-languages.tar.gz
-  tar -zxvf phpMyAdmin-4.8.1-all-languages.tar.gz -C ../phpmyadmin --strip-components=1
+  tar -zxvf phpMyAdmin-4.8.1-all-languages.tar.gz \
+    -C $source/phpmyadmin \
+    --strip-components=1
   cd ../../
-  cp -R src/phpmyadmin /usr/local/var/www/phpmyadmin
-  ln -s /usr/local/var/www/phpmyadmin dist/phpmyadmin
+  cp -R $source/phpmyadmin $main/phpmyadmin
+  ln -s $main/phpmyadmin $dist/phpmyadmin
   printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed the phpMyAdmin
-sub-module to /usr/local/var/www/phpmyadmin and created a
-symbolic link to dist/phpmyadmin in the project folder.${NOC}\n"
+sub-module to $main/phpmyadmin and created a
+symbolic link to $dist/phpmyadmin in the project folder.${NOC}\n"
 }
 
 #######################################

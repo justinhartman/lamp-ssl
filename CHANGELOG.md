@@ -3,7 +3,27 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
-## Version 0.5.0 (30/05/2018)
+## Version 0.5.1 (09/06/2018)
+
+- [#enhancement](#enhancement)
+  - Included `thirdparty_install.sh` in `install`.
+  - `thirdparty_install.sh` changes:
+    - Removed the `git clone` commands for all as they are now submodules.
+  - Improved `cp` command in `git_setup.sh`
+- [#bugfix](#bugfix)
+  - Fixed output of echo message in:
+    - `install`
+    - `apache_config.sh`
+  - Set variables for hard coded paths in:
+    - `thirdparty_install.sh`
+    - `openssl_command.sh`
+    - `hosts_file.sh`
+  - Removed creation of `.gitignore` file as it overwrites the one from the
+    .github templates.
+  - Removed `''` preventing the output of the variable for `openssl.conf`.
+  - Removed the moving of folders in `git_setup.sh` as it isn't needed.
+
+## Version 0.5.0 (09/06/2018)
 
 - [#new](#new)
   - New `.travis.yml` file. Testing CI to ensure it all builds as expected.

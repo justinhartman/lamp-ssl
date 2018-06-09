@@ -5,7 +5,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.5.0
+# Version  : 0.5.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.4.0
@@ -45,7 +45,7 @@ openssl_command ()
     openssl req -new \
         -key $ssl/localhost_server.key \
         -out $ssl/localhost_server.csr \
-        -subj "/C=ZA/ST=Western Cape/L=Cape Town/O=22 Digital/OU=Security/CN=localhost"
+        -subj "/C=$country/ST=$state/L=$city/O=$company/OU=$unit/CN=localhost"
 
     openssl x509 -req \
         -in $ssl/localhost_server.csr \
