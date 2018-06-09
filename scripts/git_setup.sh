@@ -44,8 +44,10 @@ git_setup ()
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     cp -R $source/git $websites/${domain}
     ls -lha $websites/${domain}
+    cd $websites/${domain}
     git add -A
     git commit -m "Created git structure, .github template and initial project commit."
+    cd 
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created files and
   committed changes.${NOC}\n"
 }

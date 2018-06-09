@@ -10,6 +10,9 @@ version released to date.
     - `add_domains`
     - `apache_config.sh`
   - Fixed the extraction directory for phpMyAdmin in `thirdparty_install.sh`.
+- [#enhancement](#enhancement)
+  - `brew_startup` added to `brew` script.
+  - Added older versions of `macOS` for Travis to build against.
 
 
 ## Version 0.5.1 (09/06/2018)
