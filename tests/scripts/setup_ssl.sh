@@ -56,7 +56,7 @@ setup_ssl ()
     cp $source/ssl/openssl.conf $ssl/
 
     # create rootCA certificate
-    openssl genrsa -passout "pass:password" -out $ssl/localhost_rootCA.key 2048
+    openssl genrsa -out $ssl/localhost_rootCA.key 2048
     openssl req -x509 -new -nodes \
         -key $ssl/localhost_rootCA.key \
         -days 10950 \
@@ -65,13 +65,12 @@ setup_ssl ()
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created the $company rootCA SSL.${NOC}\n\n"
 
     # create server key and certificate
-    openssl genrsa -passout "pass:password" -out $ssl/localhost_server.key 2048
-    openssl req -new -nodes \
-        -pass password \
+    openssl genrsa -out $ssl/localhost_server.key 2048
+    openssl req -new \
         -key $ssl/localhost_server.key \
         -out $ssl/localhost_server.csr \
         -subj "/C=$country/ST=$state/L=$city/O=$company/OU=$unit/CN=localhost"
-    openssl x509 -req -nodes \
+    openssl x509 -req \
         -in $ssl/localhost_server.csr \
         -CA $ssl/localhost_rootCA.crt \
         -CAkey $ssl/localhost_rootCA.key \
@@ -83,22 +82,18 @@ setup_ssl ()
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created the localhost SSL.${NOC}\n\n"
 
     # create client key and certificate
-    openssl genrsa -passout "pass:password" -out $ssl/localhost_client.key 2048
-    openssl req -new -nodes \
-        -newkey rsa:2048 \
-        -keyout $ssl/localhost_client.key \
+    openssl genrsa -out $ssl/localhost_client.key 2048
+    openssl req -new \
         -key $ssl/localhost_client.key \
         -out $ssl/localhost_client.csr \
         -subj "/C=$country/ST=$state/L=$city/O=$company/OU=$unit/CN=Client Certificate"
-    openssl x509 -req -nodes \
+    openssl x509 -req \
         -in $ssl/localhost_client.csr \
-         -CA $ssl/localhost_rootCA.crt \
+        -CA $ssl/localhost_rootCA.crt \
         -CAkey $ssl/localhost_rootCA.key \
         -CAcreateserial \
         -out $ssl/localhost_client.crt \
         -days 9125
-    openssl pkcs12 -export -inkey $ssl/localhost_client.key -in $ssl/localhost_client.crt \
-        -name $ssl/localhost_client -out $ssl/localhost_client.p12
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created the client SSL.${NOC}\n\n"
 
     # Create symlink to the SSL folder in dist.
@@ -161,6 +156,7 @@ folder_permissions ()
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully set folder permissions
   on $ssl.${NOC}\n"
 }
+
 setup_ssl
 addto_keychain
 folder_permissions

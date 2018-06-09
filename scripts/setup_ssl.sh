@@ -28,22 +28,6 @@
 # 
 
 #######################################
-# Includes the colour palette and
-# other global variables
-# Globals:
-#   None
-# Arguments:
-#   None
-# Returns:
-#   Variables
-#######################################
-global_includes ()
-{
-    source globals.sh
-    source colour_palette.sh
-}
-
-#######################################
 # Sets up the self-signed SSL certs in
 # `/usr/local/var/www/ssl/`.
 # Globals:
@@ -103,11 +87,13 @@ setup_ssl ()
         -key $ssl/localhost_client.key \
         -out $ssl/localhost_client.csr \
         -subj "/C=$country/ST=$state/L=$city/O=$company/OU=$unit/CN=Client Certificate"
-    openssl x509 -req -in $ssl/localhost_client.csr -CA $ssl/localhost_rootCA.crt \
-        -CAkey $ssl/localhost_rootCA.key -CAcreateserial -out $ssl/localhost_client.crt \
+    openssl x509 -req \
+        -in $ssl/localhost_client.csr \
+        -CA $ssl/localhost_rootCA.crt \
+        -CAkey $ssl/localhost_rootCA.key \
+        -CAcreateserial \
+        -out $ssl/localhost_client.crt \
         -days 9125
-    openssl pkcs12 -export -inkey $ssl/localhost_client.key -in $ssl/localhost_client.crt \
-        -name $ssl/localhost_client -out $ssl/localhost_client.p12
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created the client SSL.${NOC}\n\n"
 
     # Create symlink to the SSL folder in dist.
@@ -170,20 +156,6 @@ folder_permissions ()
     printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully set folder permissions
   on $ssl.${NOC}\n"
 }
-
-global_includes # Includes global variables and file paths.
-
-if ! [ $(id -u) = 0 ]; then
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "| This needs to be run as root. Please run it  |" >&2
-    echo "| again using sudo, as per the command below:  |" >&2
-    echo -e "| ${NOC}${GRY}$ ${NOC}${BLU}sudo $scripts/setup_ssl.sh                ${NOC}${RED}|" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    exit 1
-fi
 
 setup_ssl
 addto_keychain
