@@ -69,8 +69,7 @@ main_application ()
     echo "|  Congratulations! Your domain has been added |" >&2
     echo "|  and you can begin using it immediately.     |" >&2
     echo "|  You will find your website folder in the    |" >&2
-    echo "|  `dist/websites/` folder and you can edit    |" >&2
-    echo "|  all your files here. You can access your    |" >&2
+    echo "|  dist/websites/ folder and you can edit      |" >&2
     echo "|  website by visiting the following URL:      |" >&2
     echo "|  https://${domain}                            " >&2
     echo "|                                              |" >&2

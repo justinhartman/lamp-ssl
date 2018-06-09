@@ -5,6 +5,14 @@ version released to date.
 
 ## Version 0.5.1 (09/06/2018)
 
+- [#bugfix](#bugfix)
+  - Fixed output of echo message in:
+    - `add_domains`
+    - `apache_config.sh`
+
+
+## Version 0.5.1 (09/06/2018)
+
 - [#enhancement](#enhancement)
   - Included `thirdparty_install.sh` in `install`.
   - `thirdparty_install.sh` changes:

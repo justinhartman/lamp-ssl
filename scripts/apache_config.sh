@@ -64,8 +64,8 @@ copy_files ()
     echo -e "${GRY} ----------------------------------------------" >&2
     echo "|                                              |" >&2
     echo "|  Copying new Apache config files over to     |" >&2
-    echo "|  `$httpd/` and                 |" >&2
-    echo "|  `$httpd/extra/` and           |" >&2
+    echo "|  $httpd/ and                   |" >&2
+    echo "|  $httpd/extra/ and             |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     cp $source/httpd/conf/httpd.conf $httpd/
