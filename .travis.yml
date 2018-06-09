@@ -1,20 +1,20 @@
 os: osx
-matrix:
-  include:
-    - os: osx
-      osx_image: xcode9.3
-    - os: osx
-      osx_image: xcode9.2
-    - os: osx
-      osx_image: xcode8
-    - os: osx
-      osx_image: xcode6.4
+# matrix:
+#   include:
+#     - os: osx
+#       osx_image: xcode9.3
+#     - os: osx
+#       osx_image: xcode9.2
+#     - os: osx
+#       osx_image: xcode8
+#     - os: osx
+#       osx_image: xcode6.4
 # before_install:
 #   - xcode-select --install
 script:
   - cd tests
-  - chmod +x install add_domains scripts/brew_install.sh
-  - ./scripts/brew_install.sh 
+  - chmod +x brew install add_domains
+  - ./brew 
   - sudo ./install
   - sudo ./add_domains
 language: bash

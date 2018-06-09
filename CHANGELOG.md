@@ -3,6 +3,23 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## Version 0.5.0 (30/05/2018)
+
+- [#new](#new)
+  - New `.travis.yml` file. Testing CI to ensure it all builds as expected.
+  - New `brew` primary script.
+  - New test scripts contained in `./tests/` folder:
+    - `install`: no changes to original.
+    - `brew`: defaults to `no` so it will install Homebrew.
+    - `add_domains`: manually set `domain="www.test.localhost"`.
+  - Symbolic links in `./tests/` to `./src/`, `./dist/` and
+    `./scripts/` folders.
+- [#enhancement](#enhancement)
+  - Removed generation of `pk12` key for Client Certificate in `setup_ssl.sh`.
+- [#bugfix](#bugfix)
+  - Fixed bug in `setup_ssl.sh` where it relies on `sudo`.
+  - Moved `brew` install out of `install` script as it can't run in `sudo`
+
 ## Version 0.4.1 (30/05/2018)
 
 - [#new](#new)
