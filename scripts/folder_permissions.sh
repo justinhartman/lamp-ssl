@@ -35,7 +35,7 @@
 # Returns:
 #   String Success message.
 #######################################
-folder_permissions ()
+folder_ownership ()
 {
     echo "" >&2
     echo -e "${GRY} ----------------------------------------------" >&2
@@ -44,11 +44,10 @@ folder_permissions ()
     echo "|  user account for the application folders.   |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    chown -R $username:$group $main
-    chown -R $username:$group $httpd
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully set folder permissions
-  recursively on $main and $httpd.${NOC}\n"
+    chown -R ${username}:${group} ${main}
+    chown -R ${username}:${group} ${httpd}
+    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully set folder permissions recursively on ${main} and ${httpd}.${NOC}\n"
 }
 
 # Output the method
-folder_permissions
+folder_ownership

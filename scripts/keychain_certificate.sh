@@ -46,8 +46,7 @@ keychain_certificate ()
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     security add-trusted-cert -d -r trustAsRoot -p ssl \
     -k '/Library/Keychains/System.keychain' $ssl/localhost_server.crt
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully updated the macOS
-  Keychain with a new SSL certificate with ${domain} added.${NOC}\n"
+    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully updated the macOS Keychain with a new SSL certificate with ${domain} added.${NOC}\n" >&2
 }
 
 keychain_certificate

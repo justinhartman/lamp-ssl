@@ -63,7 +63,7 @@ brew_start ()
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     # echo -n ""
     # read answer
-    answer='n'
+    answer="n"
 }
 
 #######################################
@@ -87,7 +87,7 @@ brew_install ()
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     echo "" >&2
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Homebrew.${NOC}\n"
+    echo "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Homebrew.${NOC}\n"
 }
 
 #######################################
@@ -109,7 +109,7 @@ brew_packages ()
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
     brew install httpd mysql php
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Apache 2,
+    echo "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Apache 2,
   MySQL and PHP.${NOC}\n"
 }
 
@@ -134,7 +134,7 @@ brew_startup ()
     brew services start httpd
     brew services start mysql
     brew services start php
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully started Apache 2,
+    echo "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully started Apache 2,
   MySQL and PHP.${NOC}\n"
 }
 

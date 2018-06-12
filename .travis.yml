@@ -7,8 +7,6 @@ matrix:
       osx_image: xcode9.2
     - os: osx
       osx_image: xcode8
-    - os: osx
-      osx_image: xcode6.4
 # before_install:
 #   - xcode-select --install
 script:

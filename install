@@ -54,6 +54,7 @@ main_application ()
 {
     source $scripts/setup_ssl.sh # Setup self-signed SSL
     source $scripts/apache_config.sh # Configure Apache 2
+    source $scripts/thirdparty_install.sh # Install third-party tools
     source $scripts/folder_permissions.sh # Setting correct folder permissions
 
     echo "" >&2
@@ -62,7 +63,7 @@ main_application ()
     echo "|  Congratulations! You have successfully      |" >&2
     echo "|  setup your localhost configuration.         |" >&2
     echo "|  All the files you may need to edit are      |" >&2
-    echo "|  contained in the `/dist/` folder. This      |" >&2
+    echo "|  contained in the /dist/ folder. This        |" >&2
     echo "|  includes any website you add and access to  |" >&2
     echo "|  the ssl, adminer, phpmyadmin, error-pages   |" >&2
     echo "|  and hosts folder.                           |" >&2

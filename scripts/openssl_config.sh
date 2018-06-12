@@ -42,12 +42,11 @@ openssl_config ()
     echo "|  file.                                       |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    read serial <<< $(wc -l < $ssl/openssl.conf | tr -d ' ')
+    read serial <<< $(wc -l < ${ssl}/openssl.conf | tr -d ' ')
     serial=$((serial-11))
-    echo "DNS.${serial}      =   ${domain}" >> $ssl/openssl.conf
-    cat $ssl/openssl.conf | grep "DNS"
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully added the ${domain}
-  domain name to the openssl configuration file.${NOC}\n"
+    echo "DNS.${serial}      =   ${domain}" >> ${ssl}/openssl.conf
+    cat ${ssl}/openssl.conf | grep "DNS"
+    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully added ${domain} to the openssl configuration file.${NOC}\n"
 }
 
 openssl_config

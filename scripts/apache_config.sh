@@ -42,11 +42,10 @@ file_backup ()
     echo "|  Backing up old Apache config files.         |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    mv $httpd/httpd.conf $httpd/httpd.conf.bak
-    mv $httpd/extra/httpd-ssl.conf $httpd/extra/httpd-ssl.conf.bak
-    mv $httpd/extra/httpd-vhosts.conf $httpd/extra/httpd-vhosts.conf.bak
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully backed up the Apache 2
-  configuration files.${NOC}\n"
+    mv ${httpd}/httpd.conf ${httpd}/httpd.conf.original
+    mv ${httpd}/extra/httpd-ssl.conf ${httpd}/extra/httpd-ssl.conf.original
+    mv ${httpd}/extra/httpd-vhosts.conf ${httpd}/extra/httpd-vhosts.conf.original
+    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully backed up the Apache 2 configuration files.${NOC}\n"
 }
 
 #######################################
@@ -66,19 +65,18 @@ copy_files ()
     echo "|  Copying new Apache config files over...     |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    cp $source/httpd/conf/httpd.conf $httpd/
-    cp $source/httpd/conf/httpd-ssl.conf $httpd/extra/
-    cp $source/httpd/conf/httpd-vhosts.conf $httpd/extra/
-    cp $source/httpd/extra/httpd-custom-alias.conf $httpd/extra/
-    cp $source/httpd/extra/httpd-custom-directory.conf $httpd/extra/
-    cp $source/httpd/extra/httpd-custom-error-pages.conf $httpd/extra/
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully copied the new Apache 2
-  configuration files.${NOC}\n"
+    cp ${source}/httpd/conf/httpd.conf ${httpd}/
+    cp ${source}/httpd/conf/httpd-ssl.conf ${httpd}/extra/
+    cp ${source}/httpd/conf/httpd-vhosts.conf ${httpd}/extra/
+    cp ${source}/httpd/extra/httpd-custom-alias.conf ${httpd}/extra/
+    cp ${source}/httpd/extra/httpd-custom-directory.conf ${httpd}/extra/
+    cp ${source}/httpd/extra/httpd-custom-error-pages.conf ${httpd}/extra/
+    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully copied the new Apache 2 configuration files.${NOC}\n"
 }
 
 #######################################
-# Create website folder and restart
-# Apache.
+# Create website folder, restart
+# Apache and create symbolic links.
 # Globals:
 #   None
 # Arguments:
@@ -86,15 +84,15 @@ copy_files ()
 # Returns:
 #   None
 #######################################
-final_steps ()
+final_configuration ()
 {
-    mkdir -p $websites # Create default web root
+    mkdir -p ${websites} # Create default web root
+    ln -s ${websites} ${dist}/websites
+    ln -s ${httpd} ${dist}/apache
     apachectl restart # (Re)start Apache
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Your website folder has been 
-created at $websites
-and Apache has been successfully restarted.${NOC}\n"
+    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Your website folder has been created at ${websites} and you can edit your files in the 'dist' folder.${NOC}\n"
 }
 
 file_backup
 copy_files
-final_steps
+final_configuration

@@ -47,13 +47,11 @@ folder_and_git ()
     echo "|  Add website folder and initialise git repo. |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    mkdir -p $websites/${domain}
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created folder in
-  $websites/${domain}.${NOC}\n"
-    git init $websites/${domain}
-    ls -lha $websites/${domain}
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created folder and
-  initialised git repo for ${domain}.${NOC}\n"
+    mkdir -p ${websites}/${domain}
+    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created folder in ${websites}/${domain}.${NOC}\n"
+    git init ${websites}/${domain}
+    ls -lha ${websites}/${domain}
+    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created folder and initialised git repo for ${domain}.${NOC}\n"
 }
 
 folder_and_git

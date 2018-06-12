@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Global variables for the app to use. These are included on all main scripts.
-# 
+#
 # Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
@@ -9,7 +9,7 @@
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.4.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -22,7 +22,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
-# 
+#
 
 #######################################
 # Sets up global user variables.
@@ -76,6 +76,7 @@ path_vars ()
     scripts="./scripts"
     source="./src"
     dist="./dist"
+    hosts="/etc/hosts"
 }
 
 # Output the methods

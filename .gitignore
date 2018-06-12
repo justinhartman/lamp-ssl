@@ -1,6 +1,15 @@
-# ignore error-pages
+# ignore folders in src directory
 # src/httpd/error-pages/
 src/git-old/
+src/phpmyadmin/
+
+
+# Exclude symlinks in dist folder
+dist/adminer
+dist/apache
+dist/error-pages
+dist/phpmyadmin
+dist/websites
 
 # Vendor directory
 vendor/

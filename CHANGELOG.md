@@ -3,6 +3,30 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## Version 0.6.0 (12/06/2018)
+
+- [#new](#new)
+  - Entirely new test suite using [BATS][bats]. Each method is now tested using
+    individual `.bats` files contained in `./tests/bats/`. To run the entire
+    test suite issue the following command:
+    `$ bats tests/bats/`. This assumes you've [installed BATS][install-bats].
+  - Added [Coveralls][coveralls] support but this is limited as they don't
+    support `bash` yet. Go figure.
+- [#enhancement](#enhancement)
+  - Changed the success output from `printf` to `echo -e` as `printf` doesn't
+    work with `bats` properly.
+  - Removed `dist/websites` symlink as this gets generated at install time. 
+- [#bugfix](#bugfix)
+  - Fixed up an array of bugs in individual scripts as debugged with `bats`.
+    The list of changes is exhaustive so check the diff changes to the
+    `scripts` folder for more detail.
+  - Removed the `brew httpd` startup script as it's not needed.
+  - Removed `scripts/brew_install.sh` as it has been replaced with the main
+    `./brew` install script.
+  - Removed the Travis test for `xcode6.4` in `.travis.yml` as this project
+    doesn't build when running against `macOS 10.9/10.10`. It appears this
+    is only supported on `macOS 10.11` and later.
+
 ## Version 0.5.2 (09/06/2018)
 
 - [#bugfix](#bugfix)
@@ -10,6 +34,7 @@ version released to date.
     - `add_domains`
     - `apache_config.sh`
   - Fixed the extraction directory for phpMyAdmin in `thirdparty_install.sh`.
+  - Fixed up the `git commit` not happening in correct folder.
 - [#enhancement](#enhancement)
   - `brew_startup` added to `brew` script.
   - Added older versions of `macOS` for Travis to build against.
@@ -148,14 +173,14 @@ version released to date.
 
 - [#new](#new)
   - Symbolic link to `/adminer/`. See issue #6 for more details on how it
-      will be integrated into the first release candidate.
+    will be integrated into the first release candidate.
   - Added new template files for issue #8:
     - ISSUE_TEMPLATE.md
     - CONTRIBUTING.md
     - PULL_REQUEST_TEMPLATE.md
 - [#enhancement](#enhancement)
   - Integrated changes from issue #8 to now create `.github/` directory with
-      templates when setting up a new domain.
+    templates when setting up a new domain.
   - Added `.github/` directory to this actual project using the new
       templates created in the #enhancement above.
 - [#bugfix](#bugfix)
@@ -171,3 +196,7 @@ version released to date.
 
 - [#new](#new)
   - Initial Release
+
+[bats]: https://github.com/sstephenson/bats
+[install-bats]: https://github.com/sstephenson/bats#installing-bats-from-source
+[coveralls]: https://coveralls.io/github/justinhartman/Automated-LAMP-with-trusted-localhost-SSL
