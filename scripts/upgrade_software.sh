@@ -43,28 +43,28 @@ upgrade_projects ()
     echo "|                                              |" >&2
     echo "|  Checking for upgrades to the core...        |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     git pull
-    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully updated the core project.${NOC}\n"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully updated the core project.${NOC}\\n"
     echo "" >&2
     echo -e "${ORG} ----------------------------------------------" >&2
     echo "|                                              |" >&2
     echo "|  Checking for upgrades to the Adminer,       |" >&2
     echo "|  GitHub and Apache Error Pages projects...   |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     git submodule update --init --recursive
-    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully updated all the git submodules.${NOC}\n"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully updated all the git submodules.${NOC}\\n"
     echo "" >&2
     echo -e "${ORG} ----------------------------------------------" >&2
     echo "|                                              |" >&2
     echo "|  Copying any new files to their correct      |" >&2
     echo "|  folder locations...                         |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    cp -R ${source}/httpd/error-pages/dist/apache ${main}/error-pages
-    cp -R ${source}/adminer ${main}/adminer
-    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully copied across all the new files.${NOC}\n"
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    cp -R "${source}"/httpd/error-pages/dist/apache "${main}"/error-pages
+    cp -R "${source}"/adminer "${main}"/adminer
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully copied across all the new files.${NOC}\\n"
 }
 
 #######################################
@@ -78,13 +78,13 @@ echo "|                                              |" >&2
 echo "|  Do you want to upgrade this project and     |" >&2
 echo "|  all the sub-modules linked to it (Y/n)?     |" >&2
 echo "|                                              |" >&2
-echo -e " ---------------------------------------------- ${NOC}\n" >&2
+echo -e " ---------------------------------------------- ${NOC}\\n" >&2
 echo -n "" >&2
-read answer
+read -r answer
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     upgrade_projects
-    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully upgraded the core and all related sub-modules.${NOC}\n"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully upgraded the core and all related sub-modules.${NOC}\\n"
 else
     echo -e "${ORG} ----------------------------------------------" >&2
     echo "|                                              |" >&2
@@ -95,5 +95,5 @@ else
     echo "|  fixes and enhancements. You should          |" >&2
     echo "|  reconsider and update frequently.           |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
 fi

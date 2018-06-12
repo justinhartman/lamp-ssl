@@ -52,9 +52,13 @@ global_includes ()
 #######################################
 main_application ()
 {
+    # shellcheck source=scripts/setup_ssl.sh
     source $scripts/setup_ssl.sh # Setup self-signed SSL
+    # shellcheck source=scripts/apache_config.sh
     source $scripts/apache_config.sh # Configure Apache 2
+    # shellcheck source=scripts/thirdparty_install.sh
     source $scripts/thirdparty_install.sh # Install third-party tools
+    # shellcheck source=scripts/folder_permissions.sh
     source $scripts/folder_permissions.sh # Setting correct folder permissions
 
     echo "" >&2
@@ -68,12 +72,12 @@ main_application ()
     echo "|  the ssl, adminer, phpmyadmin, error-pages   |" >&2
     echo "|  and hosts folder.                           |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
 }
 
 global_includes # Includes global variables and file paths.
 
-if ! [ $(id -u) = 0 ]; then
+if ! [ "$(id -u)" = 0 ]; then
     echo "" >&2
     echo -e "${RED} ----------------------------------------------" >&2
     echo "|                                              |" >&2
@@ -81,7 +85,7 @@ if ! [ $(id -u) = 0 ]; then
     echo "| again using sudo, as per the command below:  |" >&2
     echo -e "| ${NOC}${GRY}$ ${NOC}${BLU}sudo ./install                             ${NOC}${RED}|" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     exit 1
 fi
 

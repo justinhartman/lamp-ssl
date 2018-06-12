@@ -53,13 +53,21 @@ global_includes ()
 #######################################
 main_application ()
 {
+    # shellcheck source=scripts/enter_domain.sh
     source $scripts/enter_domain.sh # Get domain name to be added
+    # shellcheck source=scripts/openssl_config.sh
     source $scripts/openssl_config.sh # Add domain to 'openssl.conf' configuration file
+    # shellcheck source=scripts/openssl_command.sh
     source $scripts/openssl_command.sh # Create SSL Certificates for the new domain
+    # shellcheck source=scripts/keychain_certificate.sh
     source $scripts/keychain_certificate.sh # Adding new SSL cert to macOS' Keychain
+    # shellcheck source=scripts/hosts_domain.sh
     source $scripts/hosts_domain.sh # Add new domain to hosts file
+    # shellcheck source=scripts/folder_and_git.sh
     source $scripts/folder_and_git.sh # Add website folder and initialise git repo
+    # shellcheck source=scripts/git_setup.sh
     source $scripts/git_setup.sh # git initial structure, files and check-in
+    # shellcheck source=scripts/folder_permissions.sh
     source $scripts/folder_permissions.sh # Setting correct folder permissions
 
     echo "" >&2
@@ -73,12 +81,12 @@ main_application ()
     echo "|  website by visiting the following URL:      |" >&2
     echo "|  https://${domain}                            " >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
 }
 
 global_includes # Includes global variables and file paths.
 
-if ! [ $(id -u) = 0 ]; then
+if ! [ "$(id -u)" = 0 ]; then
     echo "" >&2
     echo -e "${RED} ----------------------------------------------" >&2
     echo "|                                              |" >&2
@@ -86,7 +94,7 @@ if ! [ $(id -u) = 0 ]; then
     echo "| again using sudo, as per the command below:  |" >&2
     echo -e "| ${NOC}${GRY}$ ${NOC}${BLU}sudo ./add_domains                         ${NOC}${RED}|" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     exit 1
 fi
 

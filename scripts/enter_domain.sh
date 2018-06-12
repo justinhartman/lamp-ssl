@@ -43,9 +43,10 @@ enter_domain ()
     echo "|  process and managing your localhost SSL     |" >&2
     echo "|  using trusted self-signed CA certificates.  |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     echo "Enter the domain name to be added " >&2
-    read -p "(NB: do not include http:// or https://): " domain
+    read -r -p "(NB: do not include http:// or https://): " domain
+    export domain
 }
 
 enter_domain

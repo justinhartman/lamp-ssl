@@ -51,5 +51,6 @@ colour_palette ()
     LGY='\033[0;37m' # Light Gray
     WHT='\033[1;37m' # White
     NOC='\033[0m' # No Color
+    export BLK GRY RED ORG GRN BRO BLU PUR LPU CYA LGY WHT NOC
 }
 colour_palette

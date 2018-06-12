@@ -60,9 +60,9 @@ brew_start ()
     echo "|  Do you have Homebrew installed on           |" >&2
     echo "|  your Apple macOS computer (Y/n)?            |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     echo -n ""
-    read answer
+    read -r answer
 }
 
 #######################################
@@ -83,10 +83,10 @@ brew_install ()
     echo "|                                              |" >&2
     echo "|  Installing Homebrew.                        |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     echo "" >&2
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Homebrew.${NOC}\n"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed Homebrew.${NOC}\\n"
 }
 
 #######################################
@@ -106,10 +106,10 @@ brew_packages ()
     echo "|                                              |" >&2
     echo "|  Installing Apache 2, MySQL and PHP.         |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     brew install httpd mysql php
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Apache 2,
-  MySQL and PHP.${NOC}\n"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed Apache 2,
+  MySQL and PHP.${NOC}\\n"
 }
 
 #######################################
@@ -129,12 +129,11 @@ brew_startup ()
     echo "|                                              |" >&2
     echo "|  Starting Apache 2, MySQL and PHP.           |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     brew services start httpd
     brew services start mysql
     brew services start php
-    printf "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully started Apache 2,
-  MySQL and PHP.${NOC}\n"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully started Apache 2, MySQL and PHP.${NOC}\\n"
 }
 
 global_includes
@@ -152,7 +151,7 @@ else
     echo "|  proceed with installing the PHP, MySQL and  |" >&2
     echo "|  Apache 2 packages.                          |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     brew_packages
     brew_startup
 fi

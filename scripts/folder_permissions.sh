@@ -43,10 +43,10 @@ folder_ownership ()
     echo "|  Setting correct folder permissions to your  |" >&2
     echo "|  user account for the application folders.   |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
-    chown -R ${username}:${group} ${main}
-    chown -R ${username}:${group} ${httpd}
-    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully set folder permissions recursively on ${main} and ${httpd}.${NOC}\n"
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    chown -R "${username}":"${group}" "${main}"
+    chown -R "${username}":"${group}" "${httpd}"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully set folder permissions recursively on ${main} and ${httpd}.${NOC}\\n"
 }
 
 # Output the method

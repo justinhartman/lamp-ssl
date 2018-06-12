@@ -43,10 +43,10 @@ keychain_certificate ()
     echo "|  that you don't get browser errors when      |" >&2
     echo "|  accessing your new domain over https.       |" >&2
     echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
     security add-trusted-cert -d -r trustAsRoot -p ssl \
-    -k '/Library/Keychains/System.keychain' $ssl/localhost_server.crt
-    echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully updated the macOS Keychain with a new SSL certificate with ${domain} added.${NOC}\n" >&2
+    -k '/Library/Keychains/System.keychain' "$ssl"/localhost_server.crt
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully updated the macOS Keychain with a new SSL certificate with ${domain} added.${NOC}\\n" >&2
 }
 
 keychain_certificate

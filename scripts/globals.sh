@@ -37,6 +37,7 @@ user_vars ()
 {
     username="501"
     group="staff"
+    export username group
 }
 
 #######################################
@@ -56,6 +57,7 @@ ssl_vars ()
     city="Cape Town"
     company="22 Digital"
     unit="Security"
+    export country state city company unit
 }
 
 #######################################
@@ -77,6 +79,7 @@ path_vars ()
     source="./src"
     dist="./dist"
     hosts="/etc/hosts"
+    export main httpd websites ssl scripts source dist hosts
 }
 
 # Output the methods
