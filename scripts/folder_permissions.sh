@@ -25,9 +25,9 @@
 # 
 
 #######################################
-# Sets the permissions recursively on
-# the main folder to the current
-# macOS user.
+# Sets the ownership recursively on
+# the main folder to the defined
+# macOS user in 'globals.sh'.
 # Globals:
 #   None
 # Arguments:

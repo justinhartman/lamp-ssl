@@ -3,6 +3,17 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## Version 0.6.1 (12/06/2018)
+
+- [#new](#new)
+  - In addition to `BATS` and Travis, `shellcheck` is also checking the source.
+- [#enhancement](#enhancement)
+  - Added `shellcheck` command to `.travis.yml` to run tests against the build.
+  - Updated `folder_ownership()` method description in `folder_permissions.sh`.
+- [#bugfix](#bugfix)
+  - Applied all the bug fix recommendation from `shellcheck` to all scripts.
+  - Fixed bug whereby the `.github` templates weren't being copied correctly.
+
 ## Version 0.6.0 (12/06/2018)
 
 - [#new](#new)

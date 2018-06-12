@@ -42,7 +42,7 @@ git_setup ()
     echo "|  git initial structure, files and check-in.  |" >&2
     echo "|                                              |" >&2
     echo -e " ---------------------------------------------- ${NOC}\\n" >&2
-    cp -R "${source}"/git/templates/_core "${websites}"/"${domain}"
+    cp -R "${source}"/git/templates/_core/ "${websites}"/"${domain}"
     cp "${source}"/git/templates/_licenses/mit.txt "${websites}"/"${domain}"/LICENSE
     ls -lha "${websites}"/"${domain}"
     cd "${websites}"/"${domain}" || return
