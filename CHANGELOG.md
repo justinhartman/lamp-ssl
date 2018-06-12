@@ -12,7 +12,7 @@ version released to date.
   - Updated `folder_ownership()` method description in `folder_permissions.sh`.
 - [#bugfix](#bugfix)
   - Applied all the bug fix recommendation from `shellcheck` to all scripts.
-  - Fixed bug whereby the `.github` templates weren't being copied correctly.
+  - Fixed bug whereby the `.git` templates weren't being copied correctly.
 
 ## Version 0.6.0 (12/06/2018)
 
