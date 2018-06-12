@@ -1,4 +1,55 @@
-1..3
-ok 1 apache file backup
-ok 2 apache copy files
-ok 3 apache final configuration
+1..32
+ok 1 cleanup test directory and clone project repo
+not ok 2 create test directory structure
+# (in test file tests/bats/_setup.bats, line 38)
+#   `[ "$status" -eq 0 ]' failed
+ok 3 apache file backup
+ok 4 apache copy files
+not ok 5 apache final configuration
+# (in test file tests/bats/apache_config.bats, line 63)
+#   `[ "${lines[7]}" = "✔ Your website folder has been created at ${websites} and you can edit your files in the 'dist' folder." ]' failed
+ok 6 global includes
+ok 7 brew start
+ok 8 brew install
+not ok 9 brew packages
+# (in test file tests/bats/brew.bats, line 70)
+#   `[ "${lines[11]}" = "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully installed Apache 2," ]' failed
+ok 10 brew startup
+ok 11 colour palette
+ok 12 enter domain name
+not ok 13 folder and git setup
+# (in test file tests/bats/folder_and_git.bats, line 25)
+#   `[ "${lines[12]}" = "✔ Successfully created folder and initialised git repo for ${domain}." ]' failed
+ok 14 change file and folder ownership
+not ok 15 git setup
+# (in test file tests/bats/git_setup.bats, line 28)
+#   `[ "${lines[13]}" = "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully created files and${NOC}" ]' failed
+ok 16 user variables
+ok 17 ssl variables
+ok 18 path variables
+not ok 19 hosts file domain insert
+# (in test file tests/bats/hosts_domain.bats, line 23)
+#   `[ "${lines[7]}" = "✔ Successfully added ${domain} to ${hosts} file." ]' failed
+ok 20 hosts file backup
+ok 21 hosts symbolic link
+ok 22 add ssl to keychain certificate
+ok 23 openssl command
+not ok 24 openssl configuration
+# (in test file tests/bats/openssl_config.bats, line 25)
+#   `[ "${lines[9]}" = "✔ Successfully added ${domain} to the openssl configuration file." ]' failed
+not ok 25 setup ssl
+# (in test file tests/bats/setup_ssl.bats, line 74)
+#   `[ "${lines[13]}" = "✔ Successfully created the ${company} rootCA SSL." ]' failed
+not ok 26 add certificates to apple keychain
+# (in test file tests/bats/setup_ssl.bats, line 102)
+#   `[ "${lines[10]}" = "✔ Successfully added the new Root CA, localhost server and client SSL certificates to the macOS Keychain." ]' failed
+ok 27 set folder permissions
+ok 28 git submodule install
+not ok 29 adminer install
+# (in test file tests/bats/thirdparty_install.bats, line 39)
+#   `[ "${lines[7]}" = "✔ Successfully copied the Adminer sub-module to ${main}/adminer and created a symbolic link to ${dist}/adminer in the project folder." ]' failed
+not ok 30 error pages install
+# (in test file tests/bats/thirdparty_install.bats, line 57)
+#   `[ "${lines[7]}" = "✔ Successfully copied the Apache Error Pages sub-module to ${main}/error-pages and created a symbolic link to ${dist}/error-pages in the project folder." ]' failed
+ok 31 phpmyadmin install
+ok 32 upgrade adminer and apache error pages projects
