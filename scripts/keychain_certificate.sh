@@ -25,6 +25,25 @@
 #
 
 #######################################
+# Removes any server certificates
+# from macOS' Keychain.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   String Success message.
+#######################################
+remove_keychain_certificate ()
+{
+    printf "${BRO}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Removing old SSL certificates from macOS' Keychain." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
+    security delete-certificate -c localhost '/Library/Keychains/System.keychain'
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully removed any old certificates from the macOS Keychain.${NOC}\\n" >&2
+}
+
+#######################################
 # Adds the updated server certificate
 # to macOS' Keychain.
 # Globals:
@@ -34,19 +53,18 @@
 # Returns:
 #   String Success message.
 #######################################
-keychain_certificate ()
+add_keychain_certificate ()
 {
-    echo "" >&2
-    echo -e "${BRO} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Adding new SSL cert to macOS' Keychain so   |" >&2
-    echo "|  that you don't get browser errors when      |" >&2
-    echo "|  accessing your new domain over https.       |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${BRO}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Adding new SSL cert to macOS' Keychain so that you don't get browser" "*"
+    printf "* %-76s %s\\n" "errors when accessing your new domain over https." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     security add-trusted-cert -d -r trustAsRoot -p ssl \
     -k '/Library/Keychains/System.keychain' "$ssl"/localhost_server.crt
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully updated the macOS Keychain with a new SSL certificate with ${domain} added.${NOC}\\n" >&2
 }
 
-keychain_certificate
+# Remove old certs
+remove_keychain_certificate
+# Add new certs
+add_keychain_certificate

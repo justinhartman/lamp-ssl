@@ -3,6 +3,35 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## Version 1.0.0 (03/07/2018)
+
+This is the first production release since the first commit almost two months
+ago. The following changes enable this major branch release.
+
+- [#new](#new)
+  - Included `./websites/localhost/` folder which contains a template for
+    bootstrapping your development projects. This folder includes:
+    - HTML5 Boilerplate version 6.1.0
+    - Twitter Bootstrap version 3.3.7
+    - jQuery version 1.11.2
+    - Modernizr version 2.8.3
+  - Symlink to `php` configuration folder to enable editing of `php.ini` file.
+  - Added `restart_apache.sh` for inclusion in `add_domains` script.
+- [#enhancement](#enhancement)
+  - `apache_config.sh` script now installs the `localhost` website.
+  - Changed output message to new format in `folder_permissions.sh`.
+- [#bugfix](#bugfix)
+  - Set file permissions correctly.
+  - Added a delete method for `keychain_certificate.sh` that removes the old
+    certificate before adding a new one when running `add_domains`.
+
+## Version 0.6.2 (02/07/2018)
+
+- [#new](#new)
+  - File permission changes to files from machine migration.
+- [#enhancement](#enhancement)
+  - Changed the output messages.
+
 ## Version 0.6.1 (12/06/2018)
 
 - [#new](#new)

@@ -1,0 +1,14 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+pre {
+	color: #f305dd;
+    padding: 0;
+    margin: 0 0 0 -70px;
+    overflow: hidden;
+    line-height: normal;
+    font-size: inherit;
+    border: 0;
+    border-radius: 0;
+    background-color: #eee;
+}

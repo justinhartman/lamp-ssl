@@ -93,6 +93,22 @@ final_configuration ()
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Your website folder has been created at ${websites} and you can edit your files in the 'dist' folder.${NOC}\\n"
 }
 
+#######################################
+# Installs localhost website folder.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
+install_localhost ()
+{
+    cp -Rp "${source}"/websites/localhost "${dist}"/websites/
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed the localhost website accessed at https://localhost. You can edit these files in the 'dist/websites/localhost' folder.${NOC}\\n"
+}
+
 file_backup
 copy_files
 final_configuration
+install_localhost

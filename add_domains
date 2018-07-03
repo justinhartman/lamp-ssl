@@ -69,6 +69,8 @@ main_application ()
     source "$scripts"/git_setup.sh # git initial structure, files and check-in
     # shellcheck source=scripts/folder_permissions.sh
     source "$scripts"/folder_permissions.sh # Setting correct folder permissions
+    # shellcheck source=scripts/restart_apache.sh
+    source "$scripts"/restart_apache.sh # Restart Apache 2
 
     printf "${GRN}%s\\n" "$TOP"
     printf "* %-76s %s\\n" "Congratulations! Your domain has been added and you can begin using it" "*"

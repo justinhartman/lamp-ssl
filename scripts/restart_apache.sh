@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Modfies the folder permissions to the default user.
+# Restarts Apache.
 # 
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
@@ -22,12 +22,10 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
-# 
+#
 
 #######################################
-# Sets the ownership recursively on
-# the main folder to the defined
-# macOS user in 'globals.sh'.
+# Restart Apache.
 # Globals:
 #   None
 # Arguments:
@@ -35,16 +33,14 @@
 # Returns:
 #   String Success message.
 #######################################
-folder_ownership ()
+restart_apache ()
 {
-    printf "${GRY}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Setting correct folder permissions to your user account for" "*"
-    printf "* %-76s %s\\n" "the application folders." "*"
+    printf "${RED}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Restarting Apache 2." "*"
     printf "%s${NOC}\\n\\n" "$BOTTOM"
-    chown -R "${username}":"${group}" "${main}"
-    chown -R "${username}":"${group}" "${httpd}"
-    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully set folder permissions recursively on ${main} and ${httpd}.${NOC}\\n"
+    apachectl restart
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully restarted Apache 2.${NOC}\\n"
 }
 
 # Output the method
-folder_ownership
+restart_apache
