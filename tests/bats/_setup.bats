@@ -13,7 +13,7 @@ setup ()
         echo "${NOW}: ${BATS_TEST_NAME}" >> "${LOG}"
         git clone --recursive https://gitlab.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git ${GIT}
     }
-    # Execute the tests
+    # Execute the test
     run test_directory_delete
     [ "$status" -eq 0 ]
 }
@@ -24,6 +24,7 @@ setup ()
         echo "${NOW}: ${BATS_TEST_NAME}" >> "${LOG}"
         mkdir -p ${main}
         mkdir -p ${httpd}
+        mkdir -p ${httpd}/extra
         mkdir -p ${websites}
         mkdir -p ${ssl}
         mkdir -p ${etc}
@@ -33,7 +34,7 @@ setup ()
         touch ${httpd}/extra/httpd-ssl.conf
         touch ${httpd}/extra/httpd-vhosts.conf
     }
-    # Execute the tests
+    # Execute the test
     run test_directory_structure
     [ "$status" -eq 0 ]
 }

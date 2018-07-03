@@ -75,14 +75,24 @@ path_vars ()
     httpd="/usr/local/etc/httpd"
     websites="/usr/local/var/www/websites"
     ssl="/usr/local/var/www/ssl"
-    scripts="./scripts"
-    source="./src"
-    dist="./dist"
+    scripts="$(pwd)/scripts"
+    source="$(pwd)/src"
+    dist="$(pwd)/dist"
     hosts="/etc/hosts"
     export main httpd websites ssl scripts source dist hosts
+}
+
+terminal_messages ()
+{
+    TOP=$(printf "\\n%-80s" "")
+    TOP=${TOP// /*}
+    BOTTOM=$(printf "%-80s" "")
+    BOTTOM=${BOTTOM// /*}
+    export TOP BOTTOM
 }
 
 # Output the methods
 user_vars
 ssl_vars
 path_vars
+terminal_messages

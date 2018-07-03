@@ -20,7 +20,7 @@ setup ()
         chown -R ${username}:${group} ${httpd}
         echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully set folder permissions recursively on ${main} and ${httpd}.${NOC}\n"
     }
-    # Execute the tests
+    # Execute the test
     run folder_ownership
     [ "${lines[6]}" = "✔ Successfully set folder permissions recursively on ${main} and ${httpd}." ]
     [ "$status" -eq 0 ]

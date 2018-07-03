@@ -20,7 +20,7 @@ setup ()
         mv ${httpd}/extra/httpd-vhosts.conf ${httpd}/extra/httpd-vhosts.conf.original
         echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully backed up the Apache 2 configuration files.${NOC}\n"
     }
-    # Execute the tests
+    # Execute the test
     run file_backup
     [ "${lines[7]}" = "✔ Successfully backed up the Apache 2 configuration files." ]
     [ "$status" -eq 0 ]
@@ -43,7 +43,7 @@ setup ()
         cp ${source}/httpd/extra/httpd-custom-error-pages.conf ${httpd}/extra/
         echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Successfully copied the new Apache 2 configuration files.${NOC}\n"
     }
-    # Execute the tests
+    # Execute the test
     run copy_files
     [ "${lines[10]}" = "✔ Successfully copied the new Apache 2 configuration files." ]
     [ "$status" -eq 0 ]
@@ -58,7 +58,7 @@ setup ()
         apachectl restart # (Re)start Apache
         echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Your website folder has been created at ${websites} and you can edit your files in the 'dist' folder.${NOC}\n"
     }
-    # Execute the tests
+    # Execute the test
     run final_configuration
     [ "${lines[7]}" = "✔ Your website folder has been created at ${websites} and you can edit your files in the 'dist' folder." ]
     [ "$status" -eq 0 ]

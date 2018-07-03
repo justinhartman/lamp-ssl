@@ -54,13 +54,9 @@ global_includes ()
 #######################################
 brew_start ()
 {
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Do you have Homebrew installed on           |" >&2
-    echo "|  your Apple macOS computer (Y/n)?            |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${BLU}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Do you want to install Homebrew on your computer? (Y/n)" "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     echo -n ""
     read -r answer
 }
@@ -78,13 +74,9 @@ brew_start ()
 #######################################
 brew_install ()
 {
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Installing Homebrew.                        |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
-    echo "" >&2
+    printf "${BLK}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Installing Homebrew..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed Homebrew.${NOC}\\n"
 }
@@ -101,15 +93,11 @@ brew_install ()
 #######################################
 brew_packages ()
 {
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Installing Apache 2, MySQL and PHP.         |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${GRY}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Installing Apache 2, MySQL and PHP..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     brew install httpd mysql php
-    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed Apache 2,
-  MySQL and PHP.${NOC}\\n"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed Apache 2, MySQL and PHP.${NOC}\\n"
 }
 
 #######################################
@@ -124,12 +112,9 @@ brew_packages ()
 #######################################
 brew_startup ()
 {
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Starting Apache 2, MySQL and PHP.           |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${ORG}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Starting Apache 2, MySQL and PHP..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     brew services start httpd
     brew services start mysql
     brew services start php
@@ -139,19 +124,17 @@ brew_startup ()
 global_includes
 brew_start
 
-if [ "$answer" != "${answer#[Nn]}" ] ;then
+if [ "$answer" != "${answer#[Yy]}" ] ;then
     brew_install
     brew_packages
     brew_startup
 else
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  OK, we're not installing Homebrew so lets   |" >&2
-    echo "|  proceed with installing the PHP, MySQL and  |" >&2
-    echo "|  Apache 2 packages.                          |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${RED}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "OK, we're not installing Homebrew. Proceeding with the installation of the" "*"
+    printf "* %-76s %s\\n" "PHP, MySQL and Apache 2 packages from Homebrew." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     brew_packages
     brew_startup
 fi
+
+exit 0

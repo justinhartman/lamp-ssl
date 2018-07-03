@@ -1,8 +1,11 @@
-# ignore folders in src directory
+# Ignore folders in src directory
 # src/httpd/error-pages/
 src/git-old/
 src/phpmyadmin/
+docs/
 
+# Ignore specific files
+test
 
 # Exclude symlinks in dist folder
 dist/adminer
@@ -17,9 +20,12 @@ vendor/
 # GitLab CI Config File
 .gitlab-ci.yml
 
-# sublime
+# Sublime
 *.sublime-workspace
 
 # Build specific
 .phpintel/
 .vscode/
+
+# macOS
+.DS_Store
