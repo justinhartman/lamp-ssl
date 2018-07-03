@@ -1,6 +1,5 @@
 # Ignore folders in src directory
 # src/httpd/error-pages/
-src/git-old/
 src/phpmyadmin/
 docs/
 
@@ -11,7 +10,9 @@ test
 dist/adminer
 dist/apache
 dist/error-pages
+dist/php
 dist/phpmyadmin
+dist/ssl
 dist/websites
 
 # Vendor directory

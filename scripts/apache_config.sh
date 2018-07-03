@@ -5,7 +5,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.5.1
+# Version  : 1.0.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.3.0
@@ -89,8 +89,9 @@ final_configuration ()
     mkdir -p "${websites}" # Create default web root
     ln -s "${websites}" "${dist}"/websites
     ln -s "${httpd}" "${dist}"/apache
+    ln -s "${php}" "${dist}"/php
     apachectl restart # (Re)start Apache
-    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Your website folder has been created at ${websites} and you can edit your files in the 'dist' folder.${NOC}\\n"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Created symbolic links for Apache (${httpd}), PHP (${php}) and the new Websites folder (${websites}). Access to these folders is in '${dist}'.${NOC}\\n"
 }
 
 #######################################
@@ -105,7 +106,7 @@ final_configuration ()
 install_localhost ()
 {
     cp -Rp "${source}"/websites/localhost "${dist}"/websites/
-    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed the localhost website accessed at https://localhost. You can edit these files in the 'dist/websites/localhost' folder.${NOC}\\n"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed the localhost website accessed at https://localhost. You can edit these files at '${dist}/websites/localhost'.${NOC}\\n"
 }
 
 file_backup

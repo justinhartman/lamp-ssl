@@ -6,7 +6,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.5.1
+# Version  : 1.0.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.5.0
@@ -74,7 +74,7 @@ brew_start ()
 #######################################
 brew_install ()
 {
-    printf "${BLK}%s\\n" "$TOP"
+    printf "${LGY}%s\\n" "$TOP"
     printf "* %-76s %s\\n" "Installing Homebrew..." "*"
     printf "%s${NOC}\\n\\n" "$BOTTOM"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -130,7 +130,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     brew_startup
 else
     printf "${RED}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "OK, we're not installing Homebrew. Proceeding with the installation of the" "*"
+    printf "* %-76s %s\\n" "OK, not installing Homebrew. Proceeding with the installation of the" "*"
     printf "* %-76s %s\\n" "PHP, MySQL and Apache 2 packages from Homebrew." "*"
     printf "%s${NOC}\\n\\n" "$BOTTOM"
     brew_packages

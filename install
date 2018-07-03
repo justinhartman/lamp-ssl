@@ -6,7 +6,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.5.1
+# Version  : 1.0.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.4.0
@@ -63,9 +63,10 @@ main_application ()
 
     printf "${GRN}%s\\n" "$TOP"
     printf "* %-76s %s\\n" "Congratulations! You have successfully setup your localhost configuration." "*"
-    printf "* %-76s %s\\n" "All the files you may need to edit are contained in the /dist/ folder." "*"
+    printf "* %-76s %s\\n" "All the files you will need to edit are contained in:" "*"
+    printf "* %-76s %s\\n" "${dist}" "*"
     printf "* %-76s %s\\n" "This includes any websites you add as well as direct access to the SSL," "*"
-    printf "* %-76s %s\\n" "Apache, Adminer, phpMyAdmin, Error Pages and Hosts folders." "*"
+    printf "* %-76s %s\\n" "Apache, Adminer, PHP, phpMyAdmin, Error Pages and Hosts folders." "*"
     printf "%s${NOC}\\n\\n" "$BOTTOM"
 }
 

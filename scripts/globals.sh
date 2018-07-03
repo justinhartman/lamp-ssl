@@ -5,7 +5,7 @@
 # Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 0.5.1
+# Version  : 1.0.1
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.4.0
@@ -73,13 +73,14 @@ path_vars ()
 {
     main="/usr/local/var/www"
     httpd="/usr/local/etc/httpd"
+    php="/usr/local/etc/php/7.2"
     websites="/usr/local/var/www/websites"
     ssl="/usr/local/var/www/ssl"
     scripts="$(pwd)/scripts"
     source="$(pwd)/src"
     dist="$(pwd)/dist"
     hosts="/etc/hosts"
-    export main httpd websites ssl scripts source dist hosts
+    export main httpd php websites ssl scripts source dist hosts
 }
 
 terminal_messages ()
