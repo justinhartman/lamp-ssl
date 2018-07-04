@@ -39,14 +39,10 @@
 #######################################
 setup_ssl ()
 {
-    echo "" >&2
-    echo -e "${BRO} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Setting up the self-signed SSL certificates |" >&2
-    echo "|  for Apache 2 and adding them to Apple's     |" >&2
-    echo "|  Keychain as trusted SSL certificates.       |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${BRO}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Setting up the self-signed SSL certificates for Apache 2 and adding" "*"
+    printf "* %-76s %s\\n" "them to Apple's Keychain as trusted SSL/TLS certificates." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
 
     # Create the SSL directory.
     mkdir -p "${ssl}"
@@ -113,13 +109,10 @@ setup_ssl ()
 #######################################
 add_to_keychain ()
 {
-    echo "" >&2
-    echo -e "${BRO} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Adding certificates to Apple's Keychain as  |" >&2
-    echo "|  trusted SSL certificates.                   |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${BRO}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Adding the certificates to Apple's Keychain as trusted" "*"
+    printf "* %-76s %s\\n" "SSL certificates." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     # Add the rootCA certificate first, grant all access.
     security add-trusted-cert -d -r trustRoot \
     -k '/Library/Keychains/System.keychain' "${ssl}"/localhost_rootCA.crt
@@ -144,13 +137,10 @@ add_to_keychain ()
 #######################################
 folder_permissions ()
 {
-    echo "" >&2
-    echo -e "${GRY} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Setting correct folder permissions to your  |" >&2
-    echo "|  user account for the new domain folder.     |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${GRY}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Setting correct folder permissions to your user account for" "*"
+    printf "* %-76s %s\\n" "the new domain folder." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     chown -R "$username":"$group" "${ssl}"
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully set folder permissions on ${ssl}.${NOC}\\n"
 }

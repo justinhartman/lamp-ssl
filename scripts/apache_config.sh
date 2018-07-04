@@ -36,12 +36,9 @@
 #######################################
 file_backup ()
 {
-    echo "" >&2
-    echo -e "${GRY} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Backing up old Apache config files.         |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${GRY}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Backing up the original Apache config files..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     mv "${httpd}"/httpd.conf "${httpd}"/httpd.conf.original
     mv "${httpd}"/extra/httpd-ssl.conf "${httpd}"/extra/httpd-ssl.conf.original
     mv "${httpd}"/extra/httpd-vhosts.conf "${httpd}"/extra/httpd-vhosts.conf.original
@@ -59,12 +56,9 @@ file_backup ()
 #######################################
 copy_files ()
 {
-    echo "" >&2
-    echo -e "${GRY} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Copying new Apache config files over...     |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${GRY}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Copying new Apache config files over..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     cp "${source}"/httpd/conf/httpd.conf "${httpd}"/
     cp "${source}"/httpd/conf/httpd-ssl.conf "${httpd}"/extra/
     cp "${source}"/httpd/conf/httpd-vhosts.conf "${httpd}"/extra/
@@ -86,6 +80,9 @@ copy_files ()
 #######################################
 final_configuration ()
 {
+    printf "${GRY}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Creating symbolic links for Apache, PHP and Websites folder..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     mkdir -p "${websites}" # Create default web root
     ln -s "${websites}" "${dist}"/websites
     ln -s "${httpd}" "${dist}"/apache
@@ -105,6 +102,9 @@ final_configuration ()
 #######################################
 install_localhost ()
 {
+    printf "${GRY}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Installing the HTML5 Boilerplate Template for https://localhost..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     cp -Rp "${source}"/websites/localhost "${dist}"/websites/
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed the localhost website accessed at https://localhost. You can edit these files at '${dist}/websites/localhost'.${NOC}\\n"
 }
