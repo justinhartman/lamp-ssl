@@ -15,6 +15,11 @@ dist/phpmyadmin
 dist/ssl
 dist/websites
 
+# Ignore MySQL files
+dist/mysql/
+dist/mysql/logs/innodb/*
+!dist/mysql/logs/innodb/.gitkeep
+
 # Vendor directory
 vendor/
 
