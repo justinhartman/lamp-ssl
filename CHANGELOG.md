@@ -3,6 +3,20 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## Version 1.0.1 (07/07/2018)
+
+- [#new](#new)
+  - New `docs` folder for the documentation.
+- [#enhancement](#enhancement)
+  - Renamed `add_domains` to `add_domain`.
+  - `apache_config.sh` now creates symlink to PHP configuration folder.
+  - Changed the message output for the following:
+    + `setup_ssl.sh`
+    + `apache_config.sh`
+- [#bugfix](#bugfix)
+  - Updated version numbers in script files.
+  - Removed `coveralls` code coverage as it doesn't work with bash.
+
 ## Version 1.0.0 (03/07/2018)
 
 This is the first production release since the first commit almost two months

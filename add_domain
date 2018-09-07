@@ -74,9 +74,10 @@ main_application ()
 
     printf "${GRN}%s\\n" "$TOP"
     printf "* %-76s %s\\n" "Congratulations! Your domain has been added and you can begin using it" "*"
-    printf "* %-76s %s\\n" "immediately. You will find your website in './dist/websites/${domain}'" "*"
-    printf "* %-76s %s\\n" "and you can edit all your files here. You can access your website by going" "*"
-    printf "* %-76s %s\\n" "to https://${domain} in your web browser." "*"
+    printf "* %-76s %s\\n" "immediately. You will find your website in the following folder:" "*" 
+    printf "* %-76s %s\\n" "'${dist}/websites/${domain}'" "*"
+    printf "* %-76s %s\\n" "You can edit all your files in this location. You can access your website" "*"
+    printf "* %-76s %s\\n" " by going to https://${domain} in your web browser." "*"
     printf "%s${NOC}\\n\\n" "$BOTTOM"
 }
 
