@@ -3,15 +3,15 @@
 # Add new domains to your setup. This creates the website folder, link to the
 # /etc/hosts file, creates a SSL certificate and sets up a git project for you
 # to begin using.
-# 
+#
 # Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.0.1
+# Version  : 1.0.2
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.1.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -24,7 +24,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
-# 
+#
 
 #######################################
 # Includes the colour palette and
@@ -67,14 +67,14 @@ main_application ()
     source "$scripts"/folder_and_git.sh # Add website folder and initialise git repo
     # shellcheck source=scripts/git_setup.sh
     source "$scripts"/git_setup.sh # git initial structure, files and check-in
-    # shellcheck source=scripts/folder_permissions.sh
-    source "$scripts"/folder_permissions.sh # Setting correct folder permissions
+    # shellcheck source=scripts/website_folder_ownership.sh
+    source "$scripts"/website_folder_ownership.sh # Set correct folder ownership
     # shellcheck source=scripts/restart_apache.sh
     source "$scripts"/restart_apache.sh # Restart Apache 2
 
     printf "${GRN}%s\\n" "$TOP"
     printf "* %-76s %s\\n" "Congratulations! Your domain has been added and you can begin using it" "*"
-    printf "* %-76s %s\\n" "immediately. You will find your website in the following folder:" "*" 
+    printf "* %-76s %s\\n" "immediately. You will find your website in the following folder:" "*"
     printf "* %-76s %s\\n" "'${dist}/websites/${domain}'" "*"
     printf "* %-76s %s\\n" "You can edit all your files in this location. You can access your website" "*"
     printf "* %-76s %s\\n" " by going to https://${domain} in your web browser." "*"

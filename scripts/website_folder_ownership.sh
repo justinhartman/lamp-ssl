@@ -1,15 +1,16 @@
 #!/bin/bash
 #
-# Adds new domain to `openssl.conf`.
-# 
+# Modfies the folder permissions to the default user on the newly created
+# website folder.
+#
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
 # Version  : 1.0.2
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
-# Since    : 0.4.0
-# 
+# Since    : 1.0.2
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -25,28 +26,25 @@
 #
 
 #######################################
-# Adds new domain to `openssl.conf`
+# Sets the ownership recursively on
+# the main folder to the defined
+# macOS user in 'globals.sh'.
 # Globals:
 #   None
 # Arguments:
 #   None
 # Returns:
-#   String Printf string to add domain.
+#   String Success message.
 #######################################
-openssl_config ()
+folder_ownership ()
 {
-    echo "" >&2
-    echo -e "${ORG} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Add domain to 'openssl.conf' configuration  |" >&2
-    echo "|  file.                                       |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
-    read -r serial <<< "$(wc -l < "${ssl}"/openssl.conf | tr -d ' ')"
-    serial=$((serial-11))
-    echo "DNS.${serial}      =   ${domain}" >> "${ssl}"/openssl.conf
-    cat < "${ssl}"/openssl.conf | grep "DNS"
-    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully added ${domain} to the openssl configuration file.${NOC}\\n"
+    printf "${GRY}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Setting correct folder permissions to your user account for" "*"
+    printf "* %-76s %s\\n" "the application folders." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
+    chown -R "${username}":"${group}" "${websites}/${domain}"
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully set folder permissions recursively on ${websites}/${domain}.${NOC}\\n"
 }
 
-openssl_config
+# Output the method
+folder_ownership

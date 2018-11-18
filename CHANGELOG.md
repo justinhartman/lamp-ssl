@@ -3,6 +3,16 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## Version 1.0.2 (18/11/2018)
+
+- [#new](#new)
+  - New `website_folder_ownership.sh` script to set permissions on the newly created domain folder.
+  - New `bats` test for `website_folder_ownership.sh` script file.
+- [#enhancement](#enhancement)
+  - Renamed `folder_permissions.sh` to `folder_ownership.sh`.
+  - Updated `bats` test for `folder_permissions`.
+  - Renamed the `folder_permissions` in the `install` script.
+
 ## Version 1.0.1 (07/07/2018)
 
 - [#new](#new)
@@ -69,7 +79,7 @@ ago. The following changes enable this major branch release.
 - [#enhancement](#enhancement)
   - Changed the success output from `printf` to `echo -e` as `printf` doesn't
     work with `bats` properly.
-  - Removed `dist/websites` symlink as this gets generated at install time. 
+  - Removed `dist/websites` symlink as this gets generated at install time.
 - [#bugfix](#bugfix)
   - Fixed up an array of bugs in individual scripts as debugged with `bats`.
     The list of changes is exhaustive so check the diff changes to the
@@ -161,7 +171,7 @@ ago. The following changes enable this major branch release.
 - [#enhancement](#enhancement)
   - Updated `README.md`.
   - Changed install path of SSL certificates to `/usr/local/var/www/ssl`.
-  - Updated `setup_localhost`: 
+  - Updated `setup_localhost`:
     - To create SSL certs in `/usr/local/var/www/ssl`.
     - Created proper methods for the script.
     - Added messages echoed to the Terminal for each step.

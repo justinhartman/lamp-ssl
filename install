@@ -2,15 +2,15 @@
 #
 # The main install script that sets up and installs everything required
 # by the application.
-# 
+#
 # Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.0.1
+# Version  : 1.0.2
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
 # Link     : https://justin.hartman.me
 # Since    : 0.4.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -58,8 +58,8 @@ main_application ()
     source "$scripts"/apache_config.sh # Configure Apache 2
     # shellcheck source=scripts/thirdparty_install.sh
     source "$scripts"/thirdparty_install.sh # Install third-party tools
-    # shellcheck source=scripts/folder_permissions.sh
-    source "$scripts"/folder_permissions.sh # Setting correct folder permissions
+    # shellcheck source=scripts/folder_ownership.sh
+    source "$scripts"/folder_ownership.sh # Set correct folder ownership
 
     printf "${GRN}%s\\n" "$TOP"
     printf "* %-76s %s\\n" "Congratulations! You have successfully setup your localhost configuration." "*"

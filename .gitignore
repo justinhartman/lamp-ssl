@@ -14,6 +14,8 @@ dist/php
 dist/phpmyadmin
 dist/ssl
 dist/websites
+dist/hosts/hosts
+dist/hosts/hosts.original
 
 # Ignore MySQL files
 dist/mysql/
