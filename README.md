@@ -1,27 +1,79 @@
 [![Build Status](https://travis-ci.org/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.svg?branch=master)](https://travis-ci.org/justinhartman/Automated-LAMP-with-trusted-localhost-SSL) [![Coverage Status](https://coveralls.io/repos/github/justinhartman/Automated-LAMP-with-trusted-localhost-SSL/badge.svg?branch=master)](https://coveralls.io/github/justinhartman/Automated-LAMP-with-trusted-localhost-SSL?branch=master) [![Waffle.io - Columns and their card count](https://badge.waffle.io/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.png?columns=all)](https://waffle.io/justinhartman/Automated-LAMP-with-trusted-localhost-SSL?utm_source=badge)
 
-# Fully automated LAMP installation and configuration using Trusted localhost SSL Certificates
+# Fully Automated macOS LAMP Installation using Trusted localhost SSL Certificates
 
 The Aston Martin of perfect LAMP set-ups and configuration; automating the entire process and 
 managing your localhost SSL using trusted, self-signed CA certificates.
 
-## Project Information
-
-| Meta             | Value                                                               |
-|:-----------------|:--------------------------------------------------------------------|
-| Copyright        | Copyright (C) 2018 Justin Hartman [https://justin.hartman.me][site] |
-| Author           | Justin Hartman [justin@hartman.me][email]                           |
-| License          | [GNU Affero General Public License][license]                        |
-| Version          | 0.3.0                                                               |
-| Release Date     | 21/05/2018 00:06:33 +02:00 GMT                                      |
-| Original Release | 06/05/2018 01:34:53 +02:00 GMT  (version-0.1.0)                     |
-| Github           | [@justinhartman/Automated-LAMP-with-trusted-localhost-SSL][git]     |
-| Instructions     | [https://justin.hartman.me][post]                                   |
-| Support          | Open an [Issue on Github][github]                                   |
-
 ## Installation
 
-**_To do still..._**
+Installation is pretty simple and we have made it as automated as possible. 
+Follow the steps below and you should be good to go.
+
+### 1. Clone Repo
+
+By executing the commands below you will install the software to 
+`/usr/local/WebServer`. You can change this path to whatever you like but for 
+ease of use and for upgrading (below) we recommend sticking to this.
+
+```terminal
+$ sudo mkdir -p /usr/local/WebServer
+$ sudo chown $(whoami):staff /usr/local/WebServer
+$ cd /usr/local/WebServer
+$ git clone git@gitlab.com:justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git .
+```
+
+### 2. Run Initial Homebrew Install
+
+Running the `./brew` command below will install `Homebrew` along with these 
+core dependencies: `httpd`, `php`, `mysql` and `wget`. **If you already have 
+Homebrew installed** you can skip the installation of this by answering `N` 
+when the script prompts you to install Homebrew. If you do skip the Homebrew 
+installation, please be sure to run the rest of script or else this software 
+may end up not functioning correctly.
+
+Open up a terminal and execute the following commands.
+
+```terminal
+$ cd /usr/local/WebServer
+$ ./brew
+```
+
+### 3. Run Install Script
+
+Once Homebrew and its dependencies have been installed you are ready to install 
+the main software. Run the following commands and follow the prompts in order 
+to complete the installation of this software.
+
+```terminal
+$ cd /usr/local/WebServer
+$ sudo ./install
+```
+
+## Usage
+
+Once you have installed the software (see above) you are then able to add 
+domains/projects via the command line. To add a new project/domain simply 
+execute the following command via the terminal and follow the prompts:
+
+```terminal
+$ cd /usr/local/WebServer
+$ sudo ./add_domain
+```
+
+The `add_domain` script will output everything you need to know about your 
+newly configured domain/project.
+
+## Upgrades
+
+There is an automated upgrade script that you can run which will keep all the 
+software, including this repo and any linked third-party repos, up to date. 
+Simply run the following command to upgrade the software:
+
+```terminal
+$ cd /usr/local/WebServer
+$ sudo ./upgrade
+```
 
 ## License
 
@@ -44,9 +96,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ## TODO
 
-- ~~(@justinhartman): Make code compliant (issue #1)~~
-- ~~(@justinhartman): Migrate `add_domains` script to separate scripts (issue #2)~~
-
 Please [click here][github] for a list of updated TODO items.
 
 ## Contributions
@@ -57,7 +106,7 @@ The following projects have been integrated into this one.
 - [@justinhartman/adminer-custom][adminer]
 - [@justinhartman/Apache-Error-Pages][errors]
 
-## Acknowledgements
+## Acknowledgments
 
 Special thanks go out to the following projects who have helped in some way to make this
 project a reality.
