@@ -73,7 +73,7 @@ path_vars ()
 {
     main="/usr/local/var/www"
     httpd="/usr/local/etc/httpd"
-    php="/usr/local/etc/php/7.2"
+    php="/usr/local/etc/php/7.3"
     websites="/usr/local/var/www/websites"
     ssl="/usr/local/var/www/ssl"
     scripts="$(pwd)/scripts"
