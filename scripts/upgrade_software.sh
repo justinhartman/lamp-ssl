@@ -46,7 +46,7 @@ upgrade_projects ()
     printf "${ORG}%s\\n" "$TOP"
     printf "* %-76s %s\\n" "Checking for upgrades to the Adminer, GitHub and Apache Error Pages projects..." "*"
     printf "%s${NOC}\\n\\n" "$BOTTOM"
-    git submodule update --init --recursive
+    git submodule update --recursive --remote
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully updated all the git submodules.${NOC}\\n"
     printf "${ORG}%s\\n" "$TOP"
     printf "* %-76s %s\\n" "Copying new files to their correct folder locations..." "*"
