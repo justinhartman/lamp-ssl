@@ -3,6 +3,16 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## Version 1.1.0 (21/01/2019)
+
+- [#enhancement](#enhancement)
+  - Install wget via brew and stop macOS Apache before trying to start Apache 2.
+- [#new](#new)
+  - New upgrade script for the project.
+  - New installation instructions added (#14)
+- [#bugfix](#bugfix)
+  - Fixed the recursive loop in copying files over in `upgrade_software.sh`.
+
 ## Version 1.0.3 (21/01/2019)
 
 - [#enhancement](#enhancement)
