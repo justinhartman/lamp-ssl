@@ -3,6 +3,15 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## Version 1.0.3 (21/01/2019)
+
+- [#enhancement](#enhancement)
+  - Changed output messages to use new `printf` format instead of `echo`.
+  - Updated `globals.sh` file with `php 7.3` path as this has changed in brew from `7.2`.
+  - Rename `add_domains` test script to `add_domain`.
+  - Updated `.travis.yml` build file with correct paths.
+  - Updated test scripts in `\tests\` folder with latest changes.
+
 ## Version 1.0.2 (18/11/2018)
 
 - [#new](#new)
