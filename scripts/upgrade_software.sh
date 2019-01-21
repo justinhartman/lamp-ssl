@@ -51,8 +51,8 @@ upgrade_projects ()
     printf "${ORG}%s\\n" "$TOP"
     printf "* %-76s %s\\n" "Copying new files to their correct folder locations..." "*"
     printf "%s${NOC}\\n\\n" "$BOTTOM"
-    cp -R "${source}"/httpd/error-pages/dist/apache "${main}"/error-pages
-    cp -R "${source}"/adminer "${main}"/adminer
+    cp -R "${source}"/httpd/error-pages/dist/apache/* "${main}"/error-pages/
+    cp -R "${source}"/adminer/* "${main}"/adminer/
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully copied across all the new files.${NOC}\\n"
 }
 
