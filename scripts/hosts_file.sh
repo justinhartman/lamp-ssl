@@ -37,12 +37,9 @@
 #######################################
 hosts_file_backup ()
 {
-    echo "" >&2
-    echo -e "${BRO} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Backup original hosts file ${hosts}       |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${BRO}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Backup original hosts file ${hosts}..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     cp "${hosts}" "${dist}"/hosts/hosts.original
     echo -e "${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully backed up hosts file.${NOC}\\n" >&2
 }
@@ -59,13 +56,9 @@ hosts_file_backup ()
 #######################################
 hosts_symbolic ()
 {
-    echo "" >&2
-    echo -e "${GRY} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Create symbolic link for ${hosts} to      |" >&2
-    echo "|  point to 'dist/hosts/hosts' file.           |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${GRY}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Create symbolic link for ${hosts} to point to 'dist/hosts/hosts' file..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     ln -s "${hosts}" "${dist}"/hosts/hosts
     ls -lh "${dist}"/hosts/hosts
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully created symbolic link from ${hosts} to ${dist}/hosts/hosts.${NOC}\\n" >&2

@@ -36,12 +36,9 @@
 #######################################
 openssl_command ()
 {
-    echo "" >&2
-    echo -e "${GRN} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Create SSL Certificates for the new domain. |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${GRN}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Create SSL Certificates for the new domain..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     openssl req -new \
         -key "${ssl}"/localhost_server.key \
         -out "${ssl}"/localhost_server.csr \

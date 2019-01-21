@@ -41,12 +41,9 @@
 #######################################
 folder_and_git ()
 {
-    echo "" >&2
-    echo -e "${BLU} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Add website folder and initialise git repo. |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${BLU}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Add website folder and initialise git repo..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     mkdir -p "${websites}"/"${domain}"
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully created folder in ${websites}/${domain}.${NOC}\\n"
     git init "${websites}"/"${domain}"

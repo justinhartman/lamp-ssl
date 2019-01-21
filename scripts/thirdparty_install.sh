@@ -60,12 +60,9 @@ git_submodule_install ()
 #######################################
 adminer_copy ()
 {
-    echo "" >&2
-    echo -e "${ORG} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Installing the Adminer project...           |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${ORG}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Installing the Adminer project..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     cp -R "${source}"/adminer "${main}"/adminer
     ln -s "${main}"/adminer "${dist}"/adminer
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully copied the Adminer sub-module to ${main}/adminer and created a symbolic link to ${dist}/adminer in the project folder.${NOC}\\n"
@@ -84,12 +81,9 @@ adminer_copy ()
 #######################################
 errorpages_copy ()
 {
-    echo "" >&2
-    echo -e "${GRN} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Installing the Apache Error Pages project...|" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${GRN}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Installing the Apache Error Pages project..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     cp -R "${source}"/httpd/error-pages/dist/apache "${main}"/error-pages
     ln -s "${main}"/error-pages "${dist}"/error-pages
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully copied the Apache Error Pages sub-module to ${main}/error-pages and created a symbolic link to ${dist}/error-pages in the project folder.${NOC}\\n"
@@ -108,17 +102,14 @@ errorpages_copy ()
 #######################################
 phpmyadmin_install ()
 {
-    echo "" >&2
-    echo -e "${BRO} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Installing the phpMyAdmin project...        |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${BRO}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Installing the phpMyAdmin project..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     mkdir -p "${source}"/phpmyadmin
     mkdir -p "${source}"/archives
     cd "${source}"/archives/ || return
-    wget https://files.phpmyadmin.net/phpMyAdmin/4.8.1/phpMyAdmin-4.8.1-all-languages.tar.gz
-    tar -zxvf phpMyAdmin-4.8.1-all-languages.tar.gz \
+    wget https://files.phpmyadmin.net/phpMyAdmin/4.8.4/phpMyAdmin-4.8.4-all-languages.tar.gz
+    tar -zxf phpMyAdmin-4.8.4-all-languages.tar.gz \
     -C ../../src/phpmyadmin \
     --strip-components=1
     cd ../../ || return

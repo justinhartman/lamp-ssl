@@ -35,13 +35,9 @@
 #######################################
 openssl_config ()
 {
-    echo "" >&2
-    echo -e "${ORG} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Add domain to 'openssl.conf' configuration  |" >&2
-    echo "|  file.                                       |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${ORG}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Add domain to 'openssl.conf' configuration file..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     read -r serial <<< "$(wc -l < "${ssl}"/openssl.conf | tr -d ' ')"
     serial=$((serial-11))
     echo "DNS.${serial}      =   ${domain}" >> "${ssl}"/openssl.conf

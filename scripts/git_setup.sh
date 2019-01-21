@@ -36,12 +36,9 @@
 #######################################
 git_setup ()
 {
-    echo "" >&2
-    echo -e "${PUR} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  git initial structure, files and check-in.  |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${PUR}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "git initial structure, files and check-in..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     cp -R "${source}"/git/templates/_core/ "${websites}"/"${domain}"
     cp "${source}"/git/templates/_licenses/mit.txt "${websites}"/"${domain}"/LICENSE
     ls -lha "${websites}"/"${domain}"

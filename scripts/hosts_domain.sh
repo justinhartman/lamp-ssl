@@ -35,12 +35,9 @@
 #######################################
 hosts_domain ()
 {
-    echo "" >&2
-    echo -e "${WHT} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Add new domain to hosts file.               |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+	printf "${WHT}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Add new domain to hosts file..." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     echo "127.0.0.1       ${domain}" >> "${hosts}"
     cat < "${hosts}" | grep "${domain}"
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully added ${domain} to ${hosts} file.${NOC}\\n"

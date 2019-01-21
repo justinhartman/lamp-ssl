@@ -36,14 +36,9 @@
 #######################################
 enter_domain ()
 {
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  The Aston Martin of perfect LAMP setups     |" >&2
-    echo "|  and configuration; automating the entire    |" >&2
-    echo "|  process and managing your localhost SSL     |" >&2
-    echo "|  using trusted self-signed CA certificates.  |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+    printf "${RED}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Add a new domain to your macOS LAMP configuration." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     echo "Enter the domain name to be added " >&2
     read -r -p "(NB: do not include http:// or https://): " domain
     export domain
