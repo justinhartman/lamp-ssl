@@ -55,33 +55,24 @@ main_application ()
     source $scripts/setup_ssl.sh # Setup self-signed SSL
     source $scripts/apache_config.sh # Configure Apache 2
     source $scripts/thirdparty_install.sh # Install third-party tools
-    source $scripts/folder_permissions.sh # Setting correct folder permissions
+    source $scripts/folder_ownership.sh # Setting correct folder permissions
 
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Congratulations! You have successfully      |" >&2
-    echo "|  setup your localhost configuration.         |" >&2
-    echo "|  All the files you may need to edit are      |" >&2
-    echo "|  contained in the /dist/ folder. This        |" >&2
-    echo "|  includes any website you add and access to  |" >&2
-    echo "|  the ssl, adminer, phpmyadmin, error-pages   |" >&2
-    echo "|  and hosts folder.                           |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    printf "${GRN}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Congratulations! You have successfully setup your localhost configuration." "*"
+    printf "* %-76s %s\\n" "All the files you will need to edit are contained in:" "*"
+    printf "* %-76s %s\\n" "${dist}" "*"
+    printf "* %-76s %s\\n" "This includes any websites you add as well as direct access to the SSL," "*"
+    printf "* %-76s %s\\n" "Apache, Adminer, PHP, phpMyAdmin, Error Pages and Hosts folders." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
 }
 
 global_includes # Includes global variables and file paths.
 
-if ! [ $(id -u) = 0 ]; then
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "| This needs to be run as root. Please run it  |" >&2
-    echo "| again using sudo, as per the command below:  |" >&2
-    echo -e "| ${NOC}${GRY}$ ${NOC}${BLU}sudo ./install                             ${NOC}${RED}|" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+if ! [ "$(id -u)" = 0 ]; then
+    printf "${RED}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
+    printf "* %-76s %s\\n" "the following command: $ sudo ./install" "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
     exit 1
 fi
 

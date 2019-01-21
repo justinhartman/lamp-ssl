@@ -54,39 +54,33 @@ global_includes ()
 main_application ()
 {
     # source $scripts/enter_domain.sh # Get domain name to be added
-    domain="www.test.localhost"
+    domain="test.localhost"
     source $scripts/openssl_config.sh # Add domain to 'openssl.conf' configuration file
     source $scripts/openssl_command.sh # Create SSL Certificates for the new domain
     source $scripts/keychain_certificate.sh # Adding new SSL cert to macOS' Keychain
     source $scripts/hosts_domain.sh # Add new domain to hosts file
     source $scripts/folder_and_git.sh # Add website folder and initialise git repo
     source $scripts/git_setup.sh # git initial structure, files and check-in
-    source $scripts/folder_permissions.sh # Setting correct folder permissions
+    source $scripts/website_folder_ownership.sh # Setting correct folder ownership
+    source $scripts/restart_apache.sh # Restart Apache 2
 
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Congratulations! Your domain has been added |" >&2
-    echo "|  and you can begin using it immediately.     |" >&2
-    echo "|  You will find your website folder in the    |" >&2
-    echo "|  dist/websites/ folder and you can edit      |" >&2
-    echo "|  website by visiting the following URL:      |" >&2
-    echo "|  https://${domain}                            " >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+    printf "${GRN}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "Congratulations! Your domain has been added and you can begin using it" "*"
+    printf "* %-76s %s\\n" "immediately. You will find your website in the following folder:" "*"
+    printf "* %-76s %s\\n" "'${dist}/websites/${domain}'" "*"
+    printf "* %-76s %s\\n" "You can edit all your files in this location. You can access your website" "*"
+    printf "* %-76s %s\\n" " by going to https://${domain} in your web browser." "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
 }
 
 global_includes # Includes global variables and file paths.
 
-if ! [ $(id -u) = 0 ]; then
-    echo "" >&2
-    echo -e "${RED} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "| This needs to be run as root. Please run it  |" >&2
-    echo "| again using sudo, as per the command below:  |" >&2
-    echo -e "| ${NOC}${GRY}$ ${NOC}${BLU}sudo ./add_domains                         ${NOC}${RED}|" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\n" >&2
+if ! [ "$(id -u)" = 0 ]; then
+    printf "${RED}%s\\n" "$TOP"
+    printf "* %-76s %s\\n" "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
+    printf "* %-76s %s\\n" "the following command: $ sudo ./add_domain" "*"
+    printf "%s${NOC}\\n\\n" "$BOTTOM"
+
     exit 1
 fi
 

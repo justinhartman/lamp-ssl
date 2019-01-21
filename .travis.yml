@@ -11,7 +11,7 @@ before_install:
   - brew install shellcheck
 script:
   # Run shellcheck on all bash scripts to ensure no errors
-  - shellcheck -xa -e SC2154 install brew add_domains scripts/*.sh
+  - shellcheck -xa -e SC2154 install brew add_domain scripts/*.sh
   # Now run specific test cases
   - cd tests
   - chmod +x brew install add_domain
