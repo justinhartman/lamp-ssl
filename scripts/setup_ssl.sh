@@ -2,15 +2,14 @@
 #
 # Sets up the self-signed SSL certificates for Apache 2 and adds them as
 # trusted certificates to Apple's Keychain.
-# 
-# Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+#
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 0.1.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -23,9 +22,9 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
-# 
+#
 # From https://github.com/thojansen/client-certificates/blob/master/ssl/setup.sh
-# 
+#
 
 #######################################
 # Sets up the self-signed SSL certs in
@@ -37,12 +36,11 @@
 # Returns:
 #   String
 #######################################
-setup_ssl ()
-{
-    printf "${BRO}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Setting up the self-signed SSL certificates for Apache 2 and adding" "*"
-    printf "* %-76s %s\\n" "them to Apple's Keychain as trusted SSL/TLS certificates." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+setup_ssl() {
+    printf "${BRO}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Setting up the self-signed SSL certificates for Apache 2 and adding" "*"
+    printf '* %-76s %s\n' "them to Apple's Keychain as trusted SSL/TLS certificates." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
 
     # Create the SSL directory.
     mkdir -p "${ssl}"
@@ -107,21 +105,20 @@ setup_ssl ()
 # Returns:
 #   String
 #######################################
-add_to_keychain ()
-{
-    printf "${BRO}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Adding the certificates to Apple's Keychain as trusted" "*"
-    printf "* %-76s %s\\n" "SSL certificates." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+add_to_keychain() {
+    printf "${BRO}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Adding the certificates to Apple's Keychain as trusted" "*"
+    printf '* %-76s %s\n' "SSL certificates." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     # Add the rootCA certificate first, grant all access.
     security add-trusted-cert -d -r trustRoot \
-    -k '/Library/Keychains/System.keychain' "${ssl}"/localhost_rootCA.crt
+        -k '/Library/Keychains/System.keychain' "${ssl}"/localhost_rootCA.crt
     # Add the localhost certificate, always trust SSL access.
     security add-trusted-cert -d -r trustAsRoot -p ssl \
-    -k '/Library/Keychains/System.keychain' "${ssl}"/localhost_server.crt
+        -k '/Library/Keychains/System.keychain' "${ssl}"/localhost_server.crt
     # Add the client certificate, always trust SSL access.
     security add-trusted-cert -d -r trustAsRoot -p smime \
-    -k '/Library/Keychains/System.keychain' "${ssl}"/localhost_client.crt
+        -k '/Library/Keychains/System.keychain' "${ssl}"/localhost_client.crt
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully added the new Root CA, localhost server and client SSL certificates to the macOS Keychain.${NOC}\\n"
 }
 
@@ -135,16 +132,18 @@ add_to_keychain ()
 # Returns:
 #   String Success message.
 #######################################
-folder_permissions ()
-{
-    printf "${GRY}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Setting correct folder permissions to your user account for" "*"
-    printf "* %-76s %s\\n" "the new domain folder." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
-    chown -R "$username":"$group" "${ssl}"
+folder_permissions() {
+    printf "${GRY}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Setting correct folder permissions to your user account for" "*"
+    printf '* %-76s %s\n' "the new domain folder." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
+    chown -R "${username}":"${group}" "${ssl}"
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully set folder permissions on ${ssl}.${NOC}\\n"
 }
 
+#######################################
+# Run the methods.
+#######################################
 setup_ssl
 add_to_keychain
 folder_permissions

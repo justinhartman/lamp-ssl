@@ -3,12 +3,11 @@
 # The main install script that sets up and installs everything required
 # by the application.
 #
-# Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 0.4.0
 #
 # This program is free software: you can redistribute it and/or modify
@@ -35,10 +34,9 @@
 # Returns:
 #   Variables
 #######################################
-global_includes ()
-{
-    source scripts/globals.sh
-    source scripts/colour_palette.sh
+global_includes() {
+    source ./scripts/globals.sh
+    source ./scripts/colour_palette.sh
 }
 
 #######################################
@@ -50,33 +48,32 @@ global_includes ()
 # Returns:
 #   String Multi-interactive messages.
 #######################################
-main_application ()
-{
+main_application() {
     # shellcheck source=scripts/setup_ssl.sh
-    source "$scripts"/setup_ssl.sh # Setup self-signed SSL
+    source "${scripts}"/setup_ssl.sh # Setup self-signed SSL
     # shellcheck source=scripts/apache_config.sh
-    source "$scripts"/apache_config.sh # Configure Apache 2
+    source "${scripts}"/apache_config.sh # Configure Apache 2
     # shellcheck source=scripts/thirdparty_install.sh
-    source "$scripts"/thirdparty_install.sh # Install third-party tools
+    source "${scripts}"/thirdparty_install.sh # Install third-party tools
     # shellcheck source=scripts/folder_ownership.sh
-    source "$scripts"/folder_ownership.sh # Set correct folder ownership
+    source "${scripts}"/folder_ownership.sh # Set correct folder ownership
 
-    printf "${GRN}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Congratulations! You have successfully setup your localhost configuration." "*"
-    printf "* %-76s %s\\n" "All the files you will need to edit are contained in:" "*"
-    printf "* %-76s %s\\n" "${dist}" "*"
-    printf "* %-76s %s\\n" "This includes any websites you add as well as direct access to the SSL," "*"
-    printf "* %-76s %s\\n" "Apache, Adminer, PHP, phpMyAdmin, Error Pages and Hosts folders." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+    printf "${GRN}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Congratulations! You have successfully setup your localhost configuration." "*"
+    printf '* %-76s %s\n' "All the files you will need to edit are contained in:" "*"
+    printf '* %-76s %s\n' "${dist}" "*"
+    printf '* %-76s %s\n' "This includes any websites you add as well as direct access to the SSL," "*"
+    printf '* %-76s %s\n' "Apache, Adminer, PHP, phpMyAdmin, Error Pages and Hosts folders." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
 }
 
 global_includes # Includes global variables and file paths.
 
 if ! [ "$(id -u)" = 0 ]; then
-    printf "${RED}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
-    printf "* %-76s %s\\n" "the following command: $ sudo ./install" "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+    printf "${RED}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
+    printf '* %-76s %s\n' "the following command: $ sudo ./install" "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     exit 1
 fi
 

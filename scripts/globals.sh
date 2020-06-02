@@ -2,12 +2,11 @@
 #
 # Global variables for the app to use. These are included on all main scripts.
 #
-# Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 0.4.0
 #
 # This program is free software: you can redistribute it and/or modify
@@ -33,10 +32,9 @@
 # Returns:
 #   Variables
 #######################################
-user_vars ()
-{
-    username="501"
-    group="staff"
+user_vars() {
+    username="$(whoami)"
+    group="admin"
     export username group
 }
 
@@ -50,8 +48,7 @@ user_vars ()
 # Returns:
 #   Variables
 #######################################
-ssl_vars ()
-{
+ssl_vars() {
     country="ZA"
     state="Western Cape"
     city="Cape Town"
@@ -69,11 +66,10 @@ ssl_vars ()
 # Returns:
 #   Variables
 #######################################
-path_vars ()
-{
+path_vars() {
     main="/usr/local/var/www"
     httpd="/usr/local/etc/httpd"
-    php="/usr/local/etc/php/7.3"
+    php="/usr/local/etc/php/7.4"
     websites="/usr/local/var/www/websites"
     ssl="/usr/local/var/www/ssl"
     scripts="$(pwd)/scripts"
@@ -83,16 +79,17 @@ path_vars ()
     export main httpd php websites ssl scripts source dist hosts
 }
 
-terminal_messages ()
-{
-    TOP=$(printf "\\n%-80s" "")
+terminal_messages() {
+    TOP=$(printf '\n%-80s' "")
     TOP=${TOP// /*}
     BOTTOM=$(printf "%-80s" "")
     BOTTOM=${BOTTOM// /*}
     export TOP BOTTOM
 }
 
-# Output the methods
+#######################################
+# Run the methods.
+#######################################
 user_vars
 ssl_vars
 path_vars

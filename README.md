@@ -1,35 +1,36 @@
-[![Build Status](https://travis-ci.org/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.svg?branch=master)](https://travis-ci.org/justinhartman/Automated-LAMP-with-trusted-localhost-SSL) [![Coverage Status](https://coveralls.io/repos/github/justinhartman/Automated-LAMP-with-trusted-localhost-SSL/badge.svg?branch=master)](https://coveralls.io/github/justinhartman/Automated-LAMP-with-trusted-localhost-SSL?branch=master) [![Waffle.io - Columns and their card count](https://badge.waffle.io/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.png?columns=all)](https://waffle.io/justinhartman/Automated-LAMP-with-trusted-localhost-SSL?utm_source=badge)
+[![Build Status][travis-img]][travis-url]
+[![Coverage Status][cover-img]][cover-url]
 
 # Fully Automated macOS LAMP Installation using Trusted localhost SSL Certificates
 
-The Aston Martin of perfect LAMP set-ups and configuration; automating the entire process and 
+The Aston Martin of perfect LAMP set-ups and configuration; automating the entire process and
 managing your localhost SSL using trusted, self-signed CA certificates.
 
 ## Installation
 
-Installation is pretty simple and we have made it as automated as possible. 
+Installation is pretty simple and we have made it as automated as possible.
 Follow the steps below and you should be good to go.
 
 ### 1. Clone Repo
 
-By executing the commands below you will install the software to 
-`/usr/local/WebServer`. You can change this path to whatever you like but for 
+By executing the commands below you will install the software to
+`/usr/local/WebServer`. You can change this path to whatever you like but for
 ease of use and for upgrading (below) we recommend sticking to this.
 
 ```terminal
 $ sudo mkdir -p /usr/local/WebServer
-$ sudo chown $(whoami):staff /usr/local/WebServer
+$ sudo chown $(whoami):admin /usr/local/WebServer
 $ cd /usr/local/WebServer
-$ git clone git@gitlab.com:justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git .
+$ git clone https://github.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git .
 ```
 
 ### 2. Run Initial Homebrew Install
 
-Running the `./brew` command below will install `Homebrew` along with these 
-core dependencies: `httpd`, `php`, `mysql` and `wget`. **If you already have 
-Homebrew installed** you can skip the installation of this by answering `N` 
-when the script prompts you to install Homebrew. If you do skip the Homebrew 
-installation, please be sure to run the rest of script or else this software 
+Running the `./brew` command below will install `Homebrew` along with these
+core dependencies: `httpd`, `php`, `mysql` and `wget`. **If you already have
+Homebrew installed** you can skip the installation of this by answering `N`
+when the script prompts you to install Homebrew. If you do skip the Homebrew
+installation, please be sure to run the rest of script or else this software
 may end up not functioning correctly.
 
 Open up a terminal and execute the following commands.
@@ -41,8 +42,8 @@ $ ./brew
 
 ### 3. Run Install Script
 
-Once Homebrew and its dependencies have been installed you are ready to install 
-the main software. Run the following commands and follow the prompts in order 
+Once Homebrew and its dependencies have been installed you are ready to install
+the main software. Run the following commands and follow the prompts in order
 to complete the installation of this software.
 
 ```terminal
@@ -50,35 +51,43 @@ $ cd /usr/local/WebServer
 $ sudo ./install
 ```
 
+### 4. Link the script
+
+You can now link the script to your `/usr/local/bin` directory so the
+`lamp-add` script is available globally.
+
+```terminal
+$ ln -s /usr/local/WebServer/lamp-add /usr/local/bin
+$ ln -s /usr/local/WebServer/lamp-upgrade /usr/local/bin
+```
+
 ## Usage
 
-Once you have installed the software (see above) you are then able to add 
-domains/projects via the command line. To add a new project/domain simply 
+Once you have installed the software (see above) you are then able to add
+domains/projects via the command line. To add a new project/domain simply
 execute the following command via the terminal and follow the prompts:
 
 ```terminal
-$ cd /usr/local/WebServer
-$ sudo ./add_domain
+$ sudo /usr/local/bin/lamp-add
 ```
 
-The `add_domain` script will output everything you need to know about your 
+The `lamp-add` script will output everything you need to know about your
 newly configured domain/project.
 
 ## Upgrades
 
-There is an automated upgrade script that you can run which will keep all the 
-software, including this repo and any linked third-party repos, up to date. 
+There is an automated upgrade script that you can run which will keep all the
+software, including this repo and any linked third-party repos, up to date.
 Simply run the following command to upgrade the software:
 
 ```terminal
-$ cd /usr/local/WebServer
-$ sudo ./upgrade
+$ sudo /usr/local/bin/lamp-upgrade
 ```
 
 ## License
 
 ```text
-Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me).
+Copyright 2018-2020 Justin Hartman <justin@hartman.me> (https://hartman.me)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -130,3 +139,7 @@ project a reality.
 [.github]: https://github.com/daniellmb/.github
 [pem-adminer]: https://github.com/pematon/adminer-custom
 [google]: https://google.github.io/styleguide/shell.xml
+[travis-img]: https://travis-ci.org/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.svg?branch=master
+[travis-url]: https://travis-ci.org/justinhartman/Automated-LAMP-with-trusted-localhost-SSL
+[cover-img]: https://coveralls.io/repos/github/justinhartman/Automated-LAMP-with-trusted-localhost-SSL/badge.svg?branch=master
+[cover-url]: https://coveralls.io/github/justinhartman/Automated-LAMP-with-trusted-localhost-SSL?branch=master

@@ -1,15 +1,14 @@
 #!/bin/bash
 #
 # Modfies the folder permissions to the default user.
-# 
-# Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+#
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 0.4.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -22,7 +21,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
-# 
+#
 
 #######################################
 # Sets the ownership recursively on
@@ -35,16 +34,17 @@
 # Returns:
 #   String Success message.
 #######################################
-folder_ownership ()
-{
-    printf "${GRY}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Setting correct folder permissions to your user account for" "*"
-    printf "* %-76s %s\\n" "the application folders." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+folder_ownership() {
+    printf "${GRY}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Setting correct folder permissions to your user account for" "*"
+    printf '* %-76s %s\n' "the application folders." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     chown -R "${username}":"${group}" "${main}"
     chown -R "${username}":"${group}" "${httpd}"
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully set folder permissions recursively on ${main} and ${httpd}.${NOC}\\n"
 }
 
-# Output the method
+#######################################
+# Run the method.
+#######################################
 folder_ownership

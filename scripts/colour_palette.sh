@@ -1,16 +1,15 @@
 #!/bin/bash
 #
-# Fully automated LAMP installation and configuration using Trusted localhost 
+# Fully automated LAMP installation and configuration using Trusted localhost
 # SSL Certificates
-# 
-# Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+#
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 0.4.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -23,7 +22,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
-# 
+#
 
 #######################################
 # Defines variables for the colour
@@ -35,8 +34,7 @@
 # Returns:
 #   Void
 #######################################
-colour_palette ()
-{
+colour_palette() {
     # Some colours to mess around with
     BLK='\033[0;30m' # Black
     GRY='\033[1;30m' # Dark Gray
@@ -50,7 +48,11 @@ colour_palette ()
     CYA='\033[0;36m' # Cyan
     LGY='\033[0;37m' # Light Gray
     WHT='\033[1;37m' # White
-    NOC='\033[0m' # No Color
+    NOC='\033[0m'    # No Color
     export BLK GRY RED ORG GRN BRO BLU PUR LPU CYA LGY WHT NOC
 }
+
+#######################################
+# Run the method.
+#######################################
 colour_palette

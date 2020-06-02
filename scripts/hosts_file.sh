@@ -1,16 +1,15 @@
 #!/bin/bash
 #
-# Fully automated LAMP installation and configuration using Trusted localhost 
+# Fully automated LAMP installation and configuration using Trusted localhost
 # SSL Certificates
-# 
-# Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+#
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 0.2.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -23,7 +22,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
-# 
+#
 
 #######################################
 # Backs up the original `/etc/hosts`
@@ -35,17 +34,16 @@
 # Returns:
 #   String Success message.
 #######################################
-hosts_file_backup ()
-{
-    printf "${BRO}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Backup original hosts file ${hosts}..." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+hosts_file_backup() {
+    printf "${BRO}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Backup original hosts file ${hosts}..." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     cp "${hosts}" "${dist}"/hosts/hosts.original
     echo -e "${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully backed up hosts file.${NOC}\\n" >&2
 }
 
 #######################################
-# Creates a symbolic link from 
+# Creates a symbolic link from
 # `/etc/hosts` to `dist/hosts/hosts`.
 # Globals:
 #   None
@@ -54,18 +52,17 @@ hosts_file_backup ()
 # Returns:
 #   String Success message.
 #######################################
-hosts_symbolic ()
-{
-    printf "${GRY}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Create symbolic link for ${hosts} to point to 'dist/hosts/hosts' file..." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+hosts_symbolic() {
+    printf "${GRY}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Create symbolic link for ${hosts} to point to 'dist/hosts/hosts' file..." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     ln -s "${hosts}" "${dist}"/hosts/hosts
     ls -lh "${dist}"/hosts/hosts
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully created symbolic link from ${hosts} to ${dist}/hosts/hosts.${NOC}\\n" >&2
 }
 
 #######################################
-# Run all the methods for the hosts.
+# Run the methods.
 #######################################
 hosts_file_backup
 hosts_symbolic

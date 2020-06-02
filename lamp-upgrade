@@ -2,12 +2,11 @@
 #
 # Upgrade all the software.
 #
-# Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 1.1.0
 #
 # This program is free software: you can redistribute it and/or modify
@@ -34,8 +33,7 @@
 # Returns:
 #   Variables
 #######################################
-global_includes ()
-{
+global_includes() {
     source scripts/globals.sh
     source scripts/colour_palette.sh
 }
@@ -49,12 +47,11 @@ global_includes ()
 # Returns:
 #   String Multi-interactive messages.
 #######################################
-main_application ()
-{
+main_application() {
     # shellcheck source=scripts/upgrade_software.sh
-    source "$scripts"/upgrade_software.sh # Run upgrade script.
+    source "${scripts}"/upgrade_software.sh # Run upgrade script.
     printf "${GRN}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Congratulations! You have successfully upgraded all the software." "*"
+    printf '* %-76s %s\n' "Congratulations! You have successfully upgraded all the software." "*"
     printf "%s${NOC}\\n\\n" "$BOTTOM"
 }
 
@@ -62,11 +59,16 @@ global_includes # Includes global variables and file paths.
 
 if ! [ "$(id -u)" = 0 ]; then
     printf "${RED}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
-    printf "* %-76s %s\\n" "the following command: $ sudo ./upgrade" "*"
+    printf '* %-76s %s\n' "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
+    printf '* %-76s %s\n' "the following command: $ sudo ./upgrade" "*"
     printf "%s${NOC}\\n\\n" "$BOTTOM"
+
     exit 1
 fi
 
-main_application # Runs the main upgrade
+#######################################
+# Runs the main upgrade.
+#######################################
+main_application
+
 exit 0

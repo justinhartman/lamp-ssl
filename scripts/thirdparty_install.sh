@@ -1,15 +1,14 @@
 #!/bin/bash
 #
 # Fetches all third-party sub-modules and installs them in place.
-# 
-# Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+#
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 0.2.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -35,14 +34,10 @@
 # Returns:
 #   String
 #######################################
-git_submodule_install ()
-{
-    echo "" >&2
-    echo -e "${ORG} ----------------------------------------------" >&2
-    echo "|                                              |" >&2
-    echo "|  Installing the Git Submodules...            |" >&2
-    echo "|                                              |" >&2
-    echo -e " ---------------------------------------------- ${NOC}\\n" >&2
+git_submodule_install() {
+    printf "${ORG}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Installing the Git Submodules..." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     git submodule update --init --recursive
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed the git submodules.${NOC}\\n"
 }
@@ -58,11 +53,10 @@ git_submodule_install ()
 # Returns:
 #   String
 #######################################
-adminer_copy ()
-{
-    printf "${ORG}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Installing the Adminer project..." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+adminer_copy() {
+    printf "${ORG}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Installing the Adminer project..." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     cp -R "${source}"/adminer "${main}"/adminer
     ln -s "${main}"/adminer "${dist}"/adminer
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully copied the Adminer sub-module to ${main}/adminer and created a symbolic link to ${dist}/adminer in the project folder.${NOC}\\n"
@@ -79,11 +73,10 @@ adminer_copy ()
 # Returns:
 #   String
 #######################################
-errorpages_copy ()
-{
-    printf "${GRN}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Installing the Apache Error Pages project..." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+errorpages_copy() {
+    printf "${GRN}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Installing the Apache Error Pages project..." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     cp -R "${source}"/httpd/error-pages/dist/apache "${main}"/error-pages
     ln -s "${main}"/error-pages "${dist}"/error-pages
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully copied the Apache Error Pages sub-module to ${main}/error-pages and created a symbolic link to ${dist}/error-pages in the project folder.${NOC}\\n"
@@ -100,18 +93,17 @@ errorpages_copy ()
 # Returns:
 #   String
 #######################################
-phpmyadmin_install ()
-{
-    printf "${BRO}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Installing the phpMyAdmin project..." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+phpmyadmin_install() {
+    printf "${BRO}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Installing the phpMyAdmin project..." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     mkdir -p "${source}"/phpmyadmin
     mkdir -p "${source}"/archives
     cd "${source}"/archives/ || return
-    wget https://files.phpmyadmin.net/phpMyAdmin/4.8.4/phpMyAdmin-4.8.4-all-languages.tar.gz
-    tar -zxf phpMyAdmin-4.8.4-all-languages.tar.gz \
-    -C ../../src/phpmyadmin \
-    --strip-components=1
+    wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
+    tar -zxf phpMyAdmin-5.0.2-all-languages.tar.gz \
+        -C ../../src/phpmyadmin \
+        --strip-components=1
     cd ../../ || return
     cp -R "${source}"/phpmyadmin "${main}"/phpmyadmin
     ln -s "${main}"/phpmyadmin "${dist}"/phpmyadmin

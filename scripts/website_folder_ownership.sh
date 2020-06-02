@@ -3,12 +3,11 @@
 # Modfies the folder permissions to the default user on the newly created
 # website folder.
 #
-# Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 1.0.2
 #
 # This program is free software: you can redistribute it and/or modify
@@ -36,15 +35,16 @@
 # Returns:
 #   String Success message.
 #######################################
-folder_ownership ()
-{
-    printf "${GRY}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Setting correct folder permissions to your user account for" "*"
-    printf "* %-76s %s\\n" "the application folders." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+folder_ownership() {
+    printf "${GRY}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Setting correct folder permissions to your user account for" "*"
+    printf '* %-76s %s\n' "the application folders." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     chown -R "${username}":"${group}" "${websites}/${domain}"
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully set folder permissions recursively on ${websites}/${domain}.${NOC}\\n"
 }
 
-# Output the method
+#######################################
+# Run the respective methods.
+#######################################
 folder_ownership

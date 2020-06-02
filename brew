@@ -1,16 +1,15 @@
 #!/bin/bash
 #
-# Fully automated LAMP installation and configuration using Trusted localhost 
+# Fully automated LAMP installation and configuration using Trusted localhost
 # SSL Certificates
-# 
-# Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+#
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 0.5.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -23,7 +22,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
-# 
+#
 
 #######################################
 # Includes the colour palette and
@@ -35,10 +34,11 @@
 # Returns:
 #   Variables
 #######################################
-global_includes ()
-{
-    source scripts/globals.sh
-    source scripts/colour_palette.sh
+global_includes() {
+    # shellcheck source=scripts/globals.sh
+    source ./scripts/globals.sh
+    # shellcheck source=scripts/colour_palette.sh
+    source ./scripts/colour_palette.sh
 }
 
 #######################################
@@ -52,11 +52,10 @@ global_includes ()
 # Returns:
 #   Void
 #######################################
-brew_start ()
-{
-    printf "${BLU}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Do you want to install Homebrew on your computer? (Y/n)" "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+brew_start() {
+    printf "${BLU}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Do you want to install Homebrew on your computer? (Y/n)" "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     echo -n ""
     read -r answer
 }
@@ -72,11 +71,10 @@ brew_start ()
 # Returns:
 #   Void
 #######################################
-brew_install ()
-{
-    printf "${LGY}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Installing Homebrew..." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+brew_install() {
+    printf "${LGY}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Installing Homebrew..." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed Homebrew.${NOC}\\n"
 }
@@ -91,11 +89,10 @@ brew_install ()
 # Returns:
 #   Void
 #######################################
-brew_packages ()
-{
-    printf "${GRY}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Installing Apache 2, MySQL and PHP..." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+brew_packages() {
+    printf "${GRY}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Installing Apache 2, MySQL and PHP..." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     brew install wget httpd mysql php
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed Apache 2, MySQL and PHP.${NOC}\\n"
 }
@@ -110,11 +107,10 @@ brew_packages ()
 # Returns:
 #   Void
 #######################################
-brew_startup ()
-{
-    printf "${ORG}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Starting Apache 2, MySQL and PHP..." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+brew_startup() {
+    printf "${ORG}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Starting Apache 2, MySQL and PHP..." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     sudo /usr/sbin/apachectl stop
     brew services start httpd
     brew services start mysql
@@ -125,15 +121,15 @@ brew_startup ()
 global_includes
 brew_start
 
-if [ "$answer" != "${answer#[Yy]}" ] ;then
+if [ "$answer" != "${answer#[Yy]}" ]; then
     brew_install
     brew_packages
     brew_startup
 else
-    printf "${RED}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "OK, not installing Homebrew. Proceeding with the installation of the" "*"
-    printf "* %-76s %s\\n" "PHP, MySQL and Apache 2 packages from Homebrew." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+    printf "${RED}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "OK, not installing Homebrew. Proceeding with the installation of the" "*"
+    printf '* %-76s %s\n' "PHP, MySQL and Apache 2 packages from Homebrew." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     brew_packages
     brew_startup
 fi

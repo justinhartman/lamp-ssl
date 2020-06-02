@@ -3,15 +3,14 @@
 # Creates a new directory in the webroot folder which is named after the domain
 # name and creates a symlink. We also initialise a new git repo so that
 # everything is under SCM.
-# 
-# Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+#
+# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
+# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
-# Version  : 1.1.0
+# Version  : 1.2.0
 # Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
 # Since    : 0.4.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -39,11 +38,10 @@
 # Returns:
 #   String Success message.
 #######################################
-folder_and_git ()
-{
-    printf "${BLU}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "Add website folder and initialise git repo..." "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
+folder_and_git() {
+    printf "${BLU}%s\\n" "${TOP}"
+    printf '* %-76s %s\n' "Add website folder and initialise git repo..." "*"
+    printf "%s${NOC}\\n\\n" "${BOTTOM}"
     mkdir -p "${websites}"/"${domain}"
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully created folder in ${websites}/${domain}.${NOC}\\n"
     git init "${websites}"/"${domain}"
@@ -51,4 +49,7 @@ folder_and_git ()
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully created folder and initialised git repo for ${domain}.${NOC}\\n"
 }
 
+#######################################
+# Run the method.
+#######################################
 folder_and_git
