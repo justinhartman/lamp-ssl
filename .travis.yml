@@ -20,5 +20,6 @@ script:
     - ./brew
     - sudo ./install
     - sudo ./lamp-add
-    - sudo ./lamp-upgrade
+    # Upgrade is disabled due to travis getting stuck waiting for Y/n response.
+    # - sudo ./lamp-upgrade
 # after_success: coveralls
