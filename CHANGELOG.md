@@ -3,6 +3,28 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## :rocket: Version 1.2.0 (03/06/2020)
+
+- [:+1: #enhancement](#enhancement)
+  - Renamed main scripts for better compatibility.
+  - Updated Homebrew installer.
+  - Upgraded Travis config.
+  - Updated shellcheck test with latest OS.
+  - Improved group variable with `id -gn`.
+  - Updated bats tests.
+  - Upgraded packages to current versions.
+  - Standardised code in shell scripts.
+  - Updated README with new instructions.
+- [:new: #new](#new)
+  - Added GitHub Sponsors.
+- [:bug: #bugfix](#bugfix)
+  - Fixed git submodule upgrade.
+  - Fixed issue with TOP and BOTTOM in scripts.
+  - Fixed issue with travis shellcheck error 127.
+  - Fixed path to globals and colour_palette.
+  - Changed permissions on files.
+  - Removed Code and Sublime project files.
+
 ## Version 1.1.0 (21/01/2019)
 
 - [#enhancement](#enhancement)
