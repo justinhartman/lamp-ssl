@@ -1,3 +1,5 @@
+os: osx
+osx_image: xcode11.5
 matrix:
   include:
     - os: osx
@@ -11,7 +13,7 @@ matrix:
 language: shell
 script:
     # Run shellcheck on the files.
-    - shellcheck -xa -e SC2154 brew install lamp-add lamp-upgrade scripts/*.sh
+    - bash -c 'shopt nullglob; shellcheck -xa -e SC2154 brew install lamp-add lamp-upgrade scripts/*.sh'
     # Now run specific test cases.
     - cd tests
     - chmod +x install brew lamp-add lamp-upgrade
