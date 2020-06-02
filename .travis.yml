@@ -13,12 +13,12 @@ before_install:
 language: shell
 script:
     # Run shellcheck on the files.
-    - bash -c 'shopt nullglob; shellcheck -xa -e SC2154 brew install lamp-add lamp-upgrade scripts/*.sh'
+    - bash -c 'shopt -s globstar nullglob; shellcheck -xa -e SC2154 brew install lamp-add lamp-upgrade scripts/*.sh'
     # Now run specific test cases.
     - cd tests
     - chmod +x install brew lamp-add lamp-upgrade
     - ./brew
     - sudo ./install
     - sudo ./lamp-add
-    # - sudo ./lamp-upgrade
+    - sudo ./lamp-upgrade
 # after_success: coveralls
