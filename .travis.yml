@@ -1,21 +1,22 @@
 os: osx
+osx_image: xcode11.5 # macOS 10.15.4
 matrix:
   include:
     - os: osx
-      osx_image: xcode9.3
+      osx_image: xcode9.4 # macOS 10.13
     - os: osx
-      osx_image: xcode9.2
-before_install:
-  - brew install shellcheck
+      osx_image: xcode10.3 # macOS 10.14.4
+    - os: osx
+      osx_image: xcode11.3 # macOS 10.14.6
+language: shell
 script:
-  # Run shellcheck on all bash scripts to ensure no errors
-  - shellcheck -xa -e SC2154 install brew add_domain scripts/*.sh
-  # Now run specific test cases
-  - cd tests
-  - chmod +x brew install add_domain
-  - ./brew 
-  - sudo ./install
-  - sudo ./add_domain
-language: bash
-osx_image: xcode9.3
+    # Run shellcheck on the files.
+    - bash -c 'shopt -s globstar nullglob; shellcheck -xa -e SC2154 install brew lamp-add lamp-upgrade scripts/*.sh'
+    # Now run specific test cases.
+    - cd tests
+    - chmod +x install brew lamp-add lamp-upgrade
+    - ./brew
+    - sudo ./install
+    - sudo ./lamp-add
+    - sudo ./lamp-upgrade
 # after_success: coveralls

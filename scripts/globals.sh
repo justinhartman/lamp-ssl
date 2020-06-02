@@ -34,7 +34,7 @@
 #######################################
 user_vars() {
     username="$(whoami)"
-    group="admin"
+    group="$(id -gn)"
     export username group
 }
 

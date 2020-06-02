@@ -36,8 +36,8 @@
 #   Variables
 #######################################
 global_includes() {
-    source scripts/globals.sh
-    source scripts/colour_palette.sh
+    source ./scripts/globals.sh
+    source ./scripts/colour_palette.sh
 }
 
 #######################################
