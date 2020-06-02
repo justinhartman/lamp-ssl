@@ -49,6 +49,7 @@ global_includes() {
 #######################################
 main_application() {
     answer="Y"
+    export answer
     source "${scripts}"/upgrade_software.sh # Run upgrade script.
     printf "${GRN}%s\\n" "$TOP"
     printf '* %-76s %s\n' "Congratulations! You have successfully upgraded all the software." "*"

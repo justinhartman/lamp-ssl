@@ -35,9 +35,7 @@
 #   Variables
 #######################################
 global_includes() {
-    # shellcheck source=scripts/globals.sh
     source ./scripts/globals.sh
-    # shellcheck source=scripts/colour_palette.sh
     source ./scripts/colour_palette.sh
 }
 
