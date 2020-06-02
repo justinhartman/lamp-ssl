@@ -48,7 +48,7 @@ global_includes() {
 #   String Multi-interactive messages.
 #######################################
 main_application() {
-    # shellcheck source=scripts/upgrade_software.sh
+    answer="Y"
     source "${scripts}"/upgrade_software.sh # Run upgrade script.
     printf "${GRN}%s\\n" "$TOP"
     printf '* %-76s %s\n' "Congratulations! You have successfully upgraded all the software." "*"

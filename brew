@@ -75,7 +75,7 @@ brew_install() {
     printf "${LGY}%s\\n" "${TOP}"
     printf '* %-76s %s\n' "Installing Homebrew..." "*"
     printf "%s${NOC}\\n\\n" "${BOTTOM}"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully installed Homebrew.${NOC}\\n"
 }
 
