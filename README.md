@@ -14,13 +14,13 @@ Follow the steps below and you should be good to go.
 ### 1. Clone Repo
 
 By executing the commands below you will install the software to
-`/usr/local/WebServer`. You can change this path to whatever you like but for
+`/usr/local/webserver`. You can change this path to whatever you like but for
 ease of use and for upgrading (below) we recommend sticking to this.
 
 ```terminal
-$ sudo mkdir -p /usr/local/WebServer
-$ sudo chown $(whoami):admin /usr/local/WebServer
-$ cd /usr/local/WebServer
+$ sudo mkdir -p /usr/local/webserver
+$ sudo chown $(whoami):admin /usr/local/webserver
+$ cd /usr/local/webserver
 $ git clone https://github.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git .
 ```
 
@@ -36,7 +36,7 @@ may end up not functioning correctly.
 Open up a terminal and execute the following commands.
 
 ```terminal
-$ cd /usr/local/WebServer
+$ cd /usr/local/webserver
 $ ./brew
 ```
 
@@ -47,18 +47,8 @@ the main software. Run the following commands and follow the prompts in order
 to complete the installation of this software.
 
 ```terminal
-$ cd /usr/local/WebServer
+$ cd /usr/local/webserver
 $ sudo ./install
-```
-
-### 4. Link the script
-
-You can now link the script to your `/usr/local/bin` directory so the
-`lamp-add` script is available globally.
-
-```terminal
-$ ln -s /usr/local/WebServer/lamp-add /usr/local/bin
-$ ln -s /usr/local/WebServer/lamp-upgrade /usr/local/bin
 ```
 
 ## Usage
@@ -68,7 +58,8 @@ domains/projects via the command line. To add a new project/domain simply
 execute the following command via the terminal and follow the prompts:
 
 ```terminal
-$ sudo /usr/local/bin/lamp-add
+$ cd /usr/local/webserver
+$ sudo ./lamp-add
 ```
 
 The `lamp-add` script will output everything you need to know about your
@@ -81,7 +72,8 @@ software, including this repo and any linked third-party repos, up to date.
 Simply run the following command to upgrade the software:
 
 ```terminal
-$ sudo /usr/local/bin/lamp-upgrade
+$ cd /usr/local/webserver
+$ sudo ./lamp-upgrade
 ```
 
 ## License
