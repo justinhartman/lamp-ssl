@@ -83,7 +83,7 @@ final_configuration() {
     ln -s "${websites}" "${dist}"/websites
     ln -s "${httpd}" "${dist}"/apache
     ln -s "${php}" "${dist}"/php
-    apachectl restart # (Re)start Apache
+    brew services restart httpd # (Re)start Apache
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Created symbolic links for Apache (${httpd}), PHP (${php}) and the new Websites folder (${websites}). Access to these folders is in '${dist}'.${NOC}\\n"
 }
 

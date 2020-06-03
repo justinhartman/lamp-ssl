@@ -36,7 +36,7 @@ restart_apache() {
     printf "${RED}%s\\n" "${TOP}"
     printf '* %-76s %s\n' "Restarting Apache 2..." "*"
     printf "%s${NOC}\\n\\n" "${BOTTOM}"
-    apachectl restart
+    brew services restart httpd
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully restarted Apache 2.${NOC}\\n"
 }
 

@@ -55,7 +55,7 @@ setup ()
         mkdir -p ${websites} # Create default web root
         ln -s ${websites} ${dist}/websites
         ln -s ${httpd} ${dist}/apache
-        apachectl restart # (Re)start Apache
+        brew services restart httpd # (Re)start Apache
         echo -e "\n${GRN}\xE2\x9C\x94${NOC} ${CYA}Your website folder has been created at ${websites} and you can edit your files in the 'dist' folder.${NOC}\n"
     }
     # Execute the test

@@ -110,6 +110,7 @@ brew_startup() {
     printf '* %-76s %s\n' "Starting Apache 2, MySQL and PHP..." "*"
     printf "%s${NOC}\\n\\n" "${BOTTOM}"
     sudo /usr/sbin/apachectl stop
+    sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist
     brew services start httpd
     brew services start mysql
     brew services start php
