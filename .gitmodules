@@ -1,9 +1,9 @@
 [submodule "src/adminer"]
 	path = src/adminer
-	url = https://gitlab.com/justinhartman/Adminer.git
+	url = https://github.com/pematon/adminer-custom.git
 [submodule "src/httpd/error-pages"]
 	path = src/httpd/error-pages
-	url = https://gitlab.com/justinhartman/Webserver-Error-Pages.git
+	url = https://github.com/justinhartman/Webserver-Error-Pages.git
 [submodule "src/git"]
 	path = src/git
-	url = https://gitlab.com/justinhartman/github-templates.git
+	url = https://github.com/justinhartman/.github
