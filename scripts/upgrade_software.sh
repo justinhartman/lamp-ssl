@@ -39,12 +39,12 @@ upgrade_projects() {
     printf "${ORG}%s\\n" "${TOP}"
     printf '* %-76s %s\n' "Checking for upgrades to the core..." "*"
     printf "%s${NOC}\\n\\n" "${BOTTOM}"
-    git pull
+    git pull origin master
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully updated the core project.${NOC}\\n"
     printf "${ORG}%s\\n" "${TOP}"
     printf '* %-76s %s\n' "Checking for upgrades to the Adminer, GitHub and Apache Error Pages projects..." "*"
     printf "%s${NOC}\\n\\n" "${BOTTOM}"
-    git submodule update --recursive --remote
+    git submodule update --init --recursive --remote
     echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully updated all the git submodules.${NOC}\\n"
     printf "${ORG}%s\\n" "${TOP}"
     printf '* %-76s %s\n' "Copying new files to their correct folder locations..." "*"
