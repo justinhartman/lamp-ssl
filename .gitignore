@@ -37,3 +37,4 @@ vendor/
 
 # macOS
 .DS_Store
+/install-logs.log
