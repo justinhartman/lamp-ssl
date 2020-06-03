@@ -72,7 +72,7 @@ else
     printf "${RED}%s\\n" "${TOP}"
     printf '* %-76s %s\n' "OK, we are not going to upgrade any of the software!" "*"
     printf '* %-76s %s\n' "Please note, however, you should keep all software up to date." "*"
-    printf '* %-76s %s\n' "Using the most up to date files ensures you benefit from bug fixes and enhancements." "*"
+    printf '* %-76s %s\n' "Using up to date files ensures you benefit from bug fixes and enhancements." "*"
     printf '* %-76s %s\n' "You should reconsider and make sure to update frequently." "*"
     printf "%s${NOC}\\n\\n" "${BOTTOM}"
 fi
