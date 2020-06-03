@@ -3,6 +3,16 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## :rocket: Version 1.2.1 (03/06/2020)
+
+- [:+1: #enhancement](#enhancement)
+  - Remove macOS apache from install.
+  - Changed apache restart to use brew only.
+  - Updated Adminer and Git submodules.
+- [:bug: #bugfix](#bugfix)
+  - Fixed file permissions.
+  - Fixed minor issue with text wrapping.
+
 ## :rocket: Version 1.2.0 (03/06/2020)
 
 - [:+1: #enhancement](#enhancement)
