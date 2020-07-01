@@ -122,8 +122,8 @@ project a reality.
 [license]: LICENSE
 [site]: https://justin.hartman.me
 [post]: https://justin.hartman.me
-[git]: https://github.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL
-[github]: https://github.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL/issues
+[git]: https://github.com/justinhartman/lamp-ssl
+[github]: https://github.com/justinhartman/lamp-ssl/issues
 [adminer]: https://github.com/justinhartman/adminer-custom
 [errors]: https://github.com/justinhartman/Apache-Error-Pages
 [certs]: https://github.com/thojansen/client-certificates
@@ -131,7 +131,7 @@ project a reality.
 [.github]: https://github.com/daniellmb/.github
 [pem-adminer]: https://github.com/pematon/adminer-custom
 [google]: https://google.github.io/styleguide/shell.xml
-[travis-img]: https://travis-ci.org/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.svg?branch=master
-[travis-url]: https://travis-ci.org/justinhartman/Automated-LAMP-with-trusted-localhost-SSL
-[cover-img]: https://coveralls.io/repos/github/justinhartman/Automated-LAMP-with-trusted-localhost-SSL/badge.svg?branch=master
-[cover-url]: https://coveralls.io/github/justinhartman/Automated-LAMP-with-trusted-localhost-SSL?branch=master
+[travis-img]: https://travis-ci.org/justinhartman/lamp-ssl.svg?branch=master
+[travis-url]: https://travis-ci.org/justinhartman/lamp-ssl
+[cover-img]: https://coveralls.io/repos/github/justinhartman/lamp-ssl/badge.svg?branch=master
+[cover-url]: https://coveralls.io/github/justinhartman/lamp-ssl?branch=master
