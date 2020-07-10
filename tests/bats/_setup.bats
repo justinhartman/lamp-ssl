@@ -11,7 +11,7 @@ setup ()
         rm -Rf ${TMP}/*
         touch ${LOG}
         echo "${NOW}: ${BATS_TEST_NAME}" >> "${LOG}"
-        git clone --recursive https://gitlab.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git ${GIT}
+        git clone --recursive https://gitlab.com/justinhartman/lamp-ssl.git ${GIT}
     }
     # Execute the test
     run test_directory_delete

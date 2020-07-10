@@ -1,17 +1,16 @@
 #!/bin/bash
 
-test_global_vars () {
+test_global_vars() {
     NOW=$(date)
-    # TMP="${BATS_TMPDIR}"
-    # GIT="${TMP}/automated-lamp"
+    # TMP="${TMPDIR}"
     TMP="/usr/local/tmp"
-    GIT="${TMP}/automated-lamp"
+    GIT="${TMP}/lamp-ssl"
     LOG="${TMP}/test_install.log"
 
     domain="www.test.localhost"
 
-    username="501"
-    group="staff"
+    username="$(whoami)"
+    group="$(id -gn)"
 
     country="ZA"
     state="Western Cape"
@@ -28,6 +27,8 @@ test_global_vars () {
     dist="${GIT}/dist"
     etc="${TMP}/etc"
     hosts="${TMP}/etc/hosts"
+
+    export NOW TMP GIT LOG domain username group country state city company unit main httpd php websites ssl scripts source dist etc hosts
 }
 
 test_global_vars

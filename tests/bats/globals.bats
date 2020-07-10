@@ -8,8 +8,8 @@ setup() {
 @test "user variables" {
     user_vars ()
     {
-        username="501"
-        group="staff"
+        username="$(whoami)"
+        group="$(id -gn)"
     }
     run user_vars
     [ "$status" -eq 0 ]
@@ -31,13 +31,15 @@ setup() {
 @test "path variables" {
     path_vars ()
     {
-        main="/usr/local/var/www"
-        httpd="/usr/local/etc/httpd"
-        websites="/usr/local/var/www/websites"
-        ssl="/usr/local/var/www/ssl"
-        scripts="./scripts"
-        source="./src"
-        dist="./dist"
+        main="${TMP}/usr/local/var/www"
+        httpd="${TMP}/usr/local/etc/httpd"
+        websites="${TMP}/usr/local/var/www/websites"
+        ssl="${TMP}/usr/local/var/www/ssl"
+        scripts="${GIT}/scripts"
+        source="${GIT}/src"
+        dist="${GIT}/dist"
+        etc="${TMP}/etc"
+        hosts="${TMP}/etc/hosts"
     }
     run path_vars
     [ "$status" -eq 0 ]
