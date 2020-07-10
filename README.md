@@ -204,8 +204,8 @@ this project a reality.
 [email]: mailto:justin@hartman.me?subject=Github+Contact
 [agpl]: https://opensource.org/licenses/AGPL-3.0
 [license]: LICENSE
-[site]: https://justin.hartman.me
-[post]: https://justin.hartman.me
+[site]: https://hartman.me
+[post]: https://hartman.me
 [git]: https://github.com/justinhartman/lamp-ssl
 [github]: https://github.com/justinhartman/lamp-ssl/issues
 [adminer]: https://github.com/justinhartman/adminer-custom

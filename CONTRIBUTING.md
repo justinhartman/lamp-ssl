@@ -25,5 +25,5 @@ Thanks for contributing! :heart:
 
 [//]: # (Simply change the URL's below to your project information)
 
-[issues]: issues
-[new-issue]: issues/new
+[issues]: https://github.com/justinhartman/lamp-ssl/issues
+[new-issue]: https://github.com/justinhartman/lamp-ssl/issues/new
