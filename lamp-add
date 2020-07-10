@@ -83,7 +83,7 @@ global_includes # Includes global variables and file paths.
 if ! [ "$(id -u)" = 0 ]; then
     printf "${RED}%s\\n" "${TOP}"
     printf '* %-76s %s\n' "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
-    printf '* %-76s %s\n' "the following command: $ sudo ./add_domain" "*"
+    printf '* %-76s %s\n' "the following command: $ sudo ./lamp-add" "*"
     printf "%s${NOC}\\n\\n" "${BOTTOM}"
 
     exit 1
