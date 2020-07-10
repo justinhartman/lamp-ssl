@@ -1,10 +1,32 @@
 [![Build Status][travis-img]][travis-url]
 [![Coverage Status][cover-img]][cover-url]
 
-# Fully Automated macOS LAMP Installation using Trusted localhost SSL Certificates
+# Fully Automated macOS LAMP Installation using Trusted localhost SSL certs
 
-The Aston Martin of perfect LAMP set-ups and configuration; automating the entire process and
-managing your localhost SSL using trusted, self-signed CA certificates.
+The Aston Martin of perfect LAMP set-ups and configuration. Automating the
+entire process and managing your localhost SSL using trusted, self-signed CA
+certificates.
+
+<!-- MarkdownTOC -->
+
+- [Installation](#installation)
+    - [1. Clone Repo](#1-clone-repo)
+    - [2. Run Initial Homebrew Install](#2-run-initial-homebrew-install)
+    - [3. Run Install Script](#3-run-install-script)
+- [Usage](#usage)
+- [Upgrades](#upgrades)
+- [Testing](#testing)
+    - [Coding Standards](#coding-standards)
+    - [Bash Automated Testing System](#bash-automated-testing-system)
+        - [Caveats](#caveats)
+    - [Automated Testing](#automated-testing)
+- [License](#license)
+- [TODO](#todo)
+- [Authors](#authors)
+- [Contributions](#contributions)
+- [Acknowledgments](#acknowledgments)
+
+<!-- /MarkdownTOC -->
 
 ## Installation
 
@@ -21,7 +43,7 @@ ease of use and for upgrading (below) we recommend sticking to this.
 $ sudo mkdir -p /usr/local/webserver
 $ sudo chown $(whoami):admin /usr/local/webserver
 $ cd /usr/local/webserver
-$ git clone https://github.com/justinhartman/Automated-LAMP-with-trusted-localhost-SSL.git .
+$ git clone https://github.com/justinhartman/lamp-ssl.git .
 ```
 
 ### 2. Run Initial Homebrew Install
@@ -76,6 +98,61 @@ $ cd /usr/local/webserver
 $ sudo ./lamp-upgrade
 ```
 
+## Testing
+
+Details of the testing available for this project are found below.
+
+### Coding Standards
+
+We use the [Google Shell Style Guide][google] as the standard for writing our
+code. We use `shellcheck` to ensure our coding standards are adhered to.
+
+To run `shellcheck` tests locally, execute the following command.
+
+```bash
+$ shellcheck -xa -e SC2154 tests/brew tests/install tests/lamp-add \
+  tests/lamp-upgrade tests/scripts/*.sh
+```
+
+### Bash Automated Testing System
+
+The project uses [Bash Automated Testing System][bats] for all automated shell
+script testing.
+
+To run the BATS tests locally, execute the following commands.
+
+```shell
+$ cd ./tests # Tests must be run in this directory.
+$ bats -t bats
+```
+
+**NB:** It is important to note that bats installs the software in macOS's
+`$TMPDIR` directory and then performs the tests from there. This is to avoid
+running tests on a production environment. If you need to change this path, or
+any other variables, please make changes to `./tests/bats/globals.bash` and
+`./tests/bats/globals.bats` accordingly.
+
+#### Caveats
+
+- BATS does not install `brew`. There would be too many conflicts in trying to
+  install brew in an isolated environment so the `brew.bats` test always
+  returns true on the `brew_install()` test.
+- The other tests in `brew.bats` will try and install existing versions of the
+  software on a machine that already has the packages installed. This doesn't
+  cause any conflicts and shouldn't pose a problem on a machine already
+  running `brew` packages.
+- The domain name for the `enter_domain.bats` test is already preconfigured to
+  `www.test.localhost`. This part of the script process normally relies on
+  user input but as we can't use this the domain has been defined upfront.
+- The tests in `keychain_certificate.bats` and `setup_ssl.bats` will add
+  `www.test.localhost` to your macOS keychain. I don't know how to run this
+  test successfully without running it on the default keychain.
+
+### Automated Testing
+
+Remote testing is done using [Travis CI][travis-url]. We test on all macOS
+software versions from 10.13 up to and including 10.15.
+
 ## License
 
 ```text
@@ -97,7 +174,14 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ## TODO
 
-Please [click here][github] for a list of updated TODO items.
+Please [click here][github] for a list of updated issues.
+
+## Authors
+
+- Justin Hartman - [@justinhartman][author-1]
+
+Also see the list of [contributors][contribs] who have participated in this
+project.
 
 ## Contributions
 
@@ -109,8 +193,8 @@ The following projects have been integrated into this one.
 
 ## Acknowledgments
 
-Special thanks go out to the following projects who have helped in some way to make this
-project a reality.
+Special thanks go out to the following who have helped in some way to make
+this project a reality.
 
 - [Google Shell Style Guide][google]
 - [@thojansen/client-certificates][certs]
@@ -131,7 +215,10 @@ project a reality.
 [.github]: https://github.com/daniellmb/.github
 [pem-adminer]: https://github.com/pematon/adminer-custom
 [google]: https://google.github.io/styleguide/shell.xml
+[bats]: https://github.com/sstephenson/bats
 [travis-img]: https://travis-ci.org/justinhartman/lamp-ssl.svg?branch=master
 [travis-url]: https://travis-ci.org/justinhartman/lamp-ssl
 [cover-img]: https://coveralls.io/repos/github/justinhartman/lamp-ssl/badge.svg?branch=master
 [cover-url]: https://coveralls.io/github/justinhartman/lamp-ssl?branch=master
+[contribs]: https://github.com/justinhartman/.github/graphs/master
+[author-1]: https://github.com/justinhartman
