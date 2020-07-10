@@ -40,8 +40,9 @@ folder_ownership() {
     printf '* %-76s %s\n' "Setting correct folder permissions to your user account for" "*"
     printf '* %-76s %s\n' "the application folders." "*"
     printf "%s${NOC}\\n\\n" "${BOTTOM}"
-    chown -R "${username}":"${group}" "${websites}/${domain}"
-    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully set folder permissions recursively on ${websites}/${domain}.${NOC}\\n"
+    chown -R "${username}:${group}" "${websites}/${domain}"
+    ls -lha
+    echo -e "\\n${GRN}\\xE2\\x9C\\x94${NOC} ${CYA}Successfully set ${username}:${group} permissions to ${websites}/${domain}${NOC}\\n"
 }
 
 #######################################
