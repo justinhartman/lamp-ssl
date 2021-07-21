@@ -3,8 +3,11 @@
 src/phpmyadmin/
 docs/
 
-# Ignore specific files
-test
+# Tests & Coverage
+/install-logs.log
+test/
+coverage/
+.coveralls.yml
 
 # Exclude symlinks in dist folder
 dist/adminer
@@ -24,12 +27,7 @@ dist/mysql/logs/innodb/*
 
 # Vendor directory
 vendor/
-
-# GitLab CI Config File
-.gitlab-ci.yml
-
-# Sublime
-*.sublime-workspace
+node_modules/
 
 # Build specific
 .phpintel/
@@ -37,4 +35,3 @@ vendor/
 
 # macOS
 .DS_Store
-/install-logs.log
