@@ -1,7 +1,8 @@
-[![Build Status][travis-img]][travis-url]
-[![Coverage Status][cover-img]][cover-url]
-
 # Fully Automated macOS LAMP Installation using Trusted localhost SSL certs
+
+[![Travis CI Status][travis-img]][travis-url]
+[![CodeCov Coverage][codecov-img]][codecov-url]
+[![Coverage Status][cover-img]][cover-url]
 
 The Aston Martin of perfect LAMP set-ups and configuration. Automating the
 entire process and managing your localhost SSL using trusted, self-signed CA
@@ -156,7 +157,7 @@ software versions from 10.13 up to and including 10.15.
 ## License
 
 ```text
-Copyright 2018-2020 Justin Hartman <justin@hartman.me> (https://hartman.me)
+Copyright 2018-2021 Justin Hartman <me@justinhartman.co> (https://justinhartman.co)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -201,11 +202,11 @@ this project a reality.
 - [@pematon/adminer-custom][pem-adminer]
 - [@daniellmb/.github][.github]
 
-[email]: mailto:justin@hartman.me?subject=Github+Contact
+[email]: mailto:code@justinhartman.co?subject=Github+Contact
 [agpl]: https://opensource.org/licenses/AGPL-3.0
 [license]: LICENSE
-[site]: https://hartman.me
-[post]: https://hartman.me
+[site]: https://justinhartman.co
+[post]: https://justinhartman.co
 [git]: https://github.com/justinhartman/lamp-ssl
 [github]: https://github.com/justinhartman/lamp-ssl/issues
 [adminer]: https://github.com/justinhartman/adminer-custom
@@ -216,9 +217,12 @@ this project a reality.
 [pem-adminer]: https://github.com/pematon/adminer-custom
 [google]: https://google.github.io/styleguide/shell.xml
 [bats]: https://github.com/sstephenson/bats
-[travis-img]: https://travis-ci.org/justinhartman/lamp-ssl.svg?branch=master
-[travis-url]: https://travis-ci.org/justinhartman/lamp-ssl
+[travis-img]: https://travis-ci.com/justinhartman/lamp-ssl.svg?branch=master
+[travis-url]: https://travis-ci.com/justinhartman/lamp-ssl
 [cover-img]: https://coveralls.io/repos/github/justinhartman/lamp-ssl/badge.svg?branch=master
 [cover-url]: https://coveralls.io/github/justinhartman/lamp-ssl?branch=master
 [contribs]: https://github.com/justinhartman/.github/graphs/master
 [author-1]: https://github.com/justinhartman
+[codecov-img]: https://codecov.io/gh/justinhartman/lamp-ssl/branch/master/graph/badge.svg?token=DYO68X89Q7
+[codecov-url]: https://codecov.io/gh/justinhartman/lamp-ssl
+[codecov-graph]: https://codecov.io/gh/justinhartman/lamp-ssl/commit/e0bc841781709adcc35231753ebd2d59c9a9bf02/graphs/sunburst.svg

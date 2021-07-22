@@ -3,6 +3,18 @@
 Below is a detailed changelog, along with specific tasks completed, for each
 version released to date.
 
+## :rocket: Version 1.2.3 (22/07/2021)
+
+- [:+1: #enhancement](#enhancement)
+    + Remove root check in tests, include test suite script 
+    + Add Bashcov to generate Code coverage reports
+    + Add more PhpStorm IDE configuration files
+    + Updated Readme and Changelog files
+- [:bug: #bugfix](#bugfix)
+    + Update document comments with correct details
+    + Fixed broken links
+    + Fix bats test for lamp-upgrade script
+
 ## :rocket: Version 1.2.2 (10/07/2020)
 
 - [:+1: #enhancement](#enhancement)
