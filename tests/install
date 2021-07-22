@@ -2,15 +2,15 @@
 #
 # The main install script that sets up and installs everything required
 # by the application.
-# 
-# Copyright: Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+#
+# Copyright: Copyright (C) 2018 Justin Hartman <code@justinhartman.co> (https://justinhartman.co)
+# Author   : Justin Hartman <code@justinhartman.co> (https://justinhartman.co)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
 # Version  : 1.1.0
-# Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
+# Link     : https://github.com/justinhartman/lamp-ssl
+# Link     : https://justinhartman.co
 # Since    : 0.5.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the

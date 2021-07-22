@@ -2,11 +2,11 @@
 #
 # Adds the updated server certificate to macOS' Keychain.
 #
-# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
+# Copyright: Copyright 2018-2020 Justin Hartman (https://justinhartman.co)
+# Author   : Justin Hartman <code@justinhartman.co> (https://justinhartman.co)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
 # Version  : 1.2.2
-# Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
+# Link     : https://github.com/justinhartman/lamp-ssl
 # Since    : 0.4.0
 #
 # This program is free software: you can redistribute it and/or modify
