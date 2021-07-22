@@ -2,11 +2,11 @@
 #
 # Upgrade all the software.
 #
-# Copyright: Copyright 2018-2020 Justin Hartman (https://hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://hartman.me)
+# Copyright: Copyright 2018-2020 Justin Hartman (https://justinhartman.co)
+# Author   : Justin Hartman <code@justinhartman.co> (https://justinhartman.co)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
 # Version  : 1.2.2
-# Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
+# Link     : https://github.com/justinhartman/lamp-ssl
 # Since    : 1.1.0
 #
 # This program is free software: you can redistribute it and/or modify
@@ -34,7 +34,7 @@
 #   Variables
 #######################################
 global_includes() {
-    source ./scripts/globals.sh
+    source ./test_suite.sh
     source ./scripts/colour_palette.sh
 }
 
@@ -58,14 +58,14 @@ main_application() {
 
 global_includes # Includes global variables and file paths.
 
-if ! [ "$(id -u)" = 0 ]; then
-    printf "${RED}%s\\n" "$TOP"
-    printf '* %-76s %s\n' "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
-    printf '* %-76s %s\n' "the following command: $ sudo ./upgrade" "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
-
-    exit 1
-fi
+#if ! [ "$(id -u)" = 0 ]; then
+#    printf "${RED}%s\\n" "$TOP"
+#    printf '* %-76s %s\n' "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
+#    printf '* %-76s %s\n' "the following command: $ sudo ./upgrade" "*"
+#    printf "%s${NOC}\\n\\n" "$BOTTOM"
+#
+#    exit 1
+#fi
 
 #######################################
 # Runs the main upgrade.

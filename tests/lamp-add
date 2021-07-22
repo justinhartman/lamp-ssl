@@ -3,15 +3,15 @@
 # Add new domains to your setup. This creates the website folder, link to the
 # /etc/hosts file, creates a SSL certificate and sets up a git project for you
 # to begin using.
-# 
-# Copyright: Copyright (C) 2018 Justin Hartman (https://justin.hartman.me)
-# Author   : Justin Hartman <justin@hartman.me> (https://justin.hartman.me)
+#
+# Copyright: Copyright (C) 2018 Justin Hartman (https://justinhartman.co)
+# Author   : Justin Hartman <code@justinhartman.co> (https://justinhartman.co)
 # License  : https://opensource.org/licenses/AGPL-3.0 AGPL-3.0
 # Version  : 1.1.0
-# Link     : https://github.com/22digital/Automated-LAMP-trusted-localhost-SSL
-# Link     : https://justin.hartman.me
+# Link     : https://github.com/justinhartman/lamp-ssl
+# Link     : https://justinhartman.co
 # Since    : 0.5.0
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -24,7 +24,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
-# 
+#
 
 #######################################
 # Includes the colour palette and
@@ -38,7 +38,7 @@
 #######################################
 global_includes ()
 {
-    source scripts/globals.sh
+    source ./test_suite.sh
     source scripts/colour_palette.sh
 }
 
@@ -75,14 +75,14 @@ main_application ()
 
 global_includes # Includes global variables and file paths.
 
-if ! [ "$(id -u)" = 0 ]; then
-    printf "${RED}%s\\n" "$TOP"
-    printf "* %-76s %s\\n" "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
-    printf "* %-76s %s\\n" "the following command: $ sudo ./add_domain" "*"
-    printf "%s${NOC}\\n\\n" "$BOTTOM"
-
-    exit 1
-fi
+#if ! [ "$(id -u)" = 0 ]; then
+#    printf "${RED}%s\\n" "$TOP"
+#    printf "* %-76s %s\\n" "This needs to be run as root. Please run it again using 'sudo' by executing" "*"
+#    printf "* %-76s %s\\n" "the following command: $ sudo ./add_domain" "*"
+#    printf "%s${NOC}\\n\\n" "$BOTTOM"
+#
+#    exit 1
+#fi
 
 main_application # Runs the main install
 exit 0
